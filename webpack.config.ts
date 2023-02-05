@@ -7,7 +7,7 @@ import { BuildPaths } from './config/build/types/config';
 
 const mode = 'development';
 const isDev = mode === 'development';
-
+const PORT = 3000;
 const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     build: path.resolve(__dirname, 'build'),
@@ -15,9 +15,10 @@ const paths: BuildPaths = {
 }
 
 const config: Configuration = buildWebpackConfig({
-    mode: 'development',
+    mode,
     paths,
     isDev,
+    port: PORT,
 });
 
 export default config;

@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack';
+import buildDevServer from './buildDevServer';
 
 import buildLoaders from './buildLoaders';
 import buildPlugins from './buildPlugins';
@@ -22,5 +23,7 @@ export default function buildWebpackConfig(options: BuildOptions): Configuration
         },
         resolve: buildResolvers(),
         plugins: buildPlugins(paths),
+        devtool: 'inline-source-map',
+        devServer: buildDevServer(options),
     }
 }
