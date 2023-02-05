@@ -8,7 +8,12 @@ import buildResolvers from './buildResolvers';
 import { BuildOptions } from './types/config';
 
 export default function buildWebpackConfig(options: BuildOptions): Configuration {
-    const { mode, paths } = options;
+    const { mode, paths, isDev } = options;
+
+    const devOptions = {
+        devtool: 'inline-source-map',
+        devServer: buildDevServer(options),
+    };
 
     return {
         mode,
@@ -23,7 +28,6 @@ export default function buildWebpackConfig(options: BuildOptions): Configuration
         },
         resolve: buildResolvers(),
         plugins: buildPlugins(paths),
-        devtool: 'inline-source-map',
-        devServer: buildDevServer(options),
+        ...(isDev ? devOptions : {}),
     }
 }
