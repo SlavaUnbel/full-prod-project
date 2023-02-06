@@ -4,11 +4,20 @@ import { Link, Route, Routes } from 'react-router-dom';
 import AboutPage from './pages/AboutPage/AboutPage.async';
 import MainPage from './pages/MainPage/MainPage.async';
 
-import './index.scss';
+import useTheme from './theme/useTheme';
+import classNames from './helpers/classNames/classNames';
+
+import './styles/index.scss'
 
 const App = () => {
+    const { theme, toggleTheme } = useTheme();
+
+    const bool = true;
+
     return (
-        <div className='app'>
+        <div className={classNames('app', {}, [theme])}>
+            <button onClick={ toggleTheme }>Сменить тему</button>
+
             <Link to='/'>Главная</Link>
             <Link to='/about'>О сайте</Link>
 
