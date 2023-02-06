@@ -6,6 +6,15 @@ export default function buildLoaders(): RuleSetRule[] {
         use: 'ts-loader',
         exclude: /node_modules/,
     };
+
+    const cssLoader ={
+        test: /\.s[ac]ss$/i,
+        use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader",
+        ],
+    };
     
-    return [typescriptLoader];
+    return [typescriptLoader, cssLoader];
 };
