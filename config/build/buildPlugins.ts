@@ -1,11 +1,11 @@
-import { WebpackPluginInstance, ProgressPlugin } from 'webpack';
+import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { BuildOptions } from './types/config';
 
 export default function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
-    const { paths: { html } } = options
+    const { paths: { html }, isDev } = options
 
     return [
         new HTMLWebpackPlugin({ template: html }),
@@ -14,5 +14,8 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
+        new DefinePlugin({
+            __IS_DEV__: JSON.stringify(isDev),
+        })
     ];
 };
