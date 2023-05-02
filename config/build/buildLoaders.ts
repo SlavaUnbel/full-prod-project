@@ -12,7 +12,7 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
         exclude: /node_modules/,
     };
 
-    const cssLoader ={
+    const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -28,6 +28,25 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
             "sass-loader",
         ],
     };
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
     
-    return [typescriptLoader, cssLoader];
+    return [
+        typescriptLoader,
+        cssLoader,
+        svgLoader,
+        fileLoader
+    ];
 };

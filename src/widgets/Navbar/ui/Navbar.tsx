@@ -1,17 +1,19 @@
 import classNames from 'shared/lib/classNames'
-import { AppLink } from 'shared/ui';
+import { AppLink, ThemeSwitcher } from 'shared/ui';
+import { AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import style from './Navbar.module.scss'
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { FC } from 'react';
 
 interface NavbarProps {
     className?: string;
 }
 
-const Navbar = ({ className }: NavbarProps) => {
+const Navbar: FC<NavbarProps> = ({ className }) => {
     return (
         <div className={ classNames(style.navbar, {}, [className]) }>
+            <ThemeSwitcher />
             <div className={ style.links }>
                 <AppLink to={ RoutePath.main } theme={ AppLinkTheme.SECONDARY }>
                     Главная
