@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import classNames from 'shared/lib/classNames'
+import classNames from 'shared/lib/classNames';
 
-import styles from './Button.module.scss'
+import styles from './Button.module.scss';
 import { ThemeButton } from '../lib/ThemeButton';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,12 +19,13 @@ const Button: FC<ButtonProps> = (props) => {
 
     return (
         <button
-            className={ classNames(styles.button, {}, [className, styles[theme]]) }
-            { ...otherProps }
+            type="button"
+            className={classNames(styles.button, {}, [className, styles[theme]])}
+            {...otherProps}
         >
             { children }
         </button>
-    )
-}
+    );
+};
 
 export default Button;

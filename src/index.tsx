@@ -13,4 +13,4 @@ render(
         </ThemeProvider>
     </Router>,
     document.getElementById('root'),
-)
+);

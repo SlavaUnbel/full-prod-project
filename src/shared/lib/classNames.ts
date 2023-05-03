@@ -8,4 +8,4 @@ export default function classNames(cls: string, mods: Mods = {}, additional: str
             .filter(([_, value]) => !!value)
             .map(([className]) => className),
     ].join(' ');
-};
+}

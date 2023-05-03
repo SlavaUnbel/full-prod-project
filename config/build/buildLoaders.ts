@@ -23,16 +23,16 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
                         auto: (resPath: string) => resPath.includes('.module.'),
                         localIdentName: isDev ? '[path][name]__[local]--[hash:base64:4]' : '[hash:base64:8]',
                     },
-                },  
+                },
             },
-            "sass-loader",
+            'sass-loader',
         ],
     };
 
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-    }
+    };
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
@@ -41,28 +41,28 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
                 loader: 'file-loader',
             },
         ],
-    }
+    };
 
     const babelLoader = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                "plugins": [
+                plugins: [
                     [
-                        "i18next-extract",
+                        'i18next-extract',
                         {
                             locales: ['en', 'ru'],
                             keyAsDefaultValue: true,
                         },
                     ],
-                ]
+                ],
             },
-        }
-    }
-    
+        },
+    };
+
     return [
         fileLoader,
         svgLoader,
@@ -70,4 +70,4 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
         typescriptLoader,
         cssLoader,
     ];
-};
+}

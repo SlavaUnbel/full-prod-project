@@ -11,4 +11,4 @@ export default function buildDevServer(options: BuildOptions): DevServerConfigur
         historyApiFallback: true,
         hot: true,
     };
-};
+}

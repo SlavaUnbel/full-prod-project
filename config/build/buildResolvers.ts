@@ -11,4 +11,4 @@ export default function buildResolvers(options: BuildOptions): ResolveOptions {
         mainFiles: ['index'],
         alias: {},
     };
-};
+}

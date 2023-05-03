@@ -1,28 +1,27 @@
 import { FC, Suspense } from 'react';
-import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
 import classNames from 'shared/lib/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useTheme } from './providers/ThemeProvider';
+import { AppRouter } from './providers/router';
 
-import './styles/index.scss'
-import { useTranslation } from 'react-i18next';
+import './styles/index.scss';
 
 const App: FC = () => {
     const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback=''>
+            <Suspense fallback="">
                 <Navbar />
 
-                <div className='content-page'>
+                <div className="content-page">
                     <Sidebar />
                     <AppRouter />
                 </div>
             </Suspense>
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default App;
