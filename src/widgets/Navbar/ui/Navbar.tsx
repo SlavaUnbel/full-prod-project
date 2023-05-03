@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';

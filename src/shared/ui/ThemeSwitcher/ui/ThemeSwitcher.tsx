@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { ThemeButton } from 'shared/ui/Button';
 import { useTheme } from 'app/providers/ThemeProvider';

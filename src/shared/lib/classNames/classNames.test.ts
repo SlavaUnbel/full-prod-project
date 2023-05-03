@@ -10,6 +10,7 @@ describe('classNames', () => {
 
     it('should return joined string with all classes provided in both first arg as main class and third arg as array of additional classes', () => {
         const funcCall = classNames('someClass', {
+            mods: {},
             additional: ['otherClass1', 'otherClass2'],
         });
         const expected = 'someClass otherClass1 otherClass2';
