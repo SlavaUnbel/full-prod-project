@@ -21,6 +21,6 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
+        new ReactRefreshWebpackPlugin({ overlay: false }),
     ];
 }
