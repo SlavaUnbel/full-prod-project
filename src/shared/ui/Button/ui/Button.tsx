@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import classNames from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames';
 
 import styles from './Button.module.scss';
 import { ThemeButton } from '../lib/ThemeButton';
@@ -20,7 +20,9 @@ const Button: FC<ButtonProps> = (props) => {
     return (
         <button
             type="button"
-            className={classNames(styles.button, {}, [className, styles[theme]])}
+            className={classNames(styles.button, {
+                additional: [className, styles[theme]],
+            })}
             {...otherProps}
         >
             { children }

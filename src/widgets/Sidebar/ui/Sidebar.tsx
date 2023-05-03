@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { LangSwitcher, ThemeSwitcher } from 'shared/ui';
-import classNames from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames';
 
 import styles from './Sidebar.module.scss';
 
@@ -17,7 +17,10 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
 
     return (
         <div
-            className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}
+            className={classNames(styles.sidebar, {
+                mods: { [styles.collapsed]: collapsed },
+                additional: [className],
+            })}
         >
             <button type="button" onClick={handleToggle}>toggle</button>
 

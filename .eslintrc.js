@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
@@ -33,7 +34,6 @@ module.exports = {
         'max-len': [
             'warn',
             {
-                code: 120,
                 tabWidth: 4,
                 ignoreComments: true,
                 ignoreUrls: true,

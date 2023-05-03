@@ -1,4 +1,4 @@
-import classNames from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames';
 import { AppLink } from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -15,7 +15,11 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(style.navbar, {}, [className])}>
+        <div
+            className={classNames(style.navbar, {
+                additional: [className],
+            })}
+        >
             <div className={style.links}>
                 <AppLink to={RoutePath.main} theme={AppLinkTheme.SECONDARY}>
                     { t('Главная') }

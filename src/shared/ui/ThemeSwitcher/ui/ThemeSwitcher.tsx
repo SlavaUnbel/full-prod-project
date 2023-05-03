@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import classNames from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
@@ -20,7 +20,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
     return (
         <Button
-            className={classNames('', {}, [className])}
+            className={classNames('', { additional: [className] })}
             onClick={toggleTheme}
             theme={ThemeButton.CLEAR}
         >
