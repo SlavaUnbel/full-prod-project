@@ -24,6 +24,7 @@ const AppLink: FC<AppLinkProps> = (props) => {
         <Link
             to={to}
             className={classNames(styles.appLink, {
+                mods: {},
                 additional: [className, styles[theme]],
             })}
             {...otherProps}

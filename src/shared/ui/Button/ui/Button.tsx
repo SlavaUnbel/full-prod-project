@@ -21,6 +21,7 @@ const Button: FC<ButtonProps> = (props) => {
         <button
             type="button"
             className={classNames(styles.button, {
+                mods: {},
                 additional: [className, styles[theme]],
             })}
             {...otherProps}

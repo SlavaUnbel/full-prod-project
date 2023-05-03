@@ -11,7 +11,7 @@ const App: FC = () => {
     const { theme } = useTheme();
 
     return (
-        <div className={classNames('app', { additional: [theme] })}>
+        <div className={classNames('app', { mods: {}, additional: [theme] })}>
             <Suspense fallback="">
                 <Navbar />
 

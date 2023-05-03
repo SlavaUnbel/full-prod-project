@@ -17,6 +17,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     return (
         <div
             className={classNames(style.navbar, {
+                mods: {},
                 additional: [className],
             })}
         >
