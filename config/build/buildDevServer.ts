@@ -9,5 +9,6 @@ export default function buildDevServer(options: BuildOptions): DevServerConfigur
         port,
         open: true,
         historyApiFallback: true,
+        hot: true,
     };
 };

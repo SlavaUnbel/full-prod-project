@@ -1,6 +1,7 @@
-import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
+import { WebpackPluginInstance, ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import { BuildOptions } from './types/config';
 
@@ -16,6 +17,8 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
         }),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-        })
+        }),
+        new HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin(),
     ];
 };
