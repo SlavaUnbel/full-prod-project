@@ -1,10 +1,13 @@
 import { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-
-import styles from './Button.module.scss';
 import { ThemeButton } from '../lib/ThemeButton';
 
+import styles from './Button.module.scss';
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    primary?: boolean;
+    backgroundColor?: string;
+    size?: 'small' | 'medium' | 'large';
     className?: string;
     theme?: ThemeButton;
 }

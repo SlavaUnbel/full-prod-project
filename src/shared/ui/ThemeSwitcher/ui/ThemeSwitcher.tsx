@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { ThemeButton } from 'shared/ui/Button';
@@ -14,18 +14,13 @@ interface ThemeSwitcherProps {
 const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
     const { theme, toggleTheme } = useTheme();
 
-    const mapThemeToIcon: Record<Theme, ReactNode> = {
-        [Theme.LIGHT]: <LightIcon />,
-        [Theme.DARK]: <DarkIcon />,
-    };
-
     return (
         <Button
             className={classNames('', { mods: {}, additional: [className] })}
             onClick={toggleTheme}
             theme={ThemeButton.CLEAR}
         >
-            { mapThemeToIcon[theme] }
+            { theme === Theme.DARK ? <DarkIcon /> : <LightIcon /> }
         </Button>
     );
 };
