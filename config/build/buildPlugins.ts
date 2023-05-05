@@ -14,7 +14,7 @@ import { BuildOptions } from './types/config';
 export default function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
     const { paths: { html }, isDev } = options;
 
-    return [
+    const plugins = [
         new HTMLWebpackPlugin({ template: html }),
         new ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -24,10 +24,17 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin({ overlay: false }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
     ];
+
+    if (isDev) {
+        plugins.push(new HotModuleReplacementPlugin());
+        plugins.push(new ReactRefreshWebpackPlugin({
+            overlay: false,
+        }));
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        }));
+    }
+
+    return plugins;
 }
