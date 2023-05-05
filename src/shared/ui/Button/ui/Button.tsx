@@ -1,15 +1,17 @@
 import { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeButton } from '../lib/ThemeButton';
+import { ButtonTheme } from '../lib/ButtonTheme';
+import { ButtonSize } from '../lib/ButtonSize';
 
 import styles from './Button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
     primary?: boolean;
     backgroundColor?: string;
-    size?: 'small' | 'medium' | 'large';
-    className?: string;
-    theme?: ThemeButton;
+    square?: boolean;
+    theme?: ButtonTheme;
+    size?: ButtonSize;
 }
 
 const Button: FC<ButtonProps> = (props) => {
@@ -17,14 +19,22 @@ const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         theme,
+        square,
+        size = ButtonSize.M,
         ...otherProps
     } = props;
+
+    const mods: Record<string, boolean> = {
+        [styles[theme]]: true,
+        [styles.square]: square,
+        [styles[size]]: true,
+    };
 
     return (
         <button
             type="button"
             className={classNames(styles.button, {
-                mods: {},
+                mods,
                 additional: [className, styles[theme]],
             })}
             {...otherProps}

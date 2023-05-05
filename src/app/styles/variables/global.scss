@@ -1,9 +1,15 @@
 :root {
     --font-family-main: consolas, "Times New Roman", serif;
-    --font-size-m: 16px;
-    --font-line-m: 24px;
+    --font-size-xl: 32px;
+    --font-line-xl: 40px;
     --font-size-l: 24px;
     --font-line-l: 32px;
+    --font-size-m: 16px;
+    --font-line-m: 24px;
+    --font-size-s: 12px;
+    --font-line-s: 16px;
+    --font-size-xs: 10px;
+    --font-line-xs: 12px;
     --gap-3xs: 2px;
     --gap-2xs: 4px;
     --gap-xs: 8px;
@@ -17,4 +23,9 @@
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+    --button-xl-size: 48px;
+    --button-l-size: 40px;
+    --button-m-size: 32px;
+    --button-s-size: 24px;
+    --button-xs-size: 20px;
 }
