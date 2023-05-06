@@ -7,7 +7,6 @@ import AppLink from './AppLink';
 const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
     component: AppLink,
-    tags: ['autodocs'],
     args: {
         to: RoutePath.main,
     },

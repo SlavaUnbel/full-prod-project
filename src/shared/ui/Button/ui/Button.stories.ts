@@ -7,7 +7,6 @@ import { ButtonSize } from '../lib/ButtonSize';
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
     component: Button,
-    tags: ['autodocs'],
 };
 
 export default meta;
@@ -23,6 +22,13 @@ export const Clear: Story = {
     args: {
         children: 'Text',
         theme: ButtonTheme.CLEAR,
+    },
+};
+
+export const ClearInverted: Story = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR_INVERTED,
     },
 };
 
