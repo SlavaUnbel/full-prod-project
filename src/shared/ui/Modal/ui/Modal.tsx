@@ -1,9 +1,8 @@
 import React, {
-    FC, ReactNode, useCallback, useEffect, useRef, useState,
+    FC, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 import styles from './Modal.module.scss';
 
@@ -25,12 +24,9 @@ const Modal: FC<ModalProps> = ({
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const { theme } = useTheme();
-
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
         [styles.closing]: isClosing,
-        [styles[theme]]: true,
     };
 
     const handleClose = useCallback(() => {
