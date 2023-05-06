@@ -9,7 +9,6 @@ import styles from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
-    children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
 }
