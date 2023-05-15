@@ -1,9 +1,10 @@
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, Modal } from 'shared/ui';
-
+import { Button } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
+import { LoginModal } from 'features/AuthByUsername';
+
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,8 +16,12 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
     const { t } = useTranslation();
 
-    const handleToggleModal = useCallback(() => {
-        setAuthModalOpen((prev) => !prev);
+    const handleOpenModal = useCallback(() => {
+        setAuthModalOpen(true);
+    }, []);
+
+    const handleCloseModal = useCallback(() => {
+        setAuthModalOpen(false);
     }, []);
 
     return (
@@ -29,13 +34,12 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
             <Button
                 className={styles.links}
                 theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={handleToggleModal}
+                onClick={handleOpenModal}
             >
                 { t('Войти') }
             </Button>
 
-            { /* eslint-disable-next-line i18next/no-literal-string */ }
-            <Modal isOpen={isAuthModalOpen} onClose={handleToggleModal}>asfhasgdj</Modal>
+            <LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />
         </div>
     );
 };

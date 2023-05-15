@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Portal } from './Portal';
+import { Input } from './Input';
 
 export {
     AppLink,
@@ -14,4 +15,5 @@ export {
     Loader,
     Modal,
     Portal,
+    Input,
 };

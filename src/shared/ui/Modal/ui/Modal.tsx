@@ -9,6 +9,7 @@ import styles from './Modal.module.scss';
 interface ModalProps {
     className?: string;
     isOpen?: boolean;
+    lazy?: boolean;
     onClose?: () => void;
 }
 
@@ -18,9 +19,11 @@ const Modal: FC<ModalProps> = ({
     className,
     children,
     isOpen,
+    lazy,
     onClose,
 }) => {
     const [isClosing, setClosing] = useState(false);
+    const [isMounted, setMounted] = useState(false);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -60,6 +63,16 @@ const Modal: FC<ModalProps> = ({
             clearTimeout(timerRef.current);
         };
     }, [isOpen, handleKeyDown]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setMounted(true);
+        }
+    }, [isOpen]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
