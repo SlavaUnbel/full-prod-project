@@ -1,11 +1,11 @@
 {
-    "Главная": "Main",
-    "О сайте": "About us",
-    "Язык": "English",
-    "Произошла непредвиденная ошибка": "An unexpected error occured",
-    "Обновить страницу": "Refresh the page",
-    "Короткий язык": "En",
-    "Войти": "Log in",
-    "Введите логин": "Enter username",
-    "Введите пароль": "Enter password"
+    "Main": "Main",
+    "About us": "About us",
+    "Language": "English",
+    "An unexpected error occured": "An unexpected error occured",
+    "Refresh the page": "Refresh the page",
+    "Short language": "En",
+    "Log in": "Log in",
+    "Enter username": "Enter username",
+    "Enter password": "Enter password"
 }

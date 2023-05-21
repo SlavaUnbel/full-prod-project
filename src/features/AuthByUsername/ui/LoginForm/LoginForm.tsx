@@ -18,10 +18,10 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
             additional: [className],
         })}
         >
-            <Input placeholder={t('Введите логин')} className={styles.input} autoFocus />
-            <Input placeholder={t('Введите пароль')} className={styles.input} />
+            <Input placeholder={t('Enter username')} className={styles.input} autoFocus />
+            <Input placeholder={t('Enter password')} className={styles.input} />
             <Button className={styles.loginBtn}>
-                {t('Войти')}
+                {t('Log in')}
             </Button>
         </div>
     );

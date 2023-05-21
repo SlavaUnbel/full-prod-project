@@ -52,7 +52,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                     >
                         <MainIcon className={styles.icon} />
                         <span className={styles.link}>
-                            { t('Главная') }
+                            { t('Main') }
                         </span>
                     </AppLink>
                 </div>
@@ -64,7 +64,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                     >
                         <AboutIcon className={styles.icon} />
                         <span className={styles.link}>
-                            { t('О сайте') }
+                            { t('About us') }
                         </span>
                     </AppLink>
                 </div>

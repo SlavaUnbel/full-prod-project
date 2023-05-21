@@ -27,7 +27,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
                 additional: [className],
             })}
         >
-            { t(short ? 'Короткий язык' : 'Язык') }
+            { t(short ? 'Short language' : 'Language') }
         </Button>
     );
 };

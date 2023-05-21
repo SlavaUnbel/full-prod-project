@@ -36,7 +36,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
                 theme={ButtonTheme.CLEAR_INVERTED}
                 onClick={handleOpenModal}
             >
-                { t('Войти') }
+                { t('Log in') }
             </Button>
 
             <LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />

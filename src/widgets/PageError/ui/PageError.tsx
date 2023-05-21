@@ -24,12 +24,12 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
                 additional: [className],
             })}
         >
-            { t('Произошла непредвиденная ошибка') }
+            { t('An unexpected error occured') }
 
             <Button
                 onClick={handleReloadPage}
             >
-                { t('Обновить страницу') }
+                { t('Refresh the page') }
             </Button>
         </div>
     );
