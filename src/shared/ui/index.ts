@@ -6,6 +6,7 @@ import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Portal } from './Portal';
 import { Input } from './Input';
+import { Text } from './Text';
 
 export {
     AppLink,
@@ -16,4 +17,5 @@ export {
     Modal,
     Portal,
     Input,
+    Text,
 };

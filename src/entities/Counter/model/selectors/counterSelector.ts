@@ -1,4 +1,4 @@
-import { ApplicationState } from 'app/providers/StoreProvider/config/ApplicationState';
+import { ApplicationState } from 'app/providers/StoreProvider';
 
 export const counterStateSelector = (state: ApplicationState) => state.counter;
 

@@ -1,5 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { ApplicationState } from 'app/providers/StoreProvider/config/ApplicationState';
+import { ApplicationState } from 'app/providers/StoreProvider';
 import { counterStateSelector, counterValueSelector } from '../selectors/counterSelector';
 
 describe('counterSelector', () => {

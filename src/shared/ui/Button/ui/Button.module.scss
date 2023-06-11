@@ -86,3 +86,7 @@
     height: var(--button-xs-size);
     width: var(--button-xs-size);
 }
+
+.disabled {
+    opacity: 0.5;
+}

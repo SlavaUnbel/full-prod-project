@@ -95,3 +95,11 @@ export const XSmall: Story = {
         size: ButtonSize.XS,
     },
 };
+
+export const Disabled: Story = {
+    args: {
+        children: '>',
+        theme: ButtonTheme.OUTLINE,
+        disabled: true,
+    },
+};

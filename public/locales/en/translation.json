@@ -7,5 +7,8 @@
     "Short language": "En",
     "Log in": "Log in",
     "Enter username": "Enter username",
-    "Enter password": "Enter password"
+    "Enter password": "Enter password",
+    "Authorization form": "Authorization form",
+    "Incorrect username or password": "Incorrect username or password",
+    "Log out": "Log out"
 }
