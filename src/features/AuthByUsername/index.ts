@@ -1,9 +1,12 @@
 import LoginModal from './ui/LoginModal/LoginModal';
-import LoginForm from './ui/LoginForm/LoginForm';
+import { LoginFormAsync as LoginForm } from './ui/LoginForm/LoginForm.async';
 import { LoginSchema } from './model/types/login';
 import { loginActions, loginReducer } from './model/slice/loginSlice';
-import { loginStateSelector } from './model/selectors/loginSelector';
 import { loginByUsername } from './model/services/loginByUsername';
+import { loginUsernameSelector } from './model/selectors/loginUsernameSelector';
+import { loginPasswordSelector } from './model/selectors/loginPasswordSelector';
+import { loginErrorSelector } from './model/selectors/loginErrorSelector';
+import { loginLoadingSelector } from './model/selectors/loginLoadingSelector';
 
 export {
     LoginForm,
@@ -11,6 +14,9 @@ export {
     LoginSchema,
     loginActions,
     loginReducer,
-    loginStateSelector,
+    loginUsernameSelector,
+    loginPasswordSelector,
+    loginErrorSelector,
+    loginLoadingSelector,
     loginByUsername,
 };

@@ -7,7 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Text } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
-import { loginActions, loginStateSelector, loginByUsername } from 'features/AuthByUsername';
+import {
+    loginActions,
+    loginByUsername,
+    loginErrorSelector,
+    loginLoadingSelector,
+    loginPasswordSelector,
+    loginReducer,
+    loginUsernameSelector,
+} from 'features/AuthByUsername';
+import { useDynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/useDynamicModuleLoader';
 
 import styles from './LoginForm.module.scss';
 
@@ -20,9 +29,10 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
 
     const dispatch = useDispatch();
 
-    const {
-        username, password, isLoading, error,
-    } = useSelector(loginStateSelector);
+    const username = useSelector(loginUsernameSelector);
+    const password = useSelector(loginPasswordSelector);
+    const error = useSelector(loginErrorSelector);
+    const isLoading = useSelector(loginLoadingSelector);
 
     const handleChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -41,6 +51,8 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
             handleLogin();
         }
     }, [handleLogin]);
+
+    useDynamicModuleLoader({ reducers: { login: loginReducer }, removeOnUnmount: true });
 
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown);
