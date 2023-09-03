@@ -1,6 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { LoginSchema } from '../types/login';
+
 import { loginActions, loginReducer } from '../slice/loginSlice';
+import { LoginSchema } from '../types/login';
 
 describe('loginSlice', () => {
     it('should set username', () => {

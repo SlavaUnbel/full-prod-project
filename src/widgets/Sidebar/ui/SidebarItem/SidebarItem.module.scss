@@ -1,0 +1,28 @@
+.item {
+    // display: flex;
+    // align-items: center;
+    max-height: 20px;
+
+    &:not(:last-child) {
+        margin-bottom: var(--gap-m);
+    }
+}
+
+.link {
+    padding-left: var(--gap-s);
+    opacity: 1;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+    .link {
+        opacity: 0;
+        height: 0;
+    }
+}

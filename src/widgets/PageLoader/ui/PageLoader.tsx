@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'shared/ui';
 
@@ -8,7 +8,7 @@ interface PageLoaderProps {
     className?: string;
 }
 
-const PageLoader: FC<PageLoaderProps> = ({ className }) => (
+const PageLoader: FC<PageLoaderProps> = memo(({ className }: PageLoaderProps) => (
     <div
         className={classNames(styles.pageLoader, {
             mods: {},
@@ -17,6 +17,6 @@ const PageLoader: FC<PageLoaderProps> = ({ className }) => (
     >
         <Loader />
     </div>
-);
+));
 
 export default PageLoader;

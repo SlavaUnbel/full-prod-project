@@ -1,11 +1,12 @@
+import { userActions, userAuthDataSelector } from 'entities/User';
+import { loginActions, LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
-import { LoginModal, loginActions } from 'features/AuthByUsername';
-import { userActions, userAuthDataSelector } from 'entities/User';
 
 import styles from './Navbar.module.scss';
 
@@ -14,7 +15,7 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 

@@ -1,12 +1,12 @@
 import { AppLink } from './AppLink';
-import { ThemeSwitcher } from './ThemeSwitcher';
-import { LangSwitcher } from './LangSwitcher';
 import { Button } from './Button';
+import { Input } from './Input';
+import { LangSwitcher } from './LangSwitcher';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Portal } from './Portal';
-import { Input } from './Input';
 import { Text } from './Text';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export {
     AppLink,

@@ -1,5 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { ApplicationState } from 'app/providers/StoreProvider';
+
 import { loginUsernameSelector } from '../selectors/loginUsernameSelector';
 
 describe('loginUsernameSelector', () => {

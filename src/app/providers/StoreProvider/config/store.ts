@@ -1,10 +1,15 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
+
 import { ApplicationState } from './ApplicationState';
 import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(initialState?: ApplicationState) {
+export function createReduxStore(
+    initialState?: ApplicationState,
+    asyncReducers?: ReducersMapObject<ApplicationState>,
+) {
     const rootReducers: ReducersMapObject<ApplicationState> = {
+        ...asyncReducers,
         user: userReducer,
     };
 
@@ -22,3 +27,5 @@ export function createReduxStore(initialState?: ApplicationState) {
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

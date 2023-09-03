@@ -1,12 +1,4 @@
-import {
-    FC, memo, useCallback, useEffect,
-} from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Input, Text } from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
-import { TextTheme } from 'shared/ui/Text';
+import { isFulfilled } from '@reduxjs/toolkit';
 import {
     loginActions,
     loginByUsername,
@@ -16,18 +8,29 @@ import {
     loginReducer,
     loginUsernameSelector,
 } from 'features/AuthByUsername';
-import { useDynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/useDynamicModuleLoader';
+import {
+    FC, memo, useCallback, useEffect,
+} from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { Button, Input, Text } from 'shared/ui';
+import { ButtonTheme } from 'shared/ui/Button';
+import { TextTheme } from 'shared/ui/Text';
 
 import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
+const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(loginUsernameSelector);
     const password = useSelector(loginPasswordSelector);
@@ -42,9 +45,13 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const handleLogin = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [password, username, dispatch]);
+    const handleLogin = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+
+        if (isFulfilled(result)) {
+            onSuccess();
+        }
+    }, [password, username, dispatch, onSuccess]);
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Enter') {

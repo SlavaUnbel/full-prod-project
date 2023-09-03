@@ -1,6 +1,6 @@
+import { userAuthDataSelector, userStateSelector } from './model/selectors/userSelector';
 import { userActions, userReducer } from './model/slice/userSlice';
-import { UserSchema, User } from './model/types/user';
-import { userStateSelector, userAuthDataSelector } from './model/selectors/userSelector';
+import { User, UserSchema } from './model/types/user';
 
 export {
     userReducer,

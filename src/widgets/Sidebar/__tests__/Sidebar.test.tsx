@@ -1,6 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react';
+
 import { componentRender } from '../../../shared/lib/componentRender/componentRender';
-import Sidebar from '../ui/Sidebar';
+import Sidebar from '../ui/Sidebar/Sidebar';
 
 // Разобраться, почему Jest не воспринимает абсолютные пути
 describe.skip('Sidebar', () => {

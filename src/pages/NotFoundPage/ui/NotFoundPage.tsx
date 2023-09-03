@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Translations } from 'shared/lib/translations/translations';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Translations } from 'shared/lib/translations/translations';
 
 import styles from './NotFoundPage.module.scss';
 

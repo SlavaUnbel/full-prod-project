@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { AppLinkTheme } from '../lib/AppLinkTheme';
 import AppLink from './AppLink';
 
