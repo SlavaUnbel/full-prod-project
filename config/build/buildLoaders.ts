@@ -1,8 +1,8 @@
 import { RuleSetRule } from 'webpack';
 
-import { BuildOptions } from './types/config';
 import { buildsCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { BuildOptions } from './types/config';
 
 export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     const typescriptLoader = {

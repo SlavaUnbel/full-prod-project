@@ -9,14 +9,14 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 render(
-    <StoreProvider>
-        <Router>
+    <Router>
+        <StoreProvider>
             <ErrorBoundary>
                 <ThemeProvider>
                     <App />
                 </ThemeProvider>
             </ErrorBoundary>
-        </Router>
-    </StoreProvider>,
+        </StoreProvider>
+    </Router>,
     document.getElementById('root'),
 );

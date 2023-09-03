@@ -1,27 +1,22 @@
-import { profileReducer } from 'entities/Profile';
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { fetchProfileData, profileReducer } from 'entities/Profile';
+import ProfileCard from 'entities/Profile/ui/ProfileCard';
+import { FC, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 
-import styles from './ProfilePage.module.scss';
+const ProfilePage: FC = () => {
+    const dispatch = useAppDispatch();
 
-interface ProfilePageProps {
-    className?: string;
-}
-
-const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-    const { t } = useTranslation();
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
 
     useDynamicModuleLoader({ reducers: { profile: profileReducer }, removeOnUnmount: true });
 
     return (
-        <div className={classNames(styles.profilePage, {
-            mods: {},
-            additional: [className],
-        })}
-        >
-            ProfilePage
+        <div className={classNames('')}>
+            <ProfileCard />
         </div>
     );
 };

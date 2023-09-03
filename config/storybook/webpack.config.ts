@@ -1,8 +1,9 @@
 import path from 'path';
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
-import { BuildPaths } from '../build/types/config';
-import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+
 import { buildsCssLoader } from '../build/loaders/buildCssLoader';
+import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: Configuration }) => {
     const paths: BuildPaths = {
@@ -29,6 +30,7 @@ export default ({ config }: { config: Configuration }) => {
 
     config.plugins.push(new DefinePlugin({
         __IS_DEV__: true,
+        __API__: '',
     }));
 
     return config;
