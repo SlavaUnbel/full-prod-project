@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { ApplicationState } from 'app/providers/StoreProvider';
 
 import { loginLoadingSelector } from '../selectors/loginLoadingSelector';

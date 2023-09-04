@@ -1,7 +1,7 @@
 import React, {
-    FC, useCallback, useEffect, useRef, useState,
+    FC, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui';
 
 import styles from './Modal.module.scss';
@@ -25,9 +25,9 @@ const Modal: FC<ModalProps> = ({
     const [isClosing, setClosing] = useState(false);
     const [isMounted, setMounted] = useState(false);
 
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [styles.opened]: isOpen,
         [styles.closing]: isClosing,
     };
