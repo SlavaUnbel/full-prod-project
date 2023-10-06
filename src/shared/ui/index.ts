@@ -7,6 +7,8 @@ import { Modal } from './Modal';
 import { Portal } from './Portal';
 import { Text } from './Text';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { Avatar } from './Avatar';
+import { Select } from './Select';
 
 export {
     AppLink,
@@ -18,4 +20,6 @@ export {
     Portal,
     Input,
     Text,
+    Avatar,
+    Select,
 };

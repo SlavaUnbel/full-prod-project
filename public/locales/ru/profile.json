@@ -1,6 +1,16 @@
 {
     "Profile": "Профиль",
     "Edit": "Редактировать",
+    "Cancel" : "Отменить",
+    "Save" : "Сохранить",
     "Your lastname": "Ваша фамилия",
-    "Your firstname": "Ваше имя"
+    "Your firstname": "Ваше имя",
+    "Your age": "Ваш возраст",
+    "Your country": "Ваша страна",
+    "Your city": "Ваш город",
+    "Your currency": "Ваша валюта",
+    "Your username": "Ваш никнейм",
+    "Link to avatar": "Ссылка на аватар",
+    "An error has occured on profile loading": "Произошла ошибка при загрузке профиля",
+    "Try to reload the page": "Попробуйте обновить страницу"
 }

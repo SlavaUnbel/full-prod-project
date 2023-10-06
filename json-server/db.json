@@ -1,39 +1,19 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "json-server",
-            "userId": "1"
-        },
-        {
-            "id": "2",
-            "title": "json-server",
-            "userId": "2"
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "body": "some comment",
-            "postId": 1
-        }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": {
-        "firstname": "Слава",
-        "lastname": "Левкович",
-        "age": 24,
-        "currency": "BYN",
-        "country": "Belarus",
-        "city": "Minsk",
-        "username": "admin",
-        "avatar": "https://avatars.githubusercontent.com/u/43147440?s=400&u=61a912fa39578fb35d01a6b69d69f4f824c32f19&v=4"
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
     }
+  ],
+  "profile": {
+    "firstname": "Слава",
+    "lastname": "Левкович",
+    "age": 24,
+    "currency": "BYN",
+    "country": "Ukraine",
+    "city": "Минск",
+    "username": "admin",
+    "avatar": "https://avatars.githubusercontent.com/u/43147440?s=400&u=61a912fa39578fb35d01a6b69d69f4f824c32f19&v=4"
   }
-  
+}

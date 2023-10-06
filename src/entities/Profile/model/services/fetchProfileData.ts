@@ -20,7 +20,7 @@ export const fetchProfileData = createAsyncThunk<
         } catch (error) {
             console.log(error);
 
-            return rejectWithValue(i18n.t('Incorrect username or password'));
+            return rejectWithValue(i18n.t('An error has occured on profile loading'));
         }
     },
 );

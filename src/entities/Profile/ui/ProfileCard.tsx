@@ -1,46 +1,168 @@
+import { CountrySelect } from 'entities/Country';
+import { CurrencySelect } from 'entities/Currency';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Avatar, Loader } from 'shared/ui';
 import { Input } from 'shared/ui/Input';
-import { Text } from 'shared/ui/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
 
-import { profileDataSelector } from '../model/selectors/profileSelector';
+import { Profile } from '../model/types/profile';
 import styles from './ProfileCard.module.scss';
 
-const ProfileCard: FC = memo(() => {
+interface ProfileCardProps {
+    className?: string;
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCountry?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeCurrency?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+}
+
+const inputsData = (
+    data?: Profile,
+    handlers?: Pick<ProfileCardProps,
+        'onChangeFirstname' |
+        'onChangeLastname' |
+        'onChangeAge' |
+        'onChangeCountry' |
+        'onChangeCity' |
+        'onChangeCurrency' |
+        'onChangeUsername' |
+        'onChangeAvatar'>,
+) => [
+    {
+        value: data?.firstname,
+        placeholder: 'Your firstname',
+        onChange: handlers?.onChangeFirstname,
+    },
+    {
+        value: data?.lastname,
+        placeholder: 'Your lastname',
+        onChange: handlers?.onChangeLastname,
+    },
+    {
+        value: data?.age?.toString(),
+        placeholder: 'Your age',
+        onChange: handlers?.onChangeAge,
+    },
+    {
+        value: data?.country,
+        label: 'Your country',
+        isSelect: true,
+        SelectComponent: CountrySelect,
+        onChange: handlers?.onChangeCountry,
+    },
+    {
+        value: data?.city,
+        placeholder: 'Your city',
+        onChange: handlers?.onChangeCity,
+    },
+    {
+        value: data?.currency,
+        label: 'Your currency',
+        isSelect: true,
+        SelectComponent: CurrencySelect,
+        onChange: handlers?.onChangeCurrency,
+    },
+    {
+        value: data?.username,
+        placeholder: 'Your username',
+        onChange: handlers?.onChangeUsername,
+    },
+    {
+        value: data?.avatar,
+        placeholder: 'Link to avatar',
+        onChange: handlers?.onChangeAvatar,
+    },
+];
+
+export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) => {
+    const {
+        data,
+        className,
+        error,
+        isLoading,
+        readonly,
+        ...handlers
+    } = props;
+
     const { t } = useTranslation(Translations.PROFILE);
 
-    const data = useSelector(profileDataSelector);
+    const inputs = inputsData(data, handlers);
+
+    const mods: Mods = {
+        [styles.editing]: !readonly,
+    };
+
+    if (isLoading) {
+        return (
+            <div className={classNames(styles.profileCard, {
+                mods,
+                additional: [className, styles.loading],
+            })}
+            >
+                <Loader />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(styles.profileCard, {
+                mods,
+                additional: [className, styles.error],
+            })}
+            >
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={t('An error has occured on profile loading')}
+                    text={t('Try to reload the page')}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
 
     return (
-        <div className={classNames(styles.profileCard)}>
-            <div className={styles.header}>
-                <Text title={t('Profile')} />
-                <Button
-                    className={styles.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                >
-                    {t('Edit')}
-                </Button>
-            </div>
+        <div className={classNames(styles.profileCard, { mods, additional: [className] })}>
+            { data?.avatar && (
+                <div className={styles.avatarWrapper}>
+                    <Avatar src={data?.avatar} size={150} />
+                </div>
+            ) }
 
-            <div className={styles.data}>
-                <Input
-                    value={data?.firstname}
-                    placeholder={t('Your firstname')}
-                    className={styles.input}
-                />
-                <Input
-                    value={data?.lastname}
-                    placeholder={t('Your lastname')}
-                    className={styles.input}
-                />
-            </div>
+            { inputs.map(({
+                label, value, onChange, placeholder, SelectComponent, isSelect,
+            }) => (
+                isSelect && SelectComponent
+                    ? (
+                        <SelectComponent
+                            key={label}
+                            value={value}
+                            onChange={onChange}
+                            readonly={readonly}
+                            className={styles.select}
+                        />
+                    ) : (
+                        <Input
+                            key={placeholder}
+                            value={value}
+                            placeholder={t(placeholder || '')}
+                            onChange={onChange}
+                            readonly={readonly}
+                            className={styles.input}
+                        />
+                    )
+            )) }
         </div>
     );
 });
-
-export default ProfileCard;

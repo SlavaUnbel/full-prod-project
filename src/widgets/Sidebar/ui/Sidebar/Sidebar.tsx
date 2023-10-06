@@ -39,7 +39,11 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
 
             <div className={styles.items}>
                 {sidebarItemsList.map((item) => (
-                    <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+                    <SidebarItem
+                        key={item.path}
+                        item={item}
+                        collapsed={collapsed}
+                    />
                 ))}
             </div>
 

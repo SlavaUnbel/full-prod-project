@@ -11,5 +11,7 @@
     "Enter password": "Введите пароль",
     "Authorization form": "Форма авторизации",
     "Incorrect username or password": "Некорректный логин или пароль",
-    "Log out": "Выйти"
+    "Log out": "Выйти",
+    "An error has occured on profile loading": "Произошла ошибка при загрузке профиля",
+    "An error has occured on profile update": "Произошла ошибка при обновлении профиля"
 }

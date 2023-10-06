@@ -1,7 +1,11 @@
 {
   "About us": "",
+  "An error has occured on profile loading": "",
+  "An error has occured on profile update": "",
   "An unexpected error occured": "",
   "Authorization form": "",
+  "Cancel": "",
+  "Edit": "",
   "Enter password": "",
   "Enter username": "",
   "Incorrect username or password": "",
@@ -10,5 +14,10 @@
   "Main": "",
   "Main page": "",
   "Page is not found": "",
-  "Refresh the page": ""
+  "Profile": "",
+  "Refresh the page": "",
+  "Save": "",
+  "Try to reload the page": "",
+  "Your firstname": "",
+  "Your lastname": ""
 }
