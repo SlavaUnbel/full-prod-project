@@ -12,5 +12,9 @@
     "Your username": "Ваш никнейм",
     "Link to avatar": "Ссылка на аватар",
     "An error has occured on profile loading": "Произошла ошибка при загрузке профиля",
-    "Try to reload the page": "Попробуйте обновить страницу"
+    "Try to reload the page": "Попробуйте обновить страницу",
+    "Firstname and lastname are required": "Имя и фамилия обязательны",
+    "Incorrect age": "Некорректный возраст",
+    "Incorrect country": "Некорректный регион",
+    "No data is provided": "Данные не указаны"
 }

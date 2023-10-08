@@ -12,5 +12,9 @@
     "Your username": "Your username",
     "Link to avatar": "Link to avatar",
     "An error has occured on profile loading": "An error has occured on profile loading",
-    "Try to reload the page": "Try to reload the page"
+    "Try to reload the page": "Try to reload the page",
+    "Firstname and lastname are required": "Firstname and lastname are required",
+    "Incorrect age": "Incorrect age",
+    "Incorrect country": "Incorrect country",
+    "No data is provided": "No data is provided"
 }

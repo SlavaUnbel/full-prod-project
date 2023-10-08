@@ -9,22 +9,39 @@ import {
     profileLoadingSelector,
     profileReadonlySelector,
     profileReducer,
+    profileValidateErrorsSelector,
+    ValidateProfileError,
 } from 'entities/Profile';
 import { FC, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { Translations } from 'shared/lib/translations/translations';
+import { Text } from 'shared/ui';
+import { TextTheme } from 'shared/ui/Text';
 
 import { ProfilePageHeader } from './ProfilePageHeader';
 
 const ProfilePage: FC = () => {
+    const { t } = useTranslation(Translations.PROFILE);
+
     const dispatch = useAppDispatch();
 
     const data = useSelector(profileFormSelector);
     const error = useSelector(profileErrorSelector);
     const isLoading = useSelector(profileLoadingSelector);
     const readonly = useSelector(profileReadonlySelector);
+    const validateErrors = useSelector(profileValidateErrorsSelector);
+
+    const validateErrorsTranslations = {
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Firstname and lastname are required'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
+        [ValidateProfileError.NO_DATA]: t('No data is provided'),
+        [ValidateProfileError.SERVER_ERROR]: t('An error has occured on profile update'),
+    };
 
     const handleChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -78,6 +95,14 @@ const ProfilePage: FC = () => {
     return (
         <div className={classNames('')}>
             <ProfilePageHeader />
+
+            {validateErrors?.length && validateErrors.map((error) => (
+                <Text
+                    key={error}
+                    theme={TextTheme.ERROR}
+                    text={validateErrorsTranslations[error]}
+                />
+            ))}
 
             <ProfileCard
                 data={data}

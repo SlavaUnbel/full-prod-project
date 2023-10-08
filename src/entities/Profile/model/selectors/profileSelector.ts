@@ -11,3 +11,5 @@ export const profileLoadingSelector = (state: ApplicationState) => profileStateS
 export const profileErrorSelector = (state: ApplicationState) => profileStateSelector(state)?.error;
 
 export const profileReadonlySelector = (state: ApplicationState) => profileStateSelector(state)?.readonly;
+
+export const profileValidateErrorsSelector = (state: ApplicationState) => profileStateSelector(state)?.validateErrors;
