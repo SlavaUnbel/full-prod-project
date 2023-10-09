@@ -1,5 +1,6 @@
 import { RuleSetRule } from 'webpack';
 
+import { buildsBabelLoader } from './loaders/buildBabelLoader';
 import { buildsCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
@@ -24,25 +25,7 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         ],
     };
 
-    const babelLoader = {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['en', 'ru'],
-                            keyAsDefaultValue: true,
-                        },
-                    ],
-                ],
-            },
-        },
-    };
+    const babelLoader = buildsBabelLoader(isDev);
 
     return [
         fileLoader,
