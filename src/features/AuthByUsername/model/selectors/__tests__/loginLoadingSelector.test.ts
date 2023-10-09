@@ -1,6 +1,6 @@
 import { ApplicationState } from 'app/providers/StoreProvider';
 
-import { loginLoadingSelector } from '../selectors/loginLoadingSelector';
+import { loginLoadingSelector } from '../loginLoadingSelector';
 
 describe('loginLoadingSelector', () => {
     it('should return true', () => {

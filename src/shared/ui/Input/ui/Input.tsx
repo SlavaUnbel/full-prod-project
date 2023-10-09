@@ -85,6 +85,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
+                    disabled={readonly}
                     autoComplete={autoComplete}
                     {...otherProps}
                 />

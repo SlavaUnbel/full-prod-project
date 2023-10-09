@@ -87,6 +87,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }: LoginFormP
                 placeholder={t('Enter username')}
                 className={styles.input}
                 autoFocus
+                readonly={isLoading}
             />
 
             <Input
@@ -94,6 +95,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }: LoginFormP
                 onChange={handleChangePassword}
                 placeholder={t('Enter password')}
                 className={styles.input}
+                readonly={isLoading}
             />
 
             <Button

@@ -87,7 +87,9 @@ const ProfilePage: FC = () => {
     };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     useDynamicModuleLoader({ reducers: { profile: profileReducer }, removeOnUnmount: true });

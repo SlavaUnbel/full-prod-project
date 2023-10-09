@@ -1,7 +1,7 @@
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { loginByUsername } from '../services/loginByUsername';
+import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername', () => {
     it('should loginByUsername action be fulfilled and return user data', async () => {

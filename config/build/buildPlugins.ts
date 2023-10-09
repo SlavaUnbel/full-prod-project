@@ -9,7 +9,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export default function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
-    const { paths: { html }, isDev, apiUrl } = options;
+    const {
+        paths: { html }, isDev, apiUrl, project,
+    } = options;
 
     const plugins = [
         new HTMLWebpackPlugin({ template: html }),
@@ -21,6 +23,7 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 

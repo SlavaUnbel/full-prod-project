@@ -27,6 +27,10 @@ export const updateProfileData = createAsyncThunk<
         try {
             const { data } = await api.put<Profile>('/profile', formData);
 
+            if (!data) {
+                throw new Error('No response received');
+            }
+
             return data;
         } catch (error) {
             console.log(error);

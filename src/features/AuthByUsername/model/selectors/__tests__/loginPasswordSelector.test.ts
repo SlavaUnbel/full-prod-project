@@ -1,6 +1,6 @@
 import { ApplicationState } from 'app/providers/StoreProvider';
 
-import { loginPasswordSelector } from '../selectors/loginPasswordSelector';
+import { loginPasswordSelector } from '../loginPasswordSelector';
 
 describe('loginPasswordSelector', () => {
     it('should return Password', () => {
