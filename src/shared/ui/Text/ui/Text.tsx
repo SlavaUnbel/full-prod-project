@@ -13,9 +13,9 @@ interface TextProps {
     align?: TextAlign
 }
 
-const Text: FC<TextProps> = memo(({
+const Text: FC<TextProps> = ({
     className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT,
-}: TextProps) => (
+}) => (
     <div className={classNames(styles.text, {
         mods: {
             [styles[theme]]: true,
@@ -27,6 +27,6 @@ const Text: FC<TextProps> = memo(({
         { title && <p className={styles.title}>{title}</p> }
         { text && <p className={styles.text}>{text}</p> }
     </div>
-));
+);
 
-export default Text;
+export default memo(Text);

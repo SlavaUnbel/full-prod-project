@@ -15,9 +15,9 @@ interface SelectProps {
     onChange?: (value: string) => void;
 }
 
-const Select: FC<SelectProps> = memo(({
+const Select: FC<SelectProps> = ({
     options, className, label, value, readonly, onChange,
-}: SelectProps) => {
+}) => {
     const mods: Mods = {
         [styles.readonly]: readonly,
     };
@@ -59,6 +59,6 @@ const Select: FC<SelectProps> = memo(({
             </select>
         </div>
     );
-});
+};
 
-export default Select;
+export default memo(Select);

@@ -3,4 +3,6 @@ export enum Translations {
     ABOUT = 'about',
     PROFILE = 'profile',
     NOT_FOUND = 'notFound',
+    ARTICLES = 'articles',
+    ARTICLE_DETAILS = 'articleDetails',
 }

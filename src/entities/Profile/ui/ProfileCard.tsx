@@ -85,16 +85,14 @@ const inputsData = (
     },
 ];
 
-export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) => {
-    const {
-        data,
-        className,
-        error,
-        isLoading,
-        readonly,
-        ...handlers
-    } = props;
-
+export const ProfileCard: FC<ProfileCardProps> = memo(({
+    data,
+    className,
+    error,
+    isLoading,
+    readonly,
+    ...handlers
+}: ProfileCardProps) => {
     const { t } = useTranslation(Translations.PROFILE);
 
     const inputs = inputsData(data, handlers);

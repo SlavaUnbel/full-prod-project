@@ -27,7 +27,7 @@ interface LoginFormProps {
     onSuccess: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }: LoginFormProps) => {
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
@@ -108,6 +108,6 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }: LoginFormP
             </Button>
         </div>
     );
-});
+};
 
-export default LoginForm;
+export default memo(LoginForm);

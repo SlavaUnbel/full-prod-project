@@ -11,7 +11,7 @@ interface LangSwitcherProps {
     short?: boolean;
 }
 
-const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }: LangSwitcherProps) => {
+const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
     const { t, i18n } = useTranslation();
 
     const toggle = () => {
@@ -30,6 +30,6 @@ const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }: LangSwit
             { t(short ? 'Short language' : 'Language') }
         </Button>
     );
-});
+};
 
-export default LangSwitcher;
+export default memo(LangSwitcher);

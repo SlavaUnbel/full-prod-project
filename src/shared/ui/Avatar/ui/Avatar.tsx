@@ -10,9 +10,9 @@ interface AvatarProps {
     alt?: string;
 }
 
-const Avatar: FC<AvatarProps> = memo(({
+const Avatar: FC<AvatarProps> = ({
     className, src, size, alt = '',
-}: AvatarProps) => {
+}) => {
     const mods: Mods = {};
     const style = useMemo(() => ({
         width: size || 100,
@@ -27,6 +27,6 @@ const Avatar: FC<AvatarProps> = memo(({
             style={style}
         />
     );
-});
+};
 
-export default Avatar;
+export default memo(Avatar);

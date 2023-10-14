@@ -15,17 +15,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        ...otherProps
-    } = props;
-
+const Button: FC<ButtonProps> = ({
+    className,
+    children,
+    theme = ButtonTheme.OUTLINE,
+    square,
+    size = ButtonSize.M,
+    disabled,
+    ...otherProps
+}) => {
     const mods: Mods = {
         [styles[theme]]: true,
         [styles.square]: square,
@@ -46,6 +44,6 @@ const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
             { children }
         </button>
     );
-});
+};
 
-export default Button;
+export default memo(Button);

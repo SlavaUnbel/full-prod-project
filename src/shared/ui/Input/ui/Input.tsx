@@ -15,19 +15,17 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-const Input: FC<InputProps> = memo((props: InputProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        type = 'text',
-        placeholder,
-        autoFocus,
-        readonly,
-        autoComplete = 'off',
-        ...otherProps
-    } = props;
-
+const Input: FC<InputProps> = ({
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder,
+    autoFocus,
+    readonly,
+    autoComplete = 'off',
+    ...otherProps
+}) => {
     const [isFocused, setFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 
@@ -100,6 +98,6 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
 
         </div>
     );
-});
+};
 
-export default Input;
+export default memo(Input);
