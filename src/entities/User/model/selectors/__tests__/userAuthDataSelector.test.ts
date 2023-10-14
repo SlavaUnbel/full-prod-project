@@ -1,6 +1,6 @@
 import { ApplicationState } from 'app/providers/StoreProvider';
 
-import { userAuthDataSelector } from './userSelector';
+import { userAuthDataSelector } from '../userSelector';
 
 const authData = {
     id: '1',

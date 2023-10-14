@@ -17,13 +17,13 @@ describe('userSlice', () => {
     });
 
     it('should init auth data', () => {
-        const state: DeepPartial<UserSchema> = {};
+        const state: DeepPartial<UserSchema> = { _inited: false };
         localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
         const result = userReducer(state as UserSchema, userActions.initAuthData());
 
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
 
-        expect(result).toEqual({ authData: JSON.parse(user) });
+        expect(result).toEqual({ authData: JSON.parse(user), _inited: true });
     });
 
     it('should logout', () => {
@@ -34,6 +34,6 @@ describe('userSlice', () => {
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
 
         expect(result).toEqual({ authData: undefined });
-        expect(user).toBe(undefined);
+        expect(user).toBe('');
     });
 });

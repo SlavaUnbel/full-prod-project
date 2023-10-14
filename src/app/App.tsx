@@ -1,15 +1,18 @@
-import { userActions } from 'entities/User';
+import { userActions, userInitedSelector } from 'entities/User';
 import { FC, Suspense, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
+import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 
 const App: FC = () => {
     const dispatch = useAppDispatch();
+
+    const inited = useSelector(userInitedSelector);
 
     const { theme } = useTheme();
 
@@ -28,7 +31,7 @@ const App: FC = () => {
 
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter /> }
                 </div>
             </Suspense>
         </div>
