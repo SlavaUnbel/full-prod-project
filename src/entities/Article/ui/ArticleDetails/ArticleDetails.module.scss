@@ -1,0 +1,16 @@
+.articleDetails {
+    min-height: 100%;
+}
+
+.avatar {
+    margin: 0 auto;
+    margin-bottom: var(--gap-l);
+}
+
+.title {
+    margin-bottom: var(--gap-m);
+}
+
+.skeleton:not(:last-child) {
+    margin-bottom: var(--gap-m);
+}

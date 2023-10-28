@@ -1,6 +1,9 @@
+import { ArticleDetails } from 'entities/Article';
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Translations } from 'shared/lib/translations/translations';
 
 import styles from './ArticleDetailsPage.module.scss';
 
@@ -9,7 +12,21 @@ interface ArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(Translations.ARTICLES);
+
+    const { id } = useParams<{id: string}>();
+
+    if (!id) {
+        return (
+            <div className={classNames(styles.articleDetailsPage, {
+                mods: {},
+                additional: [className],
+            })}
+            >
+                {t('Article is not found')}
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(styles.articleDetailsPage, {
@@ -17,7 +34,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
             additional: [className],
         })}
         >
-            ArticleDetailsPage
+            <ArticleDetails id={id} />
         </div>
     );
 };

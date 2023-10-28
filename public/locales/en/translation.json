@@ -14,5 +14,6 @@
     "Incorrect username or password": "Incorrect username or password",
     "Log out": "Log out",
     "An error has occured on profile loading": "An error has occured on profile loading",
-    "An error has occured on profile update": "An error has occured on profile update"
+    "An error has occured on profile update": "An error has occured on profile update",
+    "An error has occured on article loading": "An error has occured on article loading"
 }

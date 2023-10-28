@@ -8,7 +8,6 @@ export {
 } from './model/slice/profileSlice';
 
 export {
-    profileStateSelector,
     profileDataSelector,
     profileFormSelector,
     profileLoadingSelector,

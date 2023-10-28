@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Translations } from 'shared/lib/translations/translations';
 
 import styles from './ArticlesPage.module.scss';
 
@@ -9,7 +10,7 @@ interface ArticlesPageProps {
 }
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(Translations.ARTICLES);
 
     return (
         <div className={classNames(styles.articlePage, {

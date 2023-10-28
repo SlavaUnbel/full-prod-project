@@ -4,5 +4,4 @@ export enum Translations {
     PROFILE = 'profile',
     NOT_FOUND = 'notFound',
     ARTICLES = 'articles',
-    ARTICLE_DETAILS = 'articleDetails',
 }
