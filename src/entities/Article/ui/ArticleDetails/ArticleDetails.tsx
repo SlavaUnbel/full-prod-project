@@ -2,17 +2,15 @@ import {
     ArticleBlock,
     ArticleBlockType,
     ArticleCodeBlockComponent,
-    ArticleImageBlockComponent,
-    ArticleTextBlockComponent,
     articleDetailsDataSelector,
     articleDetailsErrorSelector,
     articleDetailsLoadingSelector,
     articleDetailsReducer,
+    ArticleImageBlockComponent,
+    ArticleTextBlockComponent,
     fetchArticleById,
 } from 'entities/Article';
-import {
-    FC, memo, useCallback, useEffect,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
@@ -20,6 +18,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
 import {
     Avatar, Icon, Skeleton, Text,
@@ -135,11 +134,9 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
         break;
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [id, dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    }, [id]);
 
     return (
         <div className={classNames(styles.articleDetails, {

@@ -1,0 +1,14 @@
+.commentItem {
+    padding: var(--gap-s);
+    border: 1px solid var(--primary-color);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--gap-s);
+}
+
+.avatar {
+    margin-right: var(--gap-s);
+}

@@ -12,7 +12,7 @@ export const Icon = memo((props: IconProps) => {
     const { className, Svg } = props;
 
     return (
-        <Svg className={classNames(styles.Icon, {
+        <Svg className={classNames(styles.icon, {
             mods: {},
             additional: [className],
         })}

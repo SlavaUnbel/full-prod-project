@@ -6,7 +6,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import CopyIcon from '../../../assets/icons/copy.svg';
 
 import { Button, ButtonTheme } from '../../Button';
-import { Icon } from '../../Icon';
 import styles from './Code.module.scss';
 
 interface CodeProps {
@@ -31,7 +30,7 @@ export const Code: FC<CodeProps> = memo(({
         })}
         >
             <Button className={styles.copyBtn} theme={ButtonTheme.CLEAR} onClick={onCopy}>
-                <Icon Svg={CopyIcon} className={styles.copyIcon} />
+                <CopyIcon className={styles.copyIcon} />
             </Button>
 
             <code>
