@@ -18,7 +18,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
             additional: [className],
         })}
         >
-            ArticlesPage
+            {t('ArticlesPage')}
         </div>
     );
 };

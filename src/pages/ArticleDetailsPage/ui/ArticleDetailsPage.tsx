@@ -16,7 +16,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
+    if (!id && __PROJECT__ !== 'storybook') {
         return (
             <div className={classNames(styles.articleDetailsPage, {
                 mods: {},
@@ -34,7 +34,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
             additional: [className],
         })}
         >
-            <ArticleDetails id={id} />
+            <ArticleDetails id={id || ''} />
         </div>
     );
 };

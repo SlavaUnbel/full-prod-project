@@ -1,3 +1,7 @@
-.articleCodeBlockComponent {
+.title {
+    margin-bottom: var(--gap-m);
+}
 
+.paragraph:not(:last-child) {
+    margin-bottom: var(--gap-xs);
 }

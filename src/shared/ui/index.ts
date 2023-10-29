@@ -9,6 +9,9 @@ import { Text } from './Text';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Avatar } from './Avatar';
 import { Select } from './Select';
+import { Skeleton } from './Skeleton';
+import { Icon } from './Icon';
+import { Code } from './Code';
 
 export {
     AppLink,
@@ -22,4 +25,7 @@ export {
     Text,
     Avatar,
     Select,
+    Skeleton,
+    Icon,
+    Code,
 };

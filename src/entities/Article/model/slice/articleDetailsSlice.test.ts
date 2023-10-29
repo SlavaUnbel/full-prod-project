@@ -1,20 +1,10 @@
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
+import { fetchArticleById } from '../services/fetchArticleById';
+import {
+    Article, ArticleBlockType, ArticleDetailsSchema, ArticleType,
+} from '../types/article';
+import { articleDetailsReducer } from './articleDetailsSlice';
 
-import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticleBlockType } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
-import ArticleDetailsPage from './ArticleDetailsPage';
-
-const meta: Meta<typeof ArticleDetailsPage> = {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-};
-
-export default meta;
-type Story = StoryObj<typeof ArticleDetailsPage>;
-
-const article: Article = {
+const articleData: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -50,22 +40,24 @@ const article: Article = {
     ],
 };
 
-export const Light: Story = {
-    args: {},
-    decorators: [StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    }) as any],
-};
+describe('articleDetailsSlice', () => {
+    it('should set state on fetchArticleById pending', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = { isLoading: false, error: '' };
+        const result = articleDetailsReducer(
+            state as ArticleDetailsSchema,
+            fetchArticleById.pending,
+        );
 
-export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-        StoreDecorator({
-            articleDetails: {
-                data: article,
-            },
-        }),
-    ],
-};
+        expect(result).toEqual({ isLoading: true });
+    });
+
+    it('should set state on fetchArticleById fulfilled', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = { isLoading: true };
+        const result = articleDetailsReducer(
+            state as ArticleDetailsSchema,
+            fetchArticleById.fulfilled(articleData, '', '1'),
+        );
+
+        expect(result).toEqual({ isLoading: false, data: articleData });
+    });
+});

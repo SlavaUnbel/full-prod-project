@@ -5,6 +5,7 @@ export {
     ArticleCodeBlock,
     ArticleImageBlock,
     ArticleTextBlock,
+    ArticleType,
     ArticleDetailsSchema,
 } from './model/types/article';
 

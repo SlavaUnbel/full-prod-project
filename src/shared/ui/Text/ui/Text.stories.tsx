@@ -2,6 +2,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook';
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { TextSize } from '../lib/TextSize';
 import { TextTheme } from '../lib/TextTheme';
 import Text from './Text';
 
@@ -65,5 +66,13 @@ export const ErrorText: Story = {
         title: 'Title',
         text: 'Text',
         theme: TextTheme.ERROR,
+    },
+};
+
+export const TextSizeL: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text',
+        size: TextSize.L,
     },
 };

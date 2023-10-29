@@ -18,8 +18,6 @@ export const updateProfileData = createAsyncThunk<
         const formData = profileFormSelector(state);
         const errors = validateProfileData(formData);
 
-        console.log(errors);
-
         if (errors.length) {
             return rejectWithValue(errors);
         }
@@ -35,7 +33,6 @@ export const updateProfileData = createAsyncThunk<
         } catch (error) {
             console.log(error);
 
-            // return rejectWithValue(i18n.t('An error has occured on profile update'));
             return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
     },

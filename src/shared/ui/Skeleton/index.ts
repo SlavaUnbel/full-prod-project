@@ -1,3 +1,3 @@
-import Loader from './ui/Skeleton';
+import Skeleton from './ui/Skeleton';
 
-export { Loader };
+export { Skeleton };
