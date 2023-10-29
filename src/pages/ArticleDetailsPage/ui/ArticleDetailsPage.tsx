@@ -1,6 +1,7 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { FC } from 'react';
+import { AddCommentForm, addCommentFormActions } from 'features/AddCommentForm';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -12,9 +13,10 @@ import { Translations } from 'shared/lib/translations/translations';
 import { Text } from 'shared/ui';
 
 import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsCommentsSlice';
 import styles from './ArticleDetailsPage.module.scss';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { sendCommentForArticle } from '../model/services/sendCommentForArticle';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -31,15 +33,16 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     const commentsLoading = useSelector(articleDetailsCommentsLoadingSelector);
 
     useDynamicModuleLoader({
-        reducers: {
-            articleDetailsComments: articleDetailsCommentsReducer,
-        },
-        removeOnUnmount: true,
+        reducers: { articleDetailsComments: articleDetailsCommentsReducer },
     });
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     });
+
+    const handleSendComment = useCallback((text?: string) => {
+        dispatch(sendCommentForArticle(text));
+    }, [dispatch]);
 
     if (!id) {
         return (
@@ -60,6 +63,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         })}
         >
             <ArticleDetails id={id || ''} />
+
+            <AddCommentForm onSendComment={handleSendComment} />
 
             <Text title={t('Comments')} className={styles.commentsTitle} />
 

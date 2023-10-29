@@ -59,7 +59,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
         }
     }, [handleLogin]);
 
-    useDynamicModuleLoader({ reducers: { login: loginReducer }, removeOnUnmount: true });
+    useDynamicModuleLoader({ reducers: { login: loginReducer } });
 
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown);

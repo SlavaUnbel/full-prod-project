@@ -6,15 +6,19 @@ import { Profile } from '../types/profile';
 
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    void,
+    string | undefined,
     ThunkConfig<string>
 >(
     'profile/fetchProfileData',
-    async (_, { extra, rejectWithValue }) => {
+    async (profileId, { extra, rejectWithValue }) => {
         const { api } = extra;
 
+        if (!profileId) {
+            return rejectWithValue('error');
+        }
+
         try {
-            const { data } = await api.get<Profile>('/profile');
+            const { data } = await api.get<Profile>(`/profile/${profileId}`);
 
             if (!data) {
                 throw new Error('No response received');
@@ -22,8 +26,6 @@ export const fetchProfileData = createAsyncThunk<
 
             return data;
         } catch (error) {
-            console.log(error);
-
             return rejectWithValue(i18n.t('An error has occured on profile loading'));
         }
     },

@@ -20,6 +20,18 @@ export const CommentList: FC<CommentListProps> = memo(({
 }: CommentListProps) => {
     const { t } = useTranslation();
 
+    if (isLoading) {
+        return (
+            <div className={classNames(styles.commentList, {
+                mods: {},
+                additional: [className],
+            })}
+            >
+                { [1, 2, 3].map((mockComment) => <CommentItem key={mockComment} isLoading />) }
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(styles.commentList, {
             mods: {},

@@ -23,10 +23,13 @@ import { Translations } from 'shared/lib/translations/translations';
 import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text';
 
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader';
 
 const ProfilePage: FC = () => {
     const { t } = useTranslation(Translations.PROFILE);
+
+    const { id } = useParams<{id: string}>();
 
     const dispatch = useAppDispatch();
 
@@ -88,10 +91,10 @@ const ProfilePage: FC = () => {
     };
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        dispatch(fetchProfileData(id));
     });
 
-    useDynamicModuleLoader({ reducers: { profile: profileReducer }, removeOnUnmount: true });
+    useDynamicModuleLoader({ reducers: { profile: profileReducer } });
 
     return (
         <div className={classNames('')}>

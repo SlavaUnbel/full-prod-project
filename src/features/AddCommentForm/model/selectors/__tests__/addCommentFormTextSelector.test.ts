@@ -1,0 +1,27 @@
+import { ApplicationState } from 'app/providers/StoreProvider';
+
+import { addCommentFormTextSelector } from '../addCommentFormSelector';
+
+describe('addCommentFormTextSelector', () => {
+    it('should return the comment form text', () => {
+        const state: DeepPartial<ApplicationState> = {
+            addCommentForm: {
+                text: 'comment',
+            },
+        };
+
+        const result = addCommentFormTextSelector(state as ApplicationState);
+
+        expect(result).toBe('comment');
+    });
+
+    it('should return undefined if text field is not present in the reducer', () => {
+        const state: DeepPartial<ApplicationState> = {
+            addCommentForm: {},
+        };
+
+        const result = addCommentFormTextSelector(state as ApplicationState);
+
+        expect(result).toBe(undefined);
+    });
+});

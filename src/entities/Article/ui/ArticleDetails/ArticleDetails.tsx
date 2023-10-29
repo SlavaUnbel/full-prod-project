@@ -45,10 +45,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
     const article = useSelector(articleDetailsDataSelector);
 
     useDynamicModuleLoader({
-        reducers: {
-            articleDetails: articleDetailsReducer,
-        },
-        removeOnUnmount: true,
+        reducers: { articleDetails: articleDetailsReducer },
     });
 
     let articleContent;

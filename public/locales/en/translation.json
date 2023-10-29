@@ -17,5 +17,6 @@
     "An error has occured on profile update": "An error has occured on profile update",
     "An error has occured on article loading": "An error has occured on article loading",
     "There are no comments": "There are no comments",
-    "An error has occured on comments loading": "An error has occured on comments loading"
+    "An error has occured on comments loading": "An error has occured on comments loading",
+    "An error has occured on sending comment": "An error has occured on sending comment"
 }

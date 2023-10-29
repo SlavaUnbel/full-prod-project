@@ -23,7 +23,7 @@ export const updateProfileData = createAsyncThunk<
         }
 
         try {
-            const { data } = await api.put<Profile>('/profile', formData);
+            const { data } = await api.put<Profile>(`/profile/${formData?.id}`, formData);
 
             if (!data) {
                 throw new Error('No response received');
@@ -31,8 +31,6 @@ export const updateProfileData = createAsyncThunk<
 
             return data;
         } catch (error) {
-            console.log(error);
-
             return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
     },

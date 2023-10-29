@@ -13,7 +13,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
         const { api } = extra;
 
         if (!articleId) {
-            rejectWithValue('error');
+            return rejectWithValue('error');
         }
 
         try {
@@ -30,8 +30,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<
 
             return data;
         } catch (error) {
-            console.log(error);
-
             return rejectWithValue(i18n.t('An error has occured on comments loading'));
         }
     },
