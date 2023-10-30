@@ -1,12 +1,12 @@
+import { userAuthDataSelector } from 'entities/User';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
-import { SidebarItemType } from 'widgets/Sidebar/model/items';
 
-import { useSelector } from 'react-redux';
-import { userAuthDataSelector } from 'entities/User';
+import { SidebarItemType } from '../../model/types/sidebar';
 import styles from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

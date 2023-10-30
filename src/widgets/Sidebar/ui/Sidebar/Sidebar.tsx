@@ -1,9 +1,10 @@
 import { FC, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, LangSwitcher, ThemeSwitcher } from 'shared/ui';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button';
-import { sidebarItemsList } from 'widgets/Sidebar/model/items';
 
+import { sidebarItemsSelector } from '../../model/selectors/sidebarItemsSelector';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import styles from './Sidebar.module.scss';
 
@@ -12,6 +13,8 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ className }) => {
+    const sidebarItemsList = useSelector(sidebarItemsSelector);
+
     const [collapsed, setCollapsed] = useState(false);
 
     const handleToggle = () => {
