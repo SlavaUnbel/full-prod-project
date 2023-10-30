@@ -12,6 +12,7 @@ import { Select } from './Select';
 import { Skeleton } from './Skeleton';
 import { Icon } from './Icon';
 import { Code } from './Code';
+import { Card } from './Card';
 
 export {
     AppLink,
@@ -28,4 +29,5 @@ export {
     Skeleton,
     Icon,
     Code,
+    Card,
 };

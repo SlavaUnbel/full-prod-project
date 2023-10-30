@@ -7,6 +7,7 @@ export {
     ArticleTextBlock,
     ArticleType,
     ArticleDetailsSchema,
+    ArticleView,
 } from './model/types/article';
 
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
@@ -19,6 +20,8 @@ export {
 
 export { fetchArticleById } from './model/services/fetchArticleById';
 
+export { ArticlesList } from './ui/ArticlesList/ArticlesList';
+export { ArticlesListItem } from './ui/ArticlesListItem/ArticlesListItem';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleImageBlockComponent } from './ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 export { ArticleCodeBlockComponent } from './ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';

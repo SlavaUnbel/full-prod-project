@@ -9,6 +9,7 @@
   "Article is not found": "",
   "ArticlesPage": "",
   "Authorization form": "",
+  "Back to the articles list": "",
   "Cancel": "",
   "Comments": "",
   "Edit": "",
@@ -27,6 +28,13 @@
   "No data was received on profile loading": "",
   "Page is not found": "",
   "Profile": "",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Refresh the page": "",
   "Save": "",
   "Send": "",
