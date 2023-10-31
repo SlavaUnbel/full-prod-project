@@ -19,5 +19,6 @@
     "There are no comments": "Комментарии отсутствуют",
     "An error has occured on comments loading": "Произошла ошибка при загрузке комментариев",
     "An error has occured on sending comment": "Произошла ошибка при отправке комментария",
-    "Read more...": "Читать далее..."
+    "Read more...": "Читать далее...",
+    "An error has occured on articles loading": "Произошла ошибка при загрузке статей"
 }
