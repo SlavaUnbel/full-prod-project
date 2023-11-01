@@ -21,8 +21,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
-import { Page, Text } from 'shared/ui';
+import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text';
+import { Page } from 'widgets/Page';
 
 import { ProfilePageHeader } from './ProfilePageHeader';
 

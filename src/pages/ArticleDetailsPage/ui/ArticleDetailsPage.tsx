@@ -11,8 +11,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, Page, Text } from 'shared/ui';
+import { Button, Text } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
+import { Page } from 'widgets/Page';
 
 import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';

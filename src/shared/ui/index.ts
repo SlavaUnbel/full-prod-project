@@ -13,7 +13,6 @@ import { Skeleton } from './Skeleton';
 import { Icon } from './Icon';
 import { Code } from './Code';
 import { Card } from './Card';
-import { Page } from './Page';
 
 export {
     AppLink,
@@ -31,5 +30,4 @@ export {
     Icon,
     Code,
     Card,
-    Page,
 };

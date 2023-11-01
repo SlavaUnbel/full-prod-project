@@ -7,14 +7,15 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { NavigateOptions, To } from 'react-router-dom';
 
 import { AppDispatch } from './store';
 
 export interface ApplicationState {
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
 
     // Асинхронные редьюсеры
     login?: LoginSchema;
