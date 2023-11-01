@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { fetchArticlesList } from './fetchArticlesList';
+import { fetchArticlesList } from '../fetchArticlesList';
 
 describe('fetchArticlesList', () => {
     it('should fetchArticlesList action be fulfilled and return article data', async () => {
@@ -223,9 +223,18 @@ describe('fetchArticlesList', () => {
             },
         ];
 
-        const thunk = new TestAsyncThunk(fetchArticlesList);
+        const thunk = new TestAsyncThunk(fetchArticlesList, {
+            articlesPage: {
+                page: 2,
+                ids: [],
+                entities: {},
+                limit: 5,
+                isLoading: false,
+                hasMore: true,
+            },
+        });
         thunk.api.get.mockReturnValue(Promise.resolve({ data: articlesData }));
-        const result = await thunk.callThunkAction();
+        const result = await thunk.callThunkAction({ page: 1 });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -233,9 +242,18 @@ describe('fetchArticlesList', () => {
     });
 
     it('should fetchArticlesList action be rejected and return error text on bad response status', async () => {
-        const thunk = new TestAsyncThunk(fetchArticlesList);
+        const thunk = new TestAsyncThunk(fetchArticlesList, {
+            articlesPage: {
+                page: 2,
+                ids: [],
+                entities: {},
+                limit: 5,
+                isLoading: false,
+                hasMore: true,
+            },
+        });
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunkAction();
+        const result = await thunk.callThunkAction({ page: 1 });
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

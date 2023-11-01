@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Article, ArticleView } from '../../model/types/article';
@@ -33,20 +32,6 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
     isLoading,
     view = ArticleView.SMALL,
 }: ArticlesListProps) => {
-    const { t } = useTranslation();
-
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.articlesList, {
-                mods: {},
-                additional: [className],
-            })}
-            >
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticlesListItem
             key={article.id}
@@ -62,7 +47,9 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
             additional: [className],
         })}
         >
-            {articles.length ? articles.map(renderArticle) : null}
+            {articles.length > 0 ? articles.map(renderArticle) : null}
+
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

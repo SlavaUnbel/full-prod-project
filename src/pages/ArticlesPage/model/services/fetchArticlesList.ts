@@ -2,20 +2,26 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import i18n from 'shared/config/i18n/i18n';
+import { articlesPageLimitSelector } from '../selectors/articlesPageSelector';
 
 export const fetchArticlesList = createAsyncThunk<
     Article[],
-    void,
+    { page?: number },
     ThunkConfig<string>
 >(
     'articlesPage/fetchArticlesList',
-    async (_, { extra, rejectWithValue }) => {
+    async ({ page = 1 }, { extra, getState, rejectWithValue }) => {
         const { api } = extra;
+        const state = getState();
+
+        const limit = articlesPageLimitSelector(state);
 
         try {
             const { data } = await api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
+                    _page: page,
+                    _limit: limit,
                 },
             });
 

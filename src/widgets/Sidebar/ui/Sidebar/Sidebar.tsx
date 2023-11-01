@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
     };
 
     return (
-        <div
+        <menu
             className={classNames(styles.sidebar, {
                 mods: { [styles.collapsed]: collapsed },
                 additional: [className],
@@ -55,7 +55,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
 
                 <LangSwitcher short={collapsed} />
             </div>
-        </div>
+        </menu>
     );
 };
 

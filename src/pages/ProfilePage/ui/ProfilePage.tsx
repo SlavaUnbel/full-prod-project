@@ -15,15 +15,15 @@ import {
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
-import { Text } from 'shared/ui';
+import { Page, Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text';
 
-import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader';
 
 const ProfilePage: FC = () => {
@@ -97,7 +97,7 @@ const ProfilePage: FC = () => {
     useDynamicModuleLoader({ reducers: { profile: profileReducer } });
 
     return (
-        <div className={classNames('')}>
+        <Page className={classNames('')}>
             <ProfilePageHeader />
 
             {validateErrors?.length && validateErrors.map((error) => (
@@ -115,7 +115,7 @@ const ProfilePage: FC = () => {
                 readonly={readonly}
                 {...handlers}
             />
-        </div>
+        </Page>
     );
 };
 

@@ -236,6 +236,38 @@ describe('articlesPageSlice', () => {
         expect(localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY)).toEqual(ArticleView.BIG);
     });
 
+    it('should set page', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { page: 1 };
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.setPage(3),
+        );
+
+        expect(result).toEqual({ page: 3 });
+    });
+
+    it('should init state with big view', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.BIG };
+        localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, ArticleView.BIG);
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.initState(),
+        );
+
+        expect(result).toEqual({ limit: 4, view: ArticleView.BIG });
+    });
+
+    it('should init state with small view', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.SMALL };
+        localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, ArticleView.SMALL);
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.initState(),
+        );
+
+        expect(result).toEqual({ limit: 9, view: ArticleView.SMALL });
+    });
+
     it('should set state on fetchArticlesList pending', () => {
         const state: DeepPartial<ArticlesPageSchema> = { isLoading: false, error: '' };
         const result = articlesPageReducer(
@@ -254,12 +286,13 @@ describe('articlesPageSlice', () => {
         };
         const result = articlesPageReducer(
             state as ArticlesPageSchema,
-            fetchArticlesList.fulfilled(articlesData, ''),
+            fetchArticlesList.fulfilled(articlesData, '', {}),
         );
 
         expect(result).toEqual({
             isLoading: false,
             ids: ['1', '2', '3'],
+            hasMore: true,
             entities: {
                 1: {
                     id: '1',

@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
+import { Page } from 'shared/ui';
 
 import {
     articlesPageErrorSelector,
@@ -14,6 +15,7 @@ import {
     articlesPageViewSelector,
 } from '../model/selectors/articlesPageSelector';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
@@ -33,20 +35,26 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const error = useSelector(articlesPageErrorSelector);
     const view = useSelector(articlesPageViewSelector);
 
+    const handleLoadNextArticles = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlesPageActions.initState());
-    });
+        dispatch(fetchArticlesList({}));
+    }, [view]);
 
     const handleChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
     return (
-        <div className={classNames(styles.articlePage, {
-            mods: {},
-            additional: [className],
-        })}
+        <Page
+            onScrollEnd={handleLoadNextArticles}
+            className={classNames(styles.articlePage, {
+                mods: {},
+                additional: [className],
+            })}
         >
             <ArticleViewToggle view={view} onViewClick={handleChangeView} />
 
@@ -55,7 +63,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
                 view={view}
                 isLoading={isLoading}
             />
-        </div>
+        </Page>
     );
 };
 

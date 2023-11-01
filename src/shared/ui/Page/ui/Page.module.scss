@@ -1,0 +1,6 @@
+.page {
+    flex: 1;
+    padding: var(--gap-l) var(--gap-l) var(--gap-l) var(--gap-4xl);
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+}

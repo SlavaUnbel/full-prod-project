@@ -4,6 +4,9 @@ export {
     articlesPageLoadingSelector,
     articlesPageErrorSelector,
     articlesPageViewSelector,
+    articlesPagePageSelector,
+    articlesPageLimitSelector,
+    articlesPageHasMoreSelector,
 } from './model/selectors/articlesPageSelector';
 
 export {
@@ -13,5 +16,6 @@ export {
 } from './model/slice/articlesPageSlice';
 
 export { fetchArticlesList } from './model/services/fetchArticlesList';
+export { fetchNextArticlesPage } from './model/services/fetchNextArticlesPage';
 
 export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage.async';

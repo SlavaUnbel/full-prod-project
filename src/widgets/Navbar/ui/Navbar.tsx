@@ -38,7 +38,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
     if (authData) {
         return (
-            <div
+            <header
                 className={classNames(styles.navbar, {
                     mods: {},
                     additional: [className],
@@ -51,12 +51,12 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
                 >
                     { t('Log out') }
                 </Button>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div
+        <header
             className={classNames(styles.navbar, {
                 mods: {},
                 additional: [className],
@@ -72,7 +72,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
             { isAuthModalOpen
                 && (<LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />)}
-        </div>
+        </header>
     );
 };
 
