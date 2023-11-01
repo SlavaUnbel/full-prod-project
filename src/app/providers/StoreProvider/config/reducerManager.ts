@@ -2,15 +2,22 @@ import {
     AnyAction, combineReducers, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 
-import { ApplicationState, ApplicationStateKey, ReducerManager } from './ApplicationState';
+import {
+    ApplicationState, ApplicationStateKey, MountedReducers, ReducerManager,
+} from './ApplicationState';
 
-export function createReducerManager(initialReducers: ReducersMapObject<ApplicationState>): ReducerManager {
+export function createReducerManager(
+    initialReducers: ReducersMapObject<ApplicationState>,
+): ReducerManager {
     const reducers = { ...initialReducers };
     let combinedReducer = combineReducers(reducers);
     let keysToRemove: ApplicationStateKey[] = [];
 
+    const mountedReducers: MountedReducers = {};
+
     return {
         getReducerMap: () => reducers,
+        getMountedReducers: () => mountedReducers,
         reduce: (state: ApplicationState, action: AnyAction) => {
             if (keysToRemove.length > 0) {
                 state = { ...state };
@@ -28,6 +35,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<Applicat
             }
 
             reducers[key] = reducer;
+            mountedReducers[key] = true;
             combinedReducer = combineReducers(reducers);
         },
         remove: (key: ApplicationStateKey) => {
@@ -37,6 +45,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<Applicat
 
             delete reducers[key];
             keysToRemove.push(key);
+            mountedReducers[key] = false;
             combinedReducer = combineReducers(reducers);
         },
     };

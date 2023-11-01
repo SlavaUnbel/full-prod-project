@@ -14,3 +14,5 @@ export const articlesPagePageSelector = (state: ApplicationState) => articlesPag
 export const articlesPageLimitSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.limit || 9;
 
 export const articlesPageHasMoreSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.hasMore;
+
+export const articlesPageInitedSelector = (state: ApplicationState) => articlesPageStateSelector(state)?._inited;

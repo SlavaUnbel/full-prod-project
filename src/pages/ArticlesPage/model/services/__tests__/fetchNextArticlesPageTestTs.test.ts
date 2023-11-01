@@ -15,6 +15,7 @@ describe('fetchNextArticlesPage', () => {
                 limit: 5,
                 isLoading: false,
                 hasMore: true,
+                _inited: true,
             },
         });
 
@@ -33,6 +34,7 @@ describe('fetchNextArticlesPage', () => {
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
+                _inited: true,
             },
         });
 

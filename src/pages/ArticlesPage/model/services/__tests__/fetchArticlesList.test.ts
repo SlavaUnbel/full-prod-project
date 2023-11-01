@@ -231,6 +231,7 @@ describe('fetchArticlesList', () => {
                 limit: 5,
                 isLoading: false,
                 hasMore: true,
+                _inited: true,
             },
         });
         thunk.api.get.mockReturnValue(Promise.resolve({ data: articlesData }));
@@ -250,6 +251,7 @@ describe('fetchArticlesList', () => {
                 limit: 5,
                 isLoading: false,
                 hasMore: true,
+                _inited: true,
             },
         });
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));

@@ -7,6 +7,7 @@ export {
     articlesPagePageSelector,
     articlesPageLimitSelector,
     articlesPageHasMoreSelector,
+    articlesPageInitedSelector,
 } from './model/selectors/articlesPageSelector';
 
 export {
@@ -17,5 +18,6 @@ export {
 
 export { fetchArticlesList } from './model/services/fetchArticlesList';
 export { fetchNextArticlesPage } from './model/services/fetchNextArticlesPage';
+export { initArticlesPage } from './model/services/initArticlesPage';
 
 export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage.async';

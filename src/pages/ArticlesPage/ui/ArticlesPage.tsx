@@ -14,8 +14,8 @@ import {
     articlesPageLoadingSelector,
     articlesPageViewSelector,
 } from '../model/selectors/articlesPageSelector';
-import { fetchArticlesList } from '../model/services/fetchArticlesList';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
@@ -26,7 +26,10 @@ interface ArticlesPageProps {
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const { t } = useTranslation(Translations.ARTICLES);
 
-    useDynamicModuleLoader({ reducers: { articlesPage: articlesPageReducer } });
+    useDynamicModuleLoader({
+        reducers: { articlesPage: articlesPageReducer },
+        removeOnUnmount: false,
+    });
 
     const dispatch = useAppDispatch();
 
@@ -40,9 +43,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({}));
-    }, [view]);
+        dispatch(initArticlesPage());
+    });
 
     const handleChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));

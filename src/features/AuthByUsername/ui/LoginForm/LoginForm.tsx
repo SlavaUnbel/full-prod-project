@@ -20,6 +20,8 @@ import { Button, Input, Text } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
 
+import { useNavigate } from 'react-router-dom';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -29,6 +31,8 @@ interface LoginFormProps {
 
 const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
 
     const dispatch = useAppDispatch();
 
@@ -50,8 +54,9 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
 
         if (isFulfilled(result)) {
             onSuccess();
+            navigate(`${AppRoutes.PROFILE}/${result.payload.id}`);
         }
-    }, [password, username, dispatch, onSuccess]);
+    }, [dispatch, username, password, onSuccess, navigate]);
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Enter') {

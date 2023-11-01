@@ -27,11 +27,14 @@ export interface ApplicationState {
 
 export type ApplicationStateKey = keyof ApplicationState;
 
+export type MountedReducers = OptionalRecord<ApplicationStateKey, boolean>;
+
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<ApplicationState>;
     reduce: (state: ApplicationState, action: AnyAction) => CombinedState<ApplicationState>;
     add: (key: ApplicationStateKey, reducer: Reducer) => void;
     remove: (key: ApplicationStateKey) => void;
+    getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<ApplicationState> {
@@ -40,7 +43,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<ApplicationState> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {
