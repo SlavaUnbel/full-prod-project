@@ -5,16 +5,17 @@ import {
     DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance,
 } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from 'copy-webpack-plugin';
 
 import { BuildOptions } from './types/config';
 
 export default function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
     const {
-        paths: { html }, isDev, apiUrl, project,
+        paths, isDev, apiUrl, project,
     } = options;
 
     const plugins = [
-        new HTMLWebpackPlugin({ template: html }),
+        new HTMLWebpackPlugin({ template: paths.html }),
         new ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
@@ -24,6 +25,11 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buildLocales },
+            ],
         }),
     ];
 
