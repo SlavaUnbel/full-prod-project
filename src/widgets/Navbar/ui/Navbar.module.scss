@@ -12,3 +12,8 @@
     display: flex;
     gap: var(--gap-m);
 }
+
+.appName {
+    width: var(--sidebar-width);
+    margin: 0 var(--gap-3xs) 0 var(--gap-xl);
+}

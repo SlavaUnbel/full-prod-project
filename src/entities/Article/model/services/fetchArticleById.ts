@@ -14,7 +14,11 @@ export const fetchArticleById = createAsyncThunk<
         const { api } = extra;
 
         try {
-            const { data } = await api.get<Article>(`/articles/${articleId}`);
+            const { data } = await api.get<Article>(`/articles/${articleId}`, {
+                params: {
+                    _expand: 'user',
+                },
+            });
 
             if (!data) {
                 throw new Error('No response received');

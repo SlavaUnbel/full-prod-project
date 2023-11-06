@@ -18,6 +18,8 @@ export {
     articleDetailsRecommendationsErrorSelector,
 } from './model/selectors/articleDetailsRecommendationsSelector';
 
+export { articleDetailsCanEditArticleSelector } from './model/selectors/articleDetailsSelector';
+
 export { fetchCommentsByArticleId } from './model/services/fetchCommentsByArticleId';
 export { sendCommentForArticle } from './model/services/sendCommentForArticle';
 export { fetchArticlesRecommendations } from './model/services/fetchArticlesRecommendations';

@@ -4,15 +4,13 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, Text } from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
+import { Text } from 'shared/ui';
 import { Page } from 'widgets/Page';
 
 import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
@@ -24,6 +22,7 @@ import { articleDetailsPageReducer } from '../model/slices';
 import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
 import styles from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -31,7 +30,6 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     const { t } = useTranslation(Translations.ARTICLES);
-    const navigate = useNavigate();
 
     const dispatch = useAppDispatch();
 
@@ -50,10 +48,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommendations());
     });
-
-    const handleNavigateBack = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const handleSendComment = useCallback((text?: string) => {
         dispatch(sendCommentForArticle(text));
@@ -77,9 +71,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
             additional: [className],
         })}
         >
-            <Button theme={ButtonTheme.OUTLINE} onClick={handleNavigateBack}>
-                {t('Back to the articles list')}
-            </Button>
+            <ArticleDetailsPageHeader />
 
             <ArticleDetails id={id || ''} />
 
