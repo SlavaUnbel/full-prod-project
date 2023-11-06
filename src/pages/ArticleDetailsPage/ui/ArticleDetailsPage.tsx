@@ -1,4 +1,4 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticlesList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { FC, useCallback } from 'react';
@@ -16,9 +16,13 @@ import { ButtonTheme } from 'shared/ui/Button';
 import { Page } from 'widgets/Page';
 
 import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
+import { articleDetailsRecommendationsLoadingSelector } from '../model/selectors/articleDetailsRecommendationsSelector';
+import { fetchArticlesRecommendations } from '../model/services/fetchArticlesRecommendations';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { sendCommentForArticle } from '../model/services/sendCommentForArticle';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsCommentsSlice';
+import { articleDetailsPageReducer } from '../model/slices';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -34,14 +38,17 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     const { id } = useParams<{id: string}>();
 
     const comments = useSelector(getArticleComments.selectAll);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
     const commentsLoading = useSelector(articleDetailsCommentsLoadingSelector);
+    const recommendationsLoading = useSelector(articleDetailsRecommendationsLoadingSelector);
 
     useDynamicModuleLoader({
-        reducers: { articleDetailsComments: articleDetailsCommentsReducer },
+        reducers: { articleDetailsPage: articleDetailsPageReducer },
     });
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticlesRecommendations());
     });
 
     const handleNavigateBack = useCallback(() => {
@@ -76,10 +83,17 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
             <ArticleDetails id={id || ''} />
 
-            <AddCommentForm onSendComment={handleSendComment} />
+            <Text title={t('Recommenddations')} className={styles.recommendationsTitle} />
+            <ArticlesList
+                articles={recommendations}
+                isLoading={recommendationsLoading}
+                className={styles.recommendations}
+                // eslint-disable-next-line i18next/no-literal-string
+                target="_blank"
+            />
 
             <Text title={t('Comments')} className={styles.commentsTitle} />
-
+            <AddCommentForm onSendComment={handleSendComment} className={styles.commentsForm} />
             <CommentList
                 comments={comments}
                 isLoading={commentsLoading}

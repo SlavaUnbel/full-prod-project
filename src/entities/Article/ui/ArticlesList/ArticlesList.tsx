@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Text } from 'shared/ui';
@@ -15,6 +15,7 @@ interface ArticlesListProps {
     className?: string;
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -35,8 +36,19 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
     className,
     isLoading,
     view = ArticleView.SMALL,
+    target,
 }: ArticlesListProps) => {
     const { t } = useTranslation(Translations.ARTICLES);
+
+    const renderArticle = (article: Article) => (
+        <ArticlesListItem
+            key={article.id}
+            article={article}
+            view={view}
+            className={styles.card}
+            target={target}
+        />
+    );
 
     if (!isLoading && !articles.length) {
         return (
@@ -49,15 +61,6 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
             </div>
         );
     }
-
-    const renderArticle = (article: Article) => (
-        <ArticlesListItem
-            key={article.id}
-            article={article}
-            view={view}
-            className={styles.card}
-        />
-    );
 
     return (
         <div className={classNames(styles.articlesList, {

@@ -2,6 +2,20 @@
     min-height: 100%;
 }
 
+.recommendationsTitle {
+    margin: var(--gap-l) 0 var(--gap-m);
+}
+
+.recommendations {
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
 .commentsTitle {
     margin: var(--gap-l) 0 var(--gap-m);
+}
+
+.commentsForm {
+    margin-bottom: var(--gap-l);
 }

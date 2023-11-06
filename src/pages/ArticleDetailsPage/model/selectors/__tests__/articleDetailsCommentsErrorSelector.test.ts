@@ -5,8 +5,10 @@ import { articleDetailsCommentsErrorSelector } from '../articleDetailsCommentsSe
 describe('articleDetailsCommentsErrorSelector', () => {
     it('should return the error text if the articleDetailsComments data has not been loaded due to a server error', () => {
         const state: DeepPartial<ApplicationState> = {
-            articleDetailsComments: {
-                error: 'error',
+            articleDetailsPage: {
+                comments: {
+                    error: 'error',
+                },
             },
         };
 
@@ -17,7 +19,9 @@ describe('articleDetailsCommentsErrorSelector', () => {
 
     it('should return undefined if error field is not present in the reducer', () => {
         const state: DeepPartial<ApplicationState> = {
-            articleDetailsComments: {},
+            articleDetailsPage: {
+                comments: {},
+            },
         };
 
         const result = articleDetailsCommentsErrorSelector(state as ApplicationState);
