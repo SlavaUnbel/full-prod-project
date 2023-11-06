@@ -1,5 +1,5 @@
-import { CountrySelect } from 'entities/Country';
-import { CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -145,7 +145,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({
                     ? (
                         <SelectComponent
                             key={label}
-                            value={value}
+                            value={value as any}
                             onChange={onChange}
                             readonly={readonly}
                             className={styles.select}

@@ -7,6 +7,10 @@ export {
     articlesPagePageSelector,
     articlesPageLimitSelector,
     articlesPageHasMoreSelector,
+    articlesPageOrderSelector,
+    articlesPageSearchSelector,
+    articlesPageSortSelector,
+    articlesPageTypeSelector,
     articlesPageInitedSelector,
 } from './model/selectors/articlesPageSelector';
 

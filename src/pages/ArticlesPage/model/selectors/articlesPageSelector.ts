@@ -1,5 +1,5 @@
 import { ApplicationState } from 'app/providers/StoreProvider';
-import { ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 
 export const articlesPageStateSelector = (state: ApplicationState) => state.articlesPage;
 
@@ -14,5 +14,13 @@ export const articlesPagePageSelector = (state: ApplicationState) => articlesPag
 export const articlesPageLimitSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.limit || 9;
 
 export const articlesPageHasMoreSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.hasMore;
+
+export const articlesPageOrderSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.order ?? 'asc';
+
+export const articlesPageSortSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.sort ?? ArticleSortField.CREATED;
+
+export const articlesPageSearchSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.search ?? '';
+
+export const articlesPageTypeSelector = (state: ApplicationState) => articlesPageStateSelector(state)?.type ?? ArticleType.ALL;
 
 export const articlesPageInitedSelector = (state: ApplicationState) => articlesPageStateSelector(state)?._inited;

@@ -22,7 +22,7 @@ describe('fetchNextArticlesPage', () => {
         await thunk.callThunkAction();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     it('should fetchAritclesList thunk action not be called when hasMore flag is falsy', async () => {

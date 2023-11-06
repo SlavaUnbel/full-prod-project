@@ -1,3 +1,3 @@
-import { Card } from './Card/Card';
+export { CardTheme } from './lib/card';
 
-export { Card };
+export { Card } from './ui/Card';

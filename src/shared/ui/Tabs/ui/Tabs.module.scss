@@ -1,0 +1,8 @@
+.tabs {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.tab {
+    cursor: pointer;
+}

@@ -1,9 +1,12 @@
-import { Article, ArticleView } from 'entities/Article';
+import {
+    Article, ArticleSortField, ArticleType, ArticleView,
+} from 'entities/Article';
 
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPage';
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
+import { SortOrder } from '../../../../shared/types/index';
 
 const articlesData = [
     {
@@ -226,13 +229,13 @@ const articlesData = [
 
 describe('articlesPageSlice', () => {
     it('should set view', () => {
-        const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.SMALL };
+        const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.SMALL, page: 3 };
         const result = articlesPageReducer(
             state as ArticlesPageSchema,
             articlesPageActions.setView(ArticleView.BIG),
         );
 
-        expect(result).toEqual({ view: ArticleView.BIG });
+        expect(result).toEqual({ view: ArticleView.BIG, page: 1 });
         expect(localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY)).toEqual(ArticleView.BIG);
     });
 
@@ -246,6 +249,46 @@ describe('articlesPageSlice', () => {
         expect(result).toEqual({ page: 3 });
     });
 
+    it('should set order', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { order: 'asc' };
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.setOrder('desc'),
+        );
+
+        expect(result).toEqual({ order: 'desc', page: 1 });
+    });
+
+    it('should set sort', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { sort: ArticleSortField.CREATED };
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.setSort(ArticleSortField.TITLE),
+        );
+
+        expect(result).toEqual({ sort: ArticleSortField.TITLE, page: 1 });
+    });
+
+    it('should set search', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { search: '' };
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.setSearch('search query'),
+        );
+
+        expect(result).toEqual({ search: 'search query', page: 1 });
+    });
+
+    it('should set type', () => {
+        const state: DeepPartial<ArticlesPageSchema> = { type: ArticleType.ALL };
+        const result = articlesPageReducer(
+            state as ArticlesPageSchema,
+            articlesPageActions.setType(ArticleType.IT),
+        );
+
+        expect(result).toEqual({ type: ArticleType.IT, page: 1 });
+    });
+
     it('should init state with big view', () => {
         const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.BIG };
         localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, ArticleView.BIG);
@@ -254,7 +297,7 @@ describe('articlesPageSlice', () => {
             articlesPageActions.initState(),
         );
 
-        expect(result).toEqual({ limit: 4, view: ArticleView.BIG });
+        expect(result).toEqual({ limit: 4, view: ArticleView.BIG, _inited: true });
     });
 
     it('should init state with small view', () => {
@@ -265,14 +308,14 @@ describe('articlesPageSlice', () => {
             articlesPageActions.initState(),
         );
 
-        expect(result).toEqual({ limit: 9, view: ArticleView.SMALL });
+        expect(result).toEqual({ limit: 9, view: ArticleView.SMALL, _inited: true });
     });
 
     it('should set state on fetchArticlesList pending', () => {
         const state: DeepPartial<ArticlesPageSchema> = { isLoading: false, error: '' };
         const result = articlesPageReducer(
             state as ArticlesPageSchema,
-            fetchArticlesList.pending,
+            fetchArticlesList.pending('', {}),
         );
 
         expect(result).toEqual({ isLoading: true });
@@ -292,7 +335,7 @@ describe('articlesPageSlice', () => {
         expect(result).toEqual({
             isLoading: false,
             ids: ['1', '2', '3'],
-            hasMore: true,
+            hasMore: false,
             entities: {
                 1: {
                     id: '1',

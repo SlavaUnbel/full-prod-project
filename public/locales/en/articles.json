@@ -4,5 +4,18 @@
     "Comments": "Comments",
     "Enter comment": "Enter comment",
     "Send": "Send",
-    "Back to the articles list": "Back to the articles list"
+    "Back to the articles list": "Back to the articles list",
+    "Search": "Search",
+    "Sort field": "Sort field",
+    "Sort order": "Sort order",
+    "Ascending": "Ascending",
+    "Descending": "Descending",
+    "Creation date": "Дата создания",
+    "Title": "Название",
+    "Views": "Количество просмотров",
+    "IT": "IT",
+    "Economics": "Economics",
+    "Science": "Science",
+    "All articles": "All articles",
+    "Articles not found": "Статьи не найдены"
 }

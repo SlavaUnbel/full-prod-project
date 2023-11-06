@@ -1,6 +1,10 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { Text } from 'shared/ui';
+import { TextSize } from 'shared/ui/Text';
+import { useTranslation } from 'react-i18next';
+import { Translations } from 'shared/lib/translations/translations';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
@@ -32,6 +36,20 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
     isLoading,
     view = ArticleView.SMALL,
 }: ArticlesListProps) => {
+    const { t } = useTranslation(Translations.ARTICLES);
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(styles.articlesList, {
+                mods: {},
+                additional: [className],
+            })}
+            >
+                <Text size={TextSize.L} title={t('Articles not found')} />
+            </div>
+        );
+    }
+
     const renderArticle = (article: Article) => (
         <ArticlesListItem
             key={article.id}

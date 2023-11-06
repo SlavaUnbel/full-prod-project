@@ -4,3 +4,8 @@
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
 }
+
+.scrollTrigger {
+    height: 20px;
+    margin: var(--gap-s);
+}

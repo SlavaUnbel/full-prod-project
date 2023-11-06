@@ -15,13 +15,13 @@ describe('addCommentFormTextSelector', () => {
         expect(result).toBe('comment');
     });
 
-    it('should return undefined if text field is not present in the reducer', () => {
+    it('should return empty string if text field is not present in the reducer', () => {
         const state: DeepPartial<ApplicationState> = {
             addCommentForm: {},
         };
 
         const result = addCommentFormTextSelector(state as ApplicationState);
 
-        expect(result).toBe(undefined);
+        expect(result).toBe('');
     });
 });

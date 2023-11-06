@@ -1,22 +1,22 @@
-import { ArticlesList, ArticleView, ArticleViewToggle } from 'entities/Article';
+import { ArticlesList, ArticlesPageFilters } from 'entities/Article';
 import { FC, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Translations } from 'shared/lib/translations/translations';
 import { Page } from 'widgets/Page';
 
+import { useSearchParams } from 'react-router-dom';
 import {
     articlesPageErrorSelector,
     articlesPageLoadingSelector,
+    articlesPageSearchSelector,
     articlesPageViewSelector,
 } from '../model/selectors/articlesPageSelector';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -24,12 +24,12 @@ interface ArticlesPageProps {
 }
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-    const { t } = useTranslation(Translations.ARTICLES);
-
     useDynamicModuleLoader({
         reducers: { articlesPage: articlesPageReducer },
         removeOnUnmount: false,
     });
+
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const dispatch = useAppDispatch();
 
@@ -37,18 +37,15 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const isLoading = useSelector(articlesPageLoadingSelector);
     const error = useSelector(articlesPageErrorSelector);
     const view = useSelector(articlesPageViewSelector);
+    const search = useSelector(articlesPageSearchSelector);
 
     const handleLoadNextArticles = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
-    });
-
-    const handleChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
+        dispatch(initArticlesPage(searchParams));
+    }, [search]);
 
     return (
         <Page
@@ -58,7 +55,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
                 additional: [className],
             })}
         >
-            <ArticleViewToggle view={view} onViewClick={handleChangeView} />
+            <ArticlesPageFilters />
 
             <ArticlesList
                 articles={articles}

@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
@@ -9,12 +9,12 @@ import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
     className?: string;
-    value?: string;
+    value?: Currency;
     readonly?: boolean;
     onChange?: (value: Currency) => void;
 }
 
-const options: SelectOption[] = Object.values(Currency)
+const options: SelectOption<Currency>[] = Object.values(Currency)
     .map((currency) => ({ value: currency, content: currency }));
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo(({
@@ -24,10 +24,6 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(({
     onChange,
 }: CurrencySelectProps) => {
     const { t } = useTranslation(Translations.PROFILE);
-
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
 
     return (
         <Select
@@ -39,7 +35,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(({
             options={options}
             value={value}
             readonly={readonly}
-            onChange={onChangeHandler}
+            onChange={onChange}
         />
     );
 });

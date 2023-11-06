@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
@@ -9,12 +9,12 @@ import { Country } from 'entities/Country';
 
 interface CountrySelectProps {
     className?: string;
-    value?: string;
+    value?: Country;
     readonly?: boolean;
     onChange?: (value: Country) => void;
 }
 
-const options: SelectOption[] = Object.values(Country)
+const options: SelectOption<Country>[] = Object.values(Country)
     .map((currency) => ({ value: currency, content: currency }));
 
 export const CountrySelect: FC<CountrySelectProps> = memo(({
@@ -24,10 +24,6 @@ export const CountrySelect: FC<CountrySelectProps> = memo(({
     onChange,
 }: CountrySelectProps) => {
     const { t } = useTranslation(Translations.PROFILE);
-
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
 
     return (
         <Select
@@ -39,7 +35,7 @@ export const CountrySelect: FC<CountrySelectProps> = memo(({
             options={options}
             value={value}
             readonly={readonly}
-            onChange={onChangeHandler}
+            onChange={onChange}
         />
     );
 });
