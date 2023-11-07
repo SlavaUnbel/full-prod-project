@@ -18,6 +18,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'ulbi-tv-plugin',
     ],
     rules: {
         indent: ['warn', 4],
@@ -61,6 +62,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'no-nested-ternary': 'off',
+        'ulbi-tv-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

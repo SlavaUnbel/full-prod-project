@@ -1,15 +1,3 @@
-import {
-    ArticleBlock,
-    ArticleBlockType,
-    ArticleCodeBlockComponent,
-    articleDetailsDataSelector,
-    articleDetailsErrorSelector,
-    articleDetailsLoadingSelector,
-    articleDetailsReducer,
-    ArticleImageBlockComponent,
-    ArticleTextBlockComponent,
-    fetchArticleById,
-} from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -25,6 +13,17 @@ import {
 } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Text';
 
+import {
+    articleDetailsDataSelector,
+    articleDetailsErrorSelector,
+    articleDetailsLoadingSelector,
+} from '../../model/selectors/articleDetailsSelector';
+import { fetchArticleById } from '../../model/services/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

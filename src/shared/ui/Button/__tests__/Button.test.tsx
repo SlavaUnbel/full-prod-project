@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Button } from 'shared/ui';
 
 import { ButtonTheme } from '../lib/ButtonTheme';
+import Button from '../ui/Button';
 
 describe('Button', () => {
     it('should button be in the document', () => {

@@ -1,18 +1,11 @@
 import { isFulfilled } from '@reduxjs/toolkit';
 import {
-    loginActions,
-    loginByUsername,
-    loginErrorSelector,
-    loginLoadingSelector,
-    loginPasswordSelector,
-    loginReducer,
-    loginUsernameSelector,
-} from 'features/AuthByUsername';
-import {
     FC, memo, useCallback, useEffect,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
@@ -20,8 +13,12 @@ import { Button, Input, Text } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
 
-import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { loginErrorSelector } from '../../model/selectors/loginErrorSelector';
+import { loginLoadingSelector } from '../../model/selectors/loginLoadingSelector';
+import { loginPasswordSelector } from '../../model/selectors/loginPasswordSelector';
+import { loginUsernameSelector } from '../../model/selectors/loginUsernameSelector';
+import { loginByUsername } from '../../model/services/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {

@@ -5,7 +5,7 @@ import { Translations } from 'shared/lib/translations/translations';
 import { Select } from 'shared/ui';
 import { SelectOption } from 'shared/ui/Select';
 
-import { Country } from 'entities/Country';
+import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
     className?: string;

@@ -1,3 +1,4 @@
+import { articleDetailsDataSelector } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,8 +9,7 @@ import { Translations } from 'shared/lib/translations/translations';
 import { Button } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
-import { articleDetailsCanEditArticleSelector } from 'pages/ArticleDetailsPage/model/selectors/articleDetailsSelector';
-import { articleDetailsDataSelector } from 'entities/Article';
+import { articleDetailsCanEditArticleSelector } from '../../model/selectors/articleDetailsSelector';
 import styles from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
