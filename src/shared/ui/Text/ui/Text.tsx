@@ -15,6 +15,14 @@ interface TextProps {
     size?: TextSize;
 }
 
+type HeaderTag = 'h1' | 'h2' | 'h3';
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1',
+};
+
 const Text: FC<TextProps> = ({
     className,
     title,
@@ -22,19 +30,23 @@ const Text: FC<TextProps> = ({
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
     size = TextSize.M,
-}) => (
-    <div className={classNames(styles.text, {
-        mods: {
-            [styles[theme]]: true,
-            [styles[align]]: true,
-            [styles[size]]: true,
-        },
-        additional: [className],
-    })}
-    >
-        { title && <p className={styles.title}>{title}</p> }
-        { text && <p className={styles.text}>{text}</p> }
-    </div>
-);
+}) => {
+    const HeaderTag = mapSizeToHeaderTag[size];
+
+    return (
+        <div className={classNames(styles.text, {
+            mods: {
+                [styles[theme]]: true,
+                [styles[align]]: true,
+                [styles[size]]: true,
+            },
+            additional: [className],
+        })}
+        >
+            { title && <HeaderTag className={styles.title}>{title}</HeaderTag> }
+            { text && <p className={styles.text}>{text}</p> }
+        </div>
+    );
+};
 
 export default memo(Text);

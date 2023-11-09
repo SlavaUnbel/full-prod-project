@@ -4,21 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button } from 'shared/ui';
+import { Button, HStack } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
 import { articleDetailsCanEditArticleSelector } from '../../model/selectors/articleDetailsSelector';
 import styles from './ArticleDetailsPageHeader.module.scss';
 
-interface ArticleDetailsPageHeaderProps {
-    className?: string;
-}
-
-export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(({
-    className,
-}: ArticleDetailsPageHeaderProps) => {
+export const ArticleDetailsPageHeader: FC = memo(() => {
     const { t } = useTranslation(Translations.ARTICLES);
 
     const navigate = useNavigate();
@@ -35,11 +28,7 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(styles.articleDetailsPageHeader, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <HStack>
             <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={handleNavigateBack}
@@ -56,6 +45,6 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
                     {t('Edit')}
                 </Button>
             ) }
-        </div>
+        </HStack>
     );
 });

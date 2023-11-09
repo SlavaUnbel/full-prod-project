@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { HStack } from '../../Stack';
 import { Card, CardTheme } from '../../Card';
 import { TabItem } from '../lib/tabs';
 import styles from './Tabs.module.scss';
@@ -23,10 +24,9 @@ export const Tabs = <T extends string>({
     }, [onTabClick]);
 
     return (
-        <div className={classNames(styles.tabs, {
-            mods: {},
-            additional: [className],
-        })}
+        <HStack
+            gap="gap-xs"
+            className={classNames('', { mods: {}, additional: [className] })}
         >
             {tabs.map((tab) => (
                 <Card
@@ -34,10 +34,11 @@ export const Tabs = <T extends string>({
                     key={tab.value}
                     theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
                     onClick={handleClick(tab)}
+                    role="button"
                 >
                     {tab.content}
                 </Card>
             ))}
-        </div>
+        </HStack>
     );
 };

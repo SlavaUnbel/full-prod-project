@@ -9,7 +9,9 @@ import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { Button, Input, Text } from 'shared/ui';
+import {
+    Button, Input, Text, VStack,
+} from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
 
@@ -72,16 +74,16 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     }, [handleKeyDown]);
 
     return (
-        <div className={classNames(styles.loginForm, {
+        <VStack className={classNames(styles.loginForm, {
             mods: {},
             additional: [className],
         })}
         >
-            <div className={styles.titleWrapper}>
+            <VStack className={styles.titleWrapper}>
                 <Text title={t('Authorization form')} />
 
                 { error && <Text text={error} theme={TextTheme.ERROR} /> }
-            </div>
+            </VStack>
 
             <Input
                 value={username}
@@ -108,7 +110,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
             >
                 {t('Log in')}
             </Button>
-        </div>
+        </VStack>
     );
 };
 

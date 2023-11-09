@@ -20,17 +20,28 @@ export const CommentList: FC<CommentListProps> = memo(({
 }: CommentListProps) => {
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.commentList, {
-                mods: {},
-                additional: [className],
-            })}
-            >
-                { [1, 2, 3].map((mockComment) => <CommentItem key={mockComment} isLoading />) }
-            </div>
-        );
-    }
+    const renderContent = () => {
+        if (isLoading) {
+            return (
+                <>
+                    { [1, 2, 3].map((mockComment) => <CommentItem key={mockComment} isLoading />) }
+                </>
+            );
+        }
+
+        if (comments?.length) {
+            return comments?.map((comment) => (
+                <CommentItem
+                    key={comment.id}
+                    comment={comment}
+                    isLoading={isLoading}
+                    className={styles.comment}
+                />
+            ));
+        }
+
+        return <Text text={t('There are no comments')} />;
+    };
 
     return (
         <div className={classNames(styles.commentList, {
@@ -38,18 +49,7 @@ export const CommentList: FC<CommentListProps> = memo(({
             additional: [className],
         })}
         >
-            { comments?.length ? (
-                comments.map((comment) => (
-                    <CommentItem
-                        key={comment.id}
-                        comment={comment}
-                        isLoading={isLoading}
-                        className={styles.comment}
-                    />
-                ))
-            ) : (
-                <Text text={t('There are no comments')} />
-            ) }
+            {renderContent()}
         </div>
     );
 });

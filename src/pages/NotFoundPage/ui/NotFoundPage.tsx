@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
 import { Page } from 'widgets/Page';
 
+import { HStack } from 'shared/ui';
 import styles from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {}
@@ -13,7 +14,9 @@ const NotFoundPage: FC<NotFoundPageProps> = () => {
 
     return (
         <Page className={classNames(styles.notFoundPage)}>
-            { t('Page is not found') }
+            <HStack justify="center">
+                { t('Page is not found') }
+            </HStack>
         </Page>
     );
 };

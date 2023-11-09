@@ -5,13 +5,15 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Button, Text } from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
-
+import {
+    AppLink, Button, HStack, Text,
+} from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
+import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
-import styles from './Navbar.module.scss';
+
 import { RoutePath } from '../../../shared/config/routeConfig/routeConfig';
+import styles from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
@@ -41,7 +43,9 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
     if (authData) {
         return (
-            <header
+            <HStack
+                max
+                role="heading"
                 className={classNames(styles.navbar, {
                     mods: {},
                     additional: [className],
@@ -67,12 +71,14 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
                 >
                     { t('Log out') }
                 </Button>
-            </header>
+            </HStack>
         );
     }
 
     return (
-        <header
+        <HStack
+            max
+            role="heading"
             className={classNames(styles.navbar, {
                 mods: {},
                 additional: [className],
@@ -88,7 +94,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
             { isAuthModalOpen
                 && (<LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />)}
-        </header>
+        </HStack>
     );
 };
 

@@ -4,7 +4,9 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
-import { Avatar, Loader } from 'shared/ui';
+import {
+    Avatar, HStack, Loader, VStack,
+} from 'shared/ui';
 import { Input } from 'shared/ui/Input';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
 
@@ -103,22 +105,26 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.profileCard, {
-                mods,
-                additional: [className, styles.loading],
-            })}
+            <HStack
+                justify="center"
+                className={classNames(styles.profileCard, {
+                    mods,
+                    additional: [className, styles.loading],
+                })}
             >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(styles.profileCard, {
-                mods,
-                additional: [className, styles.error],
-            })}
+            <HStack
+                justify="center"
+                className={classNames(styles.profileCard, {
+                    mods,
+                    additional: [className, styles.error],
+                })}
             >
                 <Text
                     theme={TextTheme.ERROR}
@@ -126,16 +132,16 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({
                     text={t('Try to reload the page')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
     return (
-        <div className={classNames(styles.profileCard, { mods, additional: [className] })}>
+        <VStack className={classNames(styles.profileCard, { mods, additional: [className] })}>
             { data?.avatar && (
-                <div className={styles.avatarWrapper}>
+                <HStack className={styles.avatarWrapper}>
                     <Avatar src={data?.avatar} size={150} />
-                </div>
+                </HStack>
             ) }
 
             { inputs.map(({
@@ -161,6 +167,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({
                         />
                     )
             )) }
-        </div>
+        </VStack>
     );
 });

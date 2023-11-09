@@ -6,6 +6,7 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 
@@ -29,10 +30,10 @@ const App: FC = () => {
             <Suspense fallback="">
                 <Navbar />
 
-                <div className="content-page">
+                <HStack>
                     <Sidebar />
                     {inited && <AppRouter /> }
-                </div>
+                </HStack>
             </Suspense>
         </div>
     );

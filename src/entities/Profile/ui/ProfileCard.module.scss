@@ -10,15 +10,11 @@
 
 .loading,
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 300px;
 }
 
 .avatarWrapper {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .editing {

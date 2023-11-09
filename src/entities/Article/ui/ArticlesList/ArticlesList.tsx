@@ -1,14 +1,12 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Text } from 'shared/ui';
+import { HStack, Text } from 'shared/ui';
 import { TextSize } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { Translations } from 'shared/lib/translations/translations';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
-import styles from './ArticlesList.module.scss';
 
 interface ArticlesListProps {
     articles: Article[];
@@ -27,7 +25,7 @@ const getSkeletons = (view: ArticleView) => {
     return new Array(mapViewToAmount[view])
         .fill(0)
         .map((item, index) => (
-            <ArticlesListItemSkeleton className={styles.card} key={index} view={view} />
+            <ArticlesListItemSkeleton key={index} view={view} />
         ));
 };
 
@@ -45,32 +43,23 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({
             key={article.id}
             article={article}
             view={view}
-            className={styles.card}
             target={target}
         />
     );
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(styles.articlesList, {
-                mods: {},
-                additional: [className],
-            })}
-            >
+            <HStack gap="gap-2xl" wrap="wrap" className={className}>
                 <Text size={TextSize.L} title={t('Articles not found')} />
-            </div>
+            </HStack>
         );
     }
 
     return (
-        <div className={classNames(styles.articlesList, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <HStack gap="gap-2xl" wrap="wrap" className={className}>
             {articles.length > 0 ? articles.map(renderArticle) : null}
 
             {isLoading && getSkeletons(view)}
-        </div>
+        </HStack>
     );
 });

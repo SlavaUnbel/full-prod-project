@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
+import { HStack } from '../../Stack';
 import styles from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
@@ -61,15 +62,11 @@ const Input: FC<InputProps> = ({
     }, [autoFocus]);
 
     return (
-        <div className={classNames(styles.inputWrapper, {
-            mods,
-            additional: [className],
-        })}
-        >
+        <HStack max className={classNames('', { mods, additional: [className] })}>
             { placeholder && (
-                <div className={styles.placeholder}>
+                <span className={styles.placeholder}>
                     { `${placeholder}>` }
-                </div>
+                </span>
             ) }
 
             <div className={styles.caretWrapper}>
@@ -95,8 +92,7 @@ const Input: FC<InputProps> = ({
                     />
                 ) }
             </div>
-
-        </div>
+        </HStack>
     );
 };
 

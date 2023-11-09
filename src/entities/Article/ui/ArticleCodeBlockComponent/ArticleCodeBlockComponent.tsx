@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Code } from 'shared/ui';
 
@@ -14,16 +13,12 @@ interface ArticleCodeBlockComponentProps {
 export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = memo(({
     block,
     className,
-}: ArticleCodeBlockComponentProps) => {
-    const { t } = useTranslation();
-
-    return (
-        <div className={classNames(styles.articleCodeBlockComponent, {
-            mods: {},
-            additional: [className],
-        })}
-        >
-            <Code text={block.code} />
-        </div>
-    );
-});
+}: ArticleCodeBlockComponentProps) => (
+    <div className={classNames(styles.articleCodeBlockComponent, {
+        mods: {},
+        additional: [className],
+    })}
+    >
+        <Code text={block.code} />
+    </div>
+));

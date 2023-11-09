@@ -69,6 +69,14 @@ export const ErrorText: Story = {
     },
 };
 
+export const TextSizeS: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text',
+        size: TextSize.S,
+    },
+};
+
 export const TextSizeL: Story = {
     args: {
         title: 'Title',

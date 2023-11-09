@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    AppLink, Avatar, Skeleton, Text,
+    AppLink, Avatar, HStack, Skeleton, Text,
 } from 'shared/ui';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -19,36 +19,29 @@ export const CommentItem: FC<CommentItemProps> = memo(({
     isLoading,
     className,
 }: CommentItemProps) => {
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.loadingItem, {
-                mods: {},
-                additional: [className],
-            })}
-            >
-                <div className={styles.header}>
-                    <Skeleton width={30} height={30} border="50%" className={styles.avatar} />
-
-                    <Skeleton height={16} width={100} />
-                </div>
-
-                <Skeleton width="100%" height={50} />
-            </div>
-        );
-    }
-
     if (!comment) {
         return null;
     }
 
-    return (
-        <div className={classNames(styles.commentItem, {
-            mods: {},
-            additional: [className],
-        })}
-        >
-            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
-                { comment.user.avatar
+    const renderContent = () => {
+        if (isLoading) {
+            return (
+                <>
+                    <HStack className={styles.header}>
+                        <Skeleton width={30} height={30} border="50%" className={styles.avatar} />
+
+                        <Skeleton height={16} width={100} />
+                    </HStack>
+
+                    <Skeleton width="100%" height={50} />
+                </>
+            );
+        }
+
+        return (
+            <>
+                <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
+                    { comment.user.avatar
                 && (
                     <Avatar
                         src={comment.user.avatar}
@@ -57,10 +50,21 @@ export const CommentItem: FC<CommentItemProps> = memo(({
                     />
                 )}
 
-                <Text title={comment.user.username} />
-            </AppLink>
+                    <Text title={comment.user.username} />
+                </AppLink>
 
-            <Text text={comment.text} />
+                <Text text={comment.text} />
+            </>
+        );
+    };
+
+    return (
+        <div className={classNames(styles.commentItem, {
+            mods: {},
+            additional: [className],
+        })}
+        >
+            {renderContent()}
         </div>
     );
 });

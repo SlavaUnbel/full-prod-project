@@ -14,6 +14,7 @@ import { Icon } from './Icon';
 import { Code } from './Code';
 import { Card } from './Card';
 import { Tabs } from './Tabs';
+import { HStack, VStack } from './Stack';
 
 export {
     AppLink,
@@ -32,4 +33,6 @@ export {
     Code,
     Card,
     Tabs,
+    HStack,
+    VStack,
 };

@@ -5,9 +5,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, Input } from 'shared/ui';
+import { Button, HStack, Input } from 'shared/ui';
 
-import { addCommentFormErrorSelector, addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
+import { addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
 import styles from './AddCommentForm.module.scss';
 
@@ -26,7 +26,6 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
     const dispatch = useAppDispatch();
 
     const text = useSelector(addCommentFormTextSelector);
-    const error = useSelector(addCommentFormErrorSelector);
 
     const handleCommentTextChange = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));
@@ -38,10 +37,12 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
     }, [handleCommentTextChange, onSendComment, text]);
 
     return (
-        <div className={classNames(styles.addCommentForm, {
-            mods: {},
-            additional: [className],
-        })}
+        <HStack
+            justify="between"
+            className={classNames(styles.addCommentForm, {
+                mods: {},
+                additional: [className],
+            })}
         >
             <Input
                 placeholder={t('Enter comment')}
@@ -51,7 +52,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
             />
 
             <Button onClick={handleSendComment}>{t('Send')}</Button>
-        </div>
+        </HStack>
     );
 };
 

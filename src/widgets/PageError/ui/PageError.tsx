@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui';
+import { Button, VStack } from 'shared/ui';
 
 import styles from './PageError.module.scss';
 
@@ -18,7 +18,9 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
     };
 
     return (
-        <div
+        <VStack
+            max
+            justify="center"
             className={classNames(styles.pageError, {
                 mods: {},
                 additional: [className],
@@ -26,12 +28,10 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
         >
             { t('An unexpected error occured') }
 
-            <Button
-                onClick={handleReloadPage}
-            >
+            <Button onClick={handleReloadPage}>
                 { t('Refresh the page') }
             </Button>
-        </div>
+        </VStack>
     );
 };
 

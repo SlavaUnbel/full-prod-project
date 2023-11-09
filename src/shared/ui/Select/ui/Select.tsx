@@ -1,6 +1,7 @@
 import { ChangeEvent, useMemo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
+import { HStack } from '../../Stack';
 import { SelectOption } from '../lib/select';
 import styles from './Select.module.scss';
 
@@ -34,10 +35,7 @@ const Select = <T extends string>({
     };
 
     return (
-        <div className={classNames(styles.wrapper, {
-            additional: [className],
-        })}
-        >
+        <HStack className={classNames('', { mods: {}, additional: [className] })}>
             {label && (
                 <span className={classNames(styles.label, {
                     mods,
@@ -55,7 +53,7 @@ const Select = <T extends string>({
             >
                 { optionsList }
             </select>
-        </div>
+        </HStack>
     );
 };
 

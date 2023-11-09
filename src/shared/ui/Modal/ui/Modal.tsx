@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
+import { HStack } from '../../Stack';
 import { Portal } from '../../Portal';
 import styles from './Modal.module.scss';
 
@@ -81,11 +82,11 @@ const Modal: FC<ModalProps> = ({
                 additional: [className],
             })}
             >
-                <div className={styles.overlay} onClick={handleClose}>
+                <HStack justify="center" max className={styles.overlay} onClick={handleClose}>
                     <div className={styles.content} onClick={handleContentClick}>
                         {children}
                     </div>
-                </div>
+                </HStack>
             </div>
         </Portal>
     );

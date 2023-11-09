@@ -48,7 +48,7 @@ export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }: P
     }, 500);
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             className={classNames(styles.page, {
                 mods: {},
@@ -59,6 +59,6 @@ export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }: P
             {children}
 
             { onScrollEnd && <div ref={triggerRef} className={styles.scrollTrigger} /> }
-        </section>
+        </main>
     );
 });

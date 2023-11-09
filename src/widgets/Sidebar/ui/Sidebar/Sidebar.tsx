@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, LangSwitcher, ThemeSwitcher } from 'shared/ui';
+import {
+    Button, HStack, LangSwitcher, ThemeSwitcher, VStack,
+} from 'shared/ui';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button';
 
 import { sidebarItemsSelector } from '../../model/selectors/sidebarItemsSelector';
@@ -22,7 +24,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
     };
 
     return (
-        <menu
+        <aside
             className={classNames(styles.sidebar, {
                 mods: { [styles.collapsed]: collapsed },
                 additional: [className],
@@ -40,7 +42,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                 { collapsed ? '>' : '<' }
             </Button>
 
-            <div className={styles.items}>
+            <VStack gap="gap-s" role="navigation" className={styles.items}>
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         key={item.path}
@@ -48,14 +50,14 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                         collapsed={collapsed}
                     />
                 ))}
-            </div>
+            </VStack>
 
-            <div className={styles.switchers}>
+            <HStack justify="center" className={styles.switchers}>
                 <ThemeSwitcher />
 
                 <LangSwitcher short={collapsed} />
-            </div>
-        </menu>
+            </HStack>
+        </aside>
     );
 };
 

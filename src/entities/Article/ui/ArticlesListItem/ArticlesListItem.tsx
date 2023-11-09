@@ -5,7 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
 import {
-    AppLink, Avatar, Button, Card, Icon, Text,
+    AppLink, Avatar, Button, Card, HStack, Icon, Text,
 } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
@@ -42,11 +42,11 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
             })}
             >
                 <Card>
-                    <div className={styles.header}>
+                    <HStack>
                         <Avatar size={30} src={article.user.avatar} />
                         <Text text={article.user.username} className={styles.username} />
                         <Text text={article.createdAt} className={styles.date} />
-                    </div>
+                    </HStack>
 
                     <Text title={article.title} className={styles.title} />
 
@@ -58,7 +58,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                     )}
 
-                    <div className={styles.footer}>
+                    <HStack className={styles.footer}>
                         <AppLink
                             target={target}
                             to={`${RoutePath['article-details']}${article.id}`}
@@ -69,7 +69,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
                         </AppLink>
                         <Text text={String(article.views)} className={styles.views} />
                         <Icon Svg={EyeIcon} />
-                    </div>
+                    </HStack>
                 </Card>
             </div>
         );
@@ -90,11 +90,11 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
                     <Text text={article.createdAt} className={styles.date} />
                 </div>
 
-                <div className={styles.infoWrapper}>
+                <HStack className={styles.infoWrapper}>
                     <Text text={article.type.join(',')} className={styles.types} />
                     <Text text={String(article.views)} className={styles.views} />
                     <Icon Svg={EyeIcon} />
-                </div>
+                </HStack>
 
                 <Text text={article.title} className={styles.title} />
             </Card>

@@ -9,8 +9,6 @@
 .switchers {
     position: absolute;
     bottom: var(--gap-l);
-    display: flex;
-    justify-content: center;
     width: 100%;
 }
 
@@ -22,8 +20,6 @@
 
 .items {
     padding: var(--gap-l) 0 0 var(--gap-xl);
-    display: flex;
-    flex-direction: column;
 }
 
 .collapsed {

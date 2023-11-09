@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, Text } from 'shared/ui';
+import { Button, HStack, Text } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
 import { userAuthDataSelector } from 'entities/User';
@@ -38,14 +38,14 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(styles.profilePageHeader, {
+        <HStack className={classNames(styles.profilePageHeader, {
             mods: {},
             additional: [className],
         })}
         >
             <Text title={t('Profile')} />
             { canEditProfile && (
-                <div className={styles.btnWrapper}>
+                <HStack className={styles.btnWrapper}>
                     <Button
                         className={styles.editBtn}
                         theme={readonly ? ButtonTheme.OUTLINE : ButtonTheme.OUTLINE_RED}
@@ -63,9 +63,9 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
                             {t('Save')}
                         </Button>
                     ) }
-                </div>
+                </HStack>
             ) }
-        </div>
+        </HStack>
     );
 };
 

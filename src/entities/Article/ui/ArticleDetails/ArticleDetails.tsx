@@ -9,7 +9,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
 import {
-    Avatar, Icon, Skeleton, Text,
+    Avatar, HStack, Icon, Skeleton, Text,
 } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Text';
 
@@ -103,9 +103,9 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
     default:
         articleContent = (
             <>
-                <div className={styles.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar size={200} src={article?.img} className={styles.avatar} />
-                </div>
+                </HStack>
 
                 <Text
                     className={styles.title}
@@ -114,15 +114,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
                     size={TextSize.L}
                 />
 
-                <div className={styles.articleInfo}>
+                <HStack>
                     <Icon Svg={EyeIcon} className={styles.icon} />
                     <Text text={String(article?.views)} />
-                </div>
+                </HStack>
 
-                <div className={styles.articleInfo}>
+                <HStack>
                     <Icon Svg={CalendarIcon} className={styles.icon} />
                     <Text text={article?.createdAt} />
-                </div>
+                </HStack>
 
                 {article?.blocks.map(renderBlock)}
             </>

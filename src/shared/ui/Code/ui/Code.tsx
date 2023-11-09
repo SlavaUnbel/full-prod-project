@@ -1,10 +1,7 @@
-import {
-    FC, memo, useCallback,
-} from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import CopyIcon from '../../../assets/icons/copy.svg';
 
+import CopyIcon from '../../../assets/icons/copy.svg';
 import { Button, ButtonTheme } from '../../Button';
 import styles from './Code.module.scss';
 
@@ -17,9 +14,7 @@ export const Code: FC<CodeProps> = memo(({
     text,
     className,
 }: CodeProps) => {
-    const { t } = useTranslation();
-
-    const onCopy = useCallback(() => {
+    const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
     }, [text]);
 
@@ -29,7 +24,7 @@ export const Code: FC<CodeProps> = memo(({
             additional: [className],
         })}
         >
-            <Button className={styles.copyBtn} theme={ButtonTheme.CLEAR} onClick={onCopy}>
+            <Button className={styles.copyBtn} theme={ButtonTheme.CLEAR} onClick={handleCopy}>
                 <CopyIcon className={styles.copyIcon} />
             </Button>
 

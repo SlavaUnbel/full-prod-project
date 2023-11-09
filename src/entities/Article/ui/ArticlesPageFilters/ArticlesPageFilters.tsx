@@ -7,9 +7,7 @@ import {
     articlesPageViewSelector,
     fetchArticlesList,
 } from 'pages/ArticlesPage';
-import {
-    FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -17,14 +15,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { Translations } from 'shared/lib/translations/translations';
 import { SortOrder } from 'shared/types';
-import { Card, Input } from 'shared/ui';
-import { TabItem } from 'shared/ui/Tabs';
+import { Card, HStack, Input } from 'shared/ui';
 
 import { ArticleSortField, ArticleType, ArticleView } from '../../model/types/article';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
+import { ArticlesTypesTabs } from '../ArticlesTypesTabs/ArticlesTypesTabs';
 import { ArticleViewToggle } from '../ArticleViewToggle/ArticleViewToggle';
 import styles from './ArticlesPageFilters.module.scss';
-import { ArticlesTypesTabs } from '../ArticlesTypesTabs/ArticlesTypesTabs';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -80,7 +77,7 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(({
             additional: [className],
         })}
         >
-            <div className={styles.sortWrapper}>
+            <HStack justify="between" className={styles.sortWrapper}>
                 <ArticleSortSelector
                     sort={sort}
                     order={order}
@@ -89,7 +86,7 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(({
                 />
 
                 <ArticleViewToggle view={view} onViewClick={handleChangeView} />
-            </div>
+            </HStack>
 
             <Card className={styles.searchWrapper}>
                 <Input placeholder={t('Search')} value={search} onChange={handleChangeSearch} />
