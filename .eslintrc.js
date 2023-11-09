@@ -62,6 +62,7 @@ module.exports = {
                 'gap',
                 'role',
                 'wrap',
+                'as',
             ],
         }],
         'jsx-a11y/click-events-have-key-events': 'off',

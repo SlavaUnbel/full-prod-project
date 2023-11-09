@@ -1,10 +1,10 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Translations } from 'shared/lib/translations/translations';
-import { SortOrder } from 'shared/types';
 import { HStack, Select } from 'shared/ui';
 import { SelectOption } from 'shared/ui/Select';
 
+import { SortOrder } from 'shared/types';
 import { ArticleSortField } from '../../model/types/article';
 
 interface ArticleSortSelectorProps {

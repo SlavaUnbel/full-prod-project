@@ -27,13 +27,13 @@ describe('profileDataSelector', () => {
         expect(result).toBe(data);
     });
 
-    it('should return undefined if profile state is empty', () => {
+    it('should return an empty object if profile state is empty', () => {
         const state: DeepPartial<ApplicationState> = {
             profile: {},
         };
 
         const result = profileDataSelector(state as ApplicationState);
 
-        expect(result).toBe(undefined);
+        expect(result).toBe({});
     });
 });

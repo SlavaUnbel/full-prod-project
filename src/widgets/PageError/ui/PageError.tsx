@@ -20,7 +20,9 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
     return (
         <VStack
             max
+            gap="gap-m"
             justify="center"
+            align="center"
             className={classNames(styles.pageError, {
                 mods: {},
                 additional: [className],

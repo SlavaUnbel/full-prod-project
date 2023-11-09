@@ -1,8 +1,9 @@
 import { ApplicationState } from 'app/providers/StoreProvider';
+import { Profile } from '../types/profile';
 
 export const profileStateSelector = (state: ApplicationState) => state.profile;
 
-export const profileDataSelector = (state: ApplicationState) => profileStateSelector(state)?.data;
+export const profileDataSelector = (state: ApplicationState) => profileStateSelector(state)?.data ?? {} as Profile;
 
 export const profileFormSelector = (state: ApplicationState) => profileStateSelector(state)?.form;
 

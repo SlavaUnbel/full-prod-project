@@ -152,7 +152,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({
                         <SelectComponent
                             key={label}
                             value={value as any}
-                            onChange={onChange}
+                            onChange={onChange as any}
                             readonly={readonly}
                             className={styles.select}
                         />

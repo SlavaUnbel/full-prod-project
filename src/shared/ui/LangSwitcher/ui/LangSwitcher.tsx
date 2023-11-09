@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
+import { profileActions, profileDataSelector } from 'entities/Profile';
+import { useSelector } from 'react-redux';
 import { Button, ButtonTheme } from '../../Button';
 import styles from './LangSwitcher.module.scss';
 
@@ -13,8 +16,14 @@ interface LangSwitcherProps {
 const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
     const { t, i18n } = useTranslation();
 
+    const dispatch = useAppDispatch();
+
+    const { country } = useSelector(profileDataSelector);
+
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
+
+        dispatch(profileActions.updateProfile({ country: t(country as string) }));
     };
 
     return (
