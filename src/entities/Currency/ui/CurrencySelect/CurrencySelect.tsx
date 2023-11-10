@@ -25,7 +25,7 @@ export const CurrencySelect = ({
             items={options}
             onChange={onChange}
             readonly={readonly}
-            direction="top"
+            direction="top right"
         />
     );
 };

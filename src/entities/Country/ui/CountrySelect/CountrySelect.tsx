@@ -26,7 +26,7 @@ export const CountrySelect = ({
             items={countryOptions}
             onChange={onChange}
             readonly={readonly}
-            direction="top"
+            direction="top right"
         />
     );
 };

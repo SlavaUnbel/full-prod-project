@@ -3,16 +3,16 @@ import { loginActions, LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
-    AppLink, Button, HStack, Text,
+    AppLink, Avatar, Button, Dropdown, HStack, Text,
 } from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
 
-import { RoutePath } from '../../../shared/config/routeConfig/routeConfig';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -41,6 +41,17 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         dispatch(loginActions.resetState());
     }, [dispatch]);
 
+    const dropdownItems = [
+        {
+            content: t('Profile'),
+            href: `${RoutePath.profile}${authData?.id}`,
+        },
+        {
+            content: t('Log out'),
+            onClick: handleLogout,
+        },
+    ];
+
     if (authData) {
         return (
             <HStack
@@ -64,13 +75,12 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
                     {t('Create an article')}
                 </AppLink>
 
-                <Button
-                    className={styles.links}
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={handleLogout}
-                >
-                    { t('Log out') }
-                </Button>
+                <Dropdown
+                    items={dropdownItems}
+                    trigger={<Avatar size={30} src={authData?.avatar} />}
+                    direction="bottom left"
+                    className={styles.dropdown}
+                />
             </HStack>
         );
     }

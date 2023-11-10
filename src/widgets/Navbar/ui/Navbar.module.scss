@@ -4,10 +4,13 @@
     padding: var(--gap-l);
 }
 
-.links {
+.links,
+.dropdown {
     margin-left: auto;
+}
+
+.dropdown button {
     display: flex;
-    gap: var(--gap-m);
 }
 
 .appName {

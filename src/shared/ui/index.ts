@@ -16,6 +16,7 @@ import { Card } from './Card';
 import { Tabs } from './Tabs';
 import { HStack, VStack } from './Stack';
 import { ListBox } from './ListBox';
+import { Dropdown } from './Dropdown';
 
 export {
     AppLink,
@@ -37,4 +38,5 @@ export {
     HStack,
     VStack,
     ListBox,
+    Dropdown,
 };
