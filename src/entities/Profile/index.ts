@@ -16,8 +16,9 @@ export {
     profileValidateErrorsSelector,
 } from './model/selectors/profileSelector';
 
-export { fetchProfileData } from './model/services/fetchProfileData';
 export { updateProfileData } from './model/services/updateProfileData';
 export { validateProfileData } from './model/services/validateProfileData';
+
+export { useGetProfileDataQuery } from 'entities/Profile/api/profileApi';
 
 export { ProfileCard } from './ui/ProfileCard';

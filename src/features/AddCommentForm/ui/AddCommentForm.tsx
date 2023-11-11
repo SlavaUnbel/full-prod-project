@@ -5,7 +5,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Translations } from 'shared/lib/translations/translations';
-import { Button, HStack, Input } from 'shared/ui';
+import {
+    Button, HStack, Input, Text, VStack,
+} from 'shared/ui';
 
 import { addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
@@ -37,22 +39,31 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
     }, [handleCommentTextChange, onSendComment, text]);
 
     return (
-        <HStack
-            justify="between"
-            className={classNames(styles.addCommentForm, {
+        <VStack
+            gap="gap-m"
+            className={classNames(styles.addCommentFormWrapper, {
                 mods: {},
                 additional: [className],
             })}
         >
-            <Input
-                placeholder={t('Enter comment')}
-                value={text}
-                onChange={handleCommentTextChange}
-                className={styles.input}
-            />
+            <Text title={t('Comments')} />
 
-            <Button onClick={handleSendComment}>{t('Send')}</Button>
-        </HStack>
+            <HStack
+                justify="between"
+                className={styles.addCommentForm}
+                max
+            >
+                <Input
+                    placeholder={t('Enter comment')}
+                    value={text}
+                    onChange={handleCommentTextChange}
+                    className={styles.input}
+                />
+
+                <Button onClick={handleSendComment}>{t('Send')}</Button>
+            </HStack>
+        </VStack>
+
     );
 };
 

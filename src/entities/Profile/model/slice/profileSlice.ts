@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchProfileData } from '../services/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData';
 import { Profile, ProfileSchema } from '../types/profile';
+import { profileApi } from '../../api/profileApi';
 
 const initialState: ProfileSchema = {
     isLoading: false,
@@ -30,11 +30,11 @@ export const profileSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProfileData.pending, (state) => {
+            .addMatcher(profileApi.endpoints.getProfileData.matchPending, (state) => {
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchProfileData.fulfilled, (
+            .addMatcher(profileApi.endpoints.getProfileData.matchFulfilled, (
                 state,
                 action: PayloadAction<Profile>,
             ) => {
@@ -42,10 +42,15 @@ export const profileSlice = createSlice({
                 state.data = action.payload;
                 state.form = action.payload;
             })
-            .addCase(fetchProfileData.rejected, (state, action) => {
+            .addMatcher(profileApi.endpoints.getProfileData.matchRejected, (
+                state,
+                action,
+            ) => {
                 state.isLoading = false;
-                state.error = action.payload;
-            })
+                state.error = JSON.stringify(action.payload?.data);
+            });
+
+        builder
             .addCase(updateProfileData.pending, (state) => {
                 state.isLoading = true;
                 state.error = undefined;

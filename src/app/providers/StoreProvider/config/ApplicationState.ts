@@ -8,13 +8,10 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
-import {
-    ArticleDetailsCommentsSchema,
-    ArticleDetailsPageSchema,
-    ArticleDetailsRecommendationsSchema,
-} from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
+import { rtkApi } from 'shared/api/rtkApi';
 import { AppDispatch } from './store';
 
 export interface ApplicationState {
@@ -28,6 +25,8 @@ export interface ApplicationState {
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
+
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export type ApplicationStateKey = keyof ApplicationState;

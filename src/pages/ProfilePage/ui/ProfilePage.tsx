@@ -1,7 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import {
-    fetchProfileData,
     profileActions,
     ProfileCard,
     profileErrorSelector,
@@ -11,6 +10,7 @@ import {
     profileReducer,
     profileValidateErrorsSelector,
     ValidateProfileError,
+    useGetProfileDataQuery,
 } from 'entities/Profile';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,6 @@ import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
 import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text';
@@ -31,6 +30,8 @@ const ProfilePage: FC = () => {
     const { t } = useTranslation(Translations.PROFILE);
 
     const { id } = useParams<{id: string}>();
+
+    useGetProfileDataQuery({ profileId: id }, { skip: !id });
 
     const dispatch = useAppDispatch();
 
@@ -90,10 +91,6 @@ const ProfilePage: FC = () => {
         onChangeCurrency: handleChangeCurrency,
         onChangeCountry: handleChangeCountry,
     };
-
-    useInitialEffect(() => {
-        dispatch(fetchProfileData(id));
-    });
 
     useDynamicModuleLoader({ reducers: { profile: profileReducer } });
 

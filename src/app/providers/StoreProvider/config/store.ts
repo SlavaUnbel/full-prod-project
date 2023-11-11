@@ -5,6 +5,7 @@ import { userReducer } from 'entities/User';
 import { scrollRestorationReducer } from 'features/ScrollRestoration';
 import { $api } from 'shared/api/api';
 
+import { rtkApi } from 'shared/api/rtkApi';
 import { ApplicationState } from './ApplicationState';
 import { createReducerManager } from './reducerManager';
 
@@ -16,6 +17,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         scrollRestoration: scrollRestorationReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -30,7 +32,7 @@ export function createReduxStore(
                     api: $api,
                 },
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
 
     // TODO: поправить типизацию стора

@@ -1,15 +1,14 @@
 import { ArticlesList, ArticlesPageFilters } from 'entities/Article';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
 
-import { useSearchParams } from 'react-router-dom';
 import {
-    articlesPageErrorSelector,
     articlesPageLoadingSelector,
     articlesPageSearchSelector,
     articlesPageViewSelector,
@@ -29,13 +28,12 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         removeOnUnmount: false,
     });
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const dispatch = useAppDispatch();
 
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(articlesPageLoadingSelector);
-    const error = useSelector(articlesPageErrorSelector);
     const view = useSelector(articlesPageViewSelector);
     const search = useSelector(articlesPageSearchSelector);
 
