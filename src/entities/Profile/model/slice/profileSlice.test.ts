@@ -1,7 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
-import { fetchProfileData } from '../services/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData';
 import { ProfileSchema } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
@@ -40,20 +39,6 @@ describe('profileSlice', () => {
         const result = profileReducer(state as ProfileSchema, profileActions.setReadonly(true));
 
         expect(result).toBeTruthy();
-    });
-
-    it('should set state on fetchProfileData pending', () => {
-        const state: DeepPartial<ProfileSchema> = { isLoading: false, error: '' };
-        const result = profileReducer(state as ProfileSchema, fetchProfileData.pending);
-
-        expect(result).toEqual({ isLoading: true });
-    });
-
-    it('should set state on fetchProfileData fulfilled', () => {
-        const state: DeepPartial<ProfileSchema> = { isLoading: true };
-        const result = profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, '', '1'));
-
-        expect(result).toEqual({ isLoading: false, data, form: data });
     });
 
     it('should set state on updateProfileData pending', () => {

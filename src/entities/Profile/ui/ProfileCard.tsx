@@ -1,5 +1,5 @@
-import { Country, CountrySelect } from 'entities/Country';
-import { Currency, CurrencySelect } from 'entities/Currency';
+import { CountrySelect } from 'entities/Country';
+import { CurrencySelect } from 'entities/Currency';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';

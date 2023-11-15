@@ -24,7 +24,7 @@ describe('profileDataSelector', () => {
 
         const result = profileDataSelector(state as ApplicationState);
 
-        expect(result).toBe(data);
+        expect(result).toEqual(data);
     });
 
     it('should return an empty object if profile state is empty', () => {
@@ -34,6 +34,6 @@ describe('profileDataSelector', () => {
 
         const result = profileDataSelector(state as ApplicationState);
 
-        expect(result).toBe({});
+        expect(result).toEqual({});
     });
 });

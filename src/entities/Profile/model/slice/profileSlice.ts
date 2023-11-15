@@ -30,27 +30,6 @@ export const profileSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addMatcher(profileApi.endpoints.getProfileData.matchPending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
-            })
-            .addMatcher(profileApi.endpoints.getProfileData.matchFulfilled, (
-                state,
-                action: PayloadAction<Profile>,
-            ) => {
-                state.isLoading = false;
-                state.data = action.payload;
-                state.form = action.payload;
-            })
-            .addMatcher(profileApi.endpoints.getProfileData.matchRejected, (
-                state,
-                action,
-            ) => {
-                state.isLoading = false;
-                state.error = JSON.stringify(action.payload?.data);
-            });
-
-        builder
             .addCase(updateProfileData.pending, (state) => {
                 state.isLoading = true;
                 state.error = undefined;
@@ -69,6 +48,27 @@ export const profileSlice = createSlice({
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.validateErrors = action.payload;
+            });
+
+        builder
+            .addMatcher(profileApi.endpoints.getProfileData.matchPending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addMatcher(profileApi.endpoints.getProfileData.matchFulfilled, (
+                state,
+                action: PayloadAction<Profile>,
+            ) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+            })
+            .addMatcher(profileApi.endpoints.getProfileData.matchRejected, (
+                state,
+                action,
+            ) => {
+                state.isLoading = false;
+                state.error = JSON.stringify(action.payload?.data);
             });
     },
 });

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page';
 
@@ -13,8 +12,6 @@ interface ArticleEditPageProps {
 }
 
 const ArticleEditPage: FC<ArticleEditPageProps> = ({ className }: ArticleEditPageProps) => {
-    const { t } = useTranslation();
-
     const { id } = useParams<{id: string}>();
 
     return (
