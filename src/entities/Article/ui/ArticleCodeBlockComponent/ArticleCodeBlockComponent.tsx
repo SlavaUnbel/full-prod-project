@@ -1,9 +1,8 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Code } from 'shared/ui';
+import { Code, HStack } from 'shared/ui';
 
 import { ArticleCodeBlock } from '../../model/types/article';
-import styles from './ArticleCodeBlockComponent.module.scss';
 
 interface ArticleCodeBlockComponentProps {
     block: ArticleCodeBlock;
@@ -14,11 +13,10 @@ export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = mem
     block,
     className,
 }: ArticleCodeBlockComponentProps) => (
-    <div className={classNames(styles.articleCodeBlockComponent, {
-        mods: {},
-        additional: [className],
-    })}
+    <HStack
+        max
+        className={classNames('', { mods: {}, additional: [className] })}
     >
         <Code text={block.code} />
-    </div>
+    </HStack>
 ));

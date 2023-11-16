@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    AppLink, Avatar, HStack, Skeleton, Text,
+    AppLink, Avatar, HStack, Skeleton, Text, VStack,
 } from 'shared/ui';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -59,12 +59,12 @@ export const CommentItem: FC<CommentItemProps> = memo(({
     };
 
     return (
-        <div className={classNames(styles.commentItem, {
+        <VStack className={classNames(styles.commentItem, {
             mods: {},
             additional: [className],
         })}
         >
             {renderContent()}
-        </div>
+        </VStack>
     );
 });

@@ -9,7 +9,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Translations } from 'shared/lib/translations/translations';
 import {
-    Avatar, HStack, Icon, Skeleton, Text,
+    Avatar, HStack, Icon, Skeleton, Text, VStack,
 } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Text';
 
@@ -83,13 +83,13 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
     switch (true) {
     case isLoading:
         articleContent = (
-            <div>
+            <VStack max>
                 <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
                 <Skeleton className={styles.title} width={300} height={32} />
                 <Skeleton className={styles.skeleton} width={600} height={24} />
                 <Skeleton className={styles.skeleton} width="100%" height={200} />
                 <Skeleton className={styles.skeleton} width="100%" height={200} />
-            </div>
+            </VStack>
         );
         break;
     case Boolean(error):
@@ -135,12 +135,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
     }, [id]);
 
     return (
-        <div className={classNames(styles.articleDetails, {
-            mods: {},
-            additional: [className],
-        })}
+        <VStack
+            gap="gap-m"
+            max
+            className={classNames(styles.articleDetails, {
+                mods: {},
+                additional: [className],
+            })}
         >
             { articleContent }
-        </div>
+        </VStack>
     );
 });

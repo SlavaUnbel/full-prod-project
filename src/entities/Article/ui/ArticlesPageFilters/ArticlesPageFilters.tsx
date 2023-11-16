@@ -15,7 +15,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { Translations } from 'shared/lib/translations/translations';
 import { SortOrder } from 'shared/types';
-import { Card, HStack, Input } from 'shared/ui';
+import {
+    Card, HStack, Input, VStack,
+} from 'shared/ui';
 
 import { ArticleSortField, ArticleType, ArticleView } from '../../model/types/article';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
@@ -72,12 +74,15 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(({
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(styles.articlesPageFilters, {
-            mods: {},
-            additional: [className],
-        })}
+        <VStack
+            max
+            gap="gap-m"
+            className={classNames(styles.articlesPageFilters, {
+                mods: {},
+                additional: [className],
+            })}
         >
-            <HStack justify="between" className={styles.sortWrapper}>
+            <HStack max justify="between">
                 <ArticleSortSelector
                     sort={sort}
                     order={order}
@@ -93,6 +98,6 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(({
             </Card>
 
             <ArticlesTypesTabs value={type} onChangeType={handleChangeType} />
-        </div>
+        </VStack>
     );
 });

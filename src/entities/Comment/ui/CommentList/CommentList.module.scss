@@ -1,3 +1,7 @@
+.comment {
+    width: 100%;
+}
+
 .comment:not(:last-child) {
     margin-bottom: var(--gap-l);
 }

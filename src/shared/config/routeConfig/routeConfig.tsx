@@ -1,15 +1,19 @@
+import { UserRole } from 'entities/User';
 import { AboutPage } from 'pages/AboutPage';
-// import { ArticleCreatePage } from 'pages/ArticleCreatePage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 
+// import { ArticleCreatePage } from 'pages/ArticleCreatePage';
 export type AppRouteProps = RouteProps & {
     authOnly?: boolean;
+    roles?: UserRole[];
 }
 
 export enum AppRoutes {
@@ -20,6 +24,8 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article-details',
     ARTICLE_CREATE = 'article-create',
     ARTICLE_EDIT = 'article-edit',
+    ADMIN_PANEL = 'admin-panel',
+    FORBIDDEN = 'forbidden',
     NOT_FOUND = 'not-found',
 }
 
@@ -31,6 +37,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLE_DETAILS]: '/articles/',
     [AppRoutes.ARTICLE_CREATE]: '/articles/create',
     [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -67,6 +75,16 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: RoutePath[AppRoutes.ARTICLE_CREATE],
         element: <ArticleEditPage />,
         authOnly: true,
+    },
+    [AppRoutes.ADMIN_PANEL]: {
+        path: RoutePath[AppRoutes.ADMIN_PANEL],
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRole.ADMIN, UserRole.MANAGER],
+    },
+    [AppRoutes.FORBIDDEN]: {
+        path: RoutePath[AppRoutes.FORBIDDEN],
+        element: <ForbiddenPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath[AppRoutes.NOT_FOUND],

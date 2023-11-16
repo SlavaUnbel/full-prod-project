@@ -1,4 +1,4 @@
-import { userActions, userAuthDataSelector } from 'entities/User';
+import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from 'entities/User';
 import { loginActions, LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -27,6 +27,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
     const authData = useSelector(userAuthDataSelector);
+    const isAdminPanelAvailable = useSelector(isAdminPanelAvailableSelector);
 
     const handleOpenModal = useCallback(() => {
         setAuthModalOpen(true);
@@ -42,6 +43,10 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     }, [dispatch]);
 
     const dropdownItems = [
+        ...(isAdminPanelAvailable ? [{
+            content: t('Admin panel'),
+            href: RoutePath['admin-panel'],
+        }] : []),
         {
             content: t('Profile'),
             href: `${RoutePath.profile}${authData?.id}`,

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 
 import { ArticleTextBlock } from '../../model/types/article';
 import styles from './ArticleTextBlockComponent.module.scss';
@@ -14,10 +14,12 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
     block,
     className,
 }: ArticleTextBlockComponentProps) => (
-    <div className={classNames(styles.ArticleTextBlockComponent, {
-        mods: {},
-        additional: [className],
-    })}
+    <VStack
+        max
+        className={classNames(styles.ArticleTextBlockComponent, {
+            mods: {},
+            additional: [className],
+        })}
     >
         {block.title && (
             <Text
@@ -33,5 +35,5 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
                 className={styles.paragraph}
             />
         ))}
-    </div>
+    </VStack>
 ));

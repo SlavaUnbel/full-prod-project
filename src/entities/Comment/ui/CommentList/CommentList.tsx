@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 
 import { Comment } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
@@ -44,12 +44,13 @@ export const CommentList: FC<CommentListProps> = memo(({
     };
 
     return (
-        <div className={classNames(styles.commentList, {
-            mods: {},
-            additional: [className],
-        })}
+        <VStack
+            className={classNames(styles.commentList, {
+                mods: {},
+                additional: [className],
+            })}
         >
             {renderContent()}
-        </div>
+        </VStack>
     );
 });

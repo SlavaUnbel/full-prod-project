@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 import { TextAlign } from 'shared/ui/Text';
 
 import { ArticleImageBlock } from '../../model/types/article';
@@ -15,14 +15,18 @@ export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = m
     block,
     className,
 }: ArticleImageBlockComponentProps) => (
-    <div className={classNames(styles.articleImageBlockComponent, {
-        mods: {},
-        additional: [className],
-    })}
+    <VStack
+        max
+        gap="gap-xs"
+        align="center"
+        className={classNames(styles.articleImageBlockComponent, {
+            mods: {},
+            additional: [className],
+        })}
     >
         <img src={block.src} className={styles.img} alt={block.title} />
         {block.title && (
             <Text text={block.title} align={TextAlign.CENTER} />
         )}
-    </div>
+    </VStack>
 ));

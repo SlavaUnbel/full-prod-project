@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'widgets/Page';
 
 import styles from './ArticleCreatePage.module.scss';
 
@@ -8,11 +9,15 @@ interface ArticleCreatePageProps {
 }
 
 const ArticleCreatePage: FC<ArticleCreatePageProps> = ({ className }: ArticleCreatePageProps) => (
-    <div className={classNames(styles.articleCreatePage, {
-        mods: {},
-        additional: [className],
-    })}
-    />
+    <Page
+        className={classNames(styles.articleCreatePage, {
+            mods: {},
+            additional: [className],
+        })}
+    // eslint-disable-next-line i18next/no-literal-string
+    >
+        TODO
+    </Page>
 );
 
 export default ArticleCreatePage;

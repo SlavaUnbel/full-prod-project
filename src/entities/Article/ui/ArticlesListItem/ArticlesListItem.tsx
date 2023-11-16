@@ -5,7 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
 import {
-    AppLink, Avatar, Button, Card, HStack, Icon, Text,
+    AppLink, Avatar, Button, Card, HStack, Icon, Text, VStack,
 } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
@@ -36,10 +36,9 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(styles.articlesListItem, {
-                mods: {},
-                additional: [className, styles[view]],
-            })}
+            <VStack
+                max
+                className={classNames('', { mods: {}, additional: [className, styles[view]] })}
             >
                 <Card>
                     <HStack>
@@ -71,7 +70,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
                         <Icon Svg={EyeIcon} />
                     </HStack>
                 </Card>
-            </div>
+            </VStack>
         );
     }
 
@@ -85,10 +84,10 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
             })}
         >
             <Card>
-                <div className={styles.imageWrapper}>
+                <HStack className={styles.imageWrapper}>
                     <img src={article.img} className={styles.img} alt={article.title} />
                     <Text text={article.createdAt} className={styles.date} />
-                </div>
+                </HStack>
 
                 <HStack className={styles.infoWrapper}>
                     <Text text={article.type.join(',')} className={styles.types} />

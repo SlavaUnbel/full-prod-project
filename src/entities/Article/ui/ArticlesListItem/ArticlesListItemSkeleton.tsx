@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, Skeleton } from 'shared/ui';
+import {
+    Card, HStack, Skeleton, VStack,
+} from 'shared/ui';
 
 import { ArticleView } from '../../model/types/article';
 import styles from './ArticlesListItem.module.scss';
@@ -15,42 +17,46 @@ export const ArticlesListItemSkeleton = memo((props: ArticlesListItemSkeletonPro
 
     if (view === ArticleView.BIG) {
         return (
-            <div className={classNames(styles.ArticleListItem, {
-                mods: {},
-                additional: [className, styles[view]],
-            })}
+            <VStack
+                max
+                className={classNames(styles.ArticleListItem, {
+                    mods: {},
+                    additional: [className, styles[view]],
+                })}
             >
                 <Card className={styles.card}>
-                    <div className={styles.header}>
+                    <HStack className={styles.header}>
                         <Skeleton border="50%" height={30} width={30} />
                         <Skeleton width={150} height={16} className={styles.username} />
                         <Skeleton width={150} height={16} className={styles.date} />
-                    </div>
+                    </HStack>
                     <Skeleton width={250} height={24} className={styles.title} />
                     <Skeleton height={200} className={styles.img} />
-                    <div className={styles.footer}>
+                    <HStack className={styles.footer}>
                         <Skeleton height={36} width={200} />
-                    </div>
+                    </HStack>
                 </Card>
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(styles.ArticleListItem, {
-            mods: {},
-            additional: [className, styles[view]],
-        })}
+        <VStack
+            max
+            className={classNames(styles.ArticleListItem, {
+                mods: {},
+                additional: [className, styles[view]],
+            })}
         >
             <Card className={styles.card}>
-                <div className={styles.imageWrapper}>
+                <HStack className={styles.imageWrapper}>
                     <Skeleton width={200} height={200} className={styles.img} />
-                </div>
-                <div className={styles.infoWrapper}>
+                </HStack>
+                <HStack className={styles.infoWrapper}>
                     <Skeleton width={130} height={16} />
-                </div>
+                </HStack>
                 <Skeleton width={150} height={16} className={styles.title} />
             </Card>
-        </div>
+        </VStack>
     );
 });

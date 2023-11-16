@@ -9,8 +9,15 @@
     margin-left: auto;
 }
 
+.dropdown {
+    word-wrap: break-word;
+}
+
 .dropdown button {
     display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .appName {

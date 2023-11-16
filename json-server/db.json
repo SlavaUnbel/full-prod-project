@@ -4,14 +4,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://avatars.githubusercontent.com/u/43147440?s=400&u=61a912fa39578fb35d01a6b69d69f4f824c32f19&v=4"
     },
     {
       "id": "2",
       "username": "designer",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://pps.services.adobe.com/api/profile/A286E883593C5C020A495D19@AdobeID/image/4ea91a00-b070-40ff-a8cb-d017291d8697/115"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://pps.services.adobe.com/api/profile/A286E883593C5C020A495D19@AdobeID/image/4ea91a00-b070-40ff-a8cb-d017291d8697/115"
     }
   ],
@@ -29,6 +42,17 @@
     },
     {
       "id": "2",
+      "firstname": "Lena",
+      "lastname": "Levkovich",
+      "age": 24,
+      "currency": "BYN",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "designer",
+      "avatar": "https://pps.services.adobe.com/api/profile/A286E883593C5C020A495D19@AdobeID/image/4ea91a00-b070-40ff-a8cb-d017291d8697/115"
+    },
+    {
+      "id": "3",
       "firstname": "Lena",
       "lastname": "Levkovich",
       "age": 24,
@@ -623,6 +647,12 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "a",
+      "id": "9lKQHYp"
     }
   ]
 }

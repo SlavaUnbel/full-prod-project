@@ -4,4 +4,6 @@ export enum Translations {
     PROFILE = 'profile',
     NOT_FOUND = 'notFound',
     ARTICLES = 'articles',
+    ADMIN = 'admin',
+    FORBIDDEN = 'forbidden',
 }
