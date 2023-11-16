@@ -6,6 +6,7 @@ import {
 } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 import { BuildOptions } from './types/config';
 
@@ -30,6 +31,10 @@ export default function buildPlugins(options: BuildOptions): WebpackPluginInstan
             patterns: [
                 { from: paths.locales, to: paths.buildLocales },
             ],
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
     ];
 

@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, HStack, Icon } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/article';
 import styles from './ArticleViewToggle.module.scss';
 
 interface ArticleViewToggleProps {

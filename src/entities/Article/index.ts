@@ -1,15 +1,18 @@
-export {
+export type {
     Article,
     ArticleBlock,
-    ArticleBlockType,
     ArticleCodeBlock,
     ArticleImageBlock,
     ArticleTextBlock,
-    ArticleType,
     ArticleDetailsSchema,
+} from './model/types/article';
+
+export {
+    ArticleBlockType,
+    ArticleType,
     ArticleView,
     ArticleSortField,
-} from './model/types/article';
+} from './model/consts/article';
 
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
 

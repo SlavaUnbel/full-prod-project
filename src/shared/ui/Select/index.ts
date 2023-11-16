@@ -1,4 +1,5 @@
-import { SelectOption } from './lib/select';
 import Select from './ui/Select';
 
-export { Select, SelectOption };
+export type { SelectOption } from './lib/select';
+
+export { Select };

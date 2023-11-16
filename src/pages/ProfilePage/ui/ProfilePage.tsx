@@ -31,7 +31,7 @@ const ProfilePage: FC = () => {
 
     const { id } = useParams<{id: string}>();
 
-    useGetProfileDataQuery({ profileId: id }, { skip: !id });
+    useGetProfileDataQuery({ profileId: id }, { skip: !id, refetchOnMountOrArgChange: true });
 
     const dispatch = useAppDispatch();
 

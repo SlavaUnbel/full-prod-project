@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
 import {
@@ -9,9 +9,8 @@ import {
 } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';
 
-import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticlesListItem.module.scss';
 

@@ -1,7 +1,7 @@
 import { Theme } from 'app/providers/ThemeProvider';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
 import MainIcon from 'shared/assets/icons/main.svg';
+import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
+import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import SidebarItem from './SidebarItem';

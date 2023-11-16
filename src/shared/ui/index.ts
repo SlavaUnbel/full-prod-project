@@ -1,42 +1,19 @@
-import { AppLink } from './AppLink';
-import { Button } from './Button';
-import { Input } from './Input';
-import { LangSwitcher } from './LangSwitcher';
-import { Loader } from './Loader';
-import { Modal } from './Modal';
-import { Portal } from './Portal';
-import { Text } from './Text';
-import { ThemeSwitcher } from './ThemeSwitcher';
-import { Avatar } from './Avatar';
-import { Select } from './Select';
-import { Skeleton } from './Skeleton';
-import { Icon } from './Icon';
-import { Code } from './Code';
-import { Card } from './Card';
-import { Tabs } from './Tabs';
-import { HStack, VStack } from './Stack';
-import { ListBox } from './ListBox';
-import { Dropdown } from './Dropdown';
-
-export {
-    AppLink,
-    ThemeSwitcher,
-    LangSwitcher,
-    Button,
-    Loader,
-    Modal,
-    Portal,
-    Input,
-    Text,
-    Avatar,
-    Select,
-    Skeleton,
-    Icon,
-    Code,
-    Card,
-    Tabs,
-    HStack,
-    VStack,
-    ListBox,
-    Dropdown,
-};
+export { AppLink } from './AppLink';
+export { Button } from './Button';
+export { Input } from './Input';
+export { LangSwitcher } from './LangSwitcher';
+export { Loader } from './Loader';
+export { Modal } from './Modal';
+export { Portal } from './Portal';
+export { Text } from './Text';
+export { ThemeSwitcher } from './ThemeSwitcher';
+export { Avatar } from './Avatar';
+export { Select } from './Select';
+export { Skeleton } from './Skeleton';
+export { Icon } from './Icon';
+export { Code } from './Code';
+export { Card } from './Card';
+export { Tabs } from './Tabs';
+export { HStack, VStack } from './Stack';
+export { ListBox } from './ListBox';
+export { Dropdown } from './Dropdown';

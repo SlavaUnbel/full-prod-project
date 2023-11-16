@@ -3,7 +3,7 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
 import { Translations } from 'shared/lib/translations/translations';
 import { Button, HStack } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button';

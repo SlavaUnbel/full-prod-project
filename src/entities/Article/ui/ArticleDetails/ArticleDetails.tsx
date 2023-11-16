@@ -13,6 +13,7 @@ import {
 } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Text';
 
+import { ArticleBlockType } from '../../model/consts/article';
 import {
     articleDetailsDataSelector,
     articleDetailsErrorSelector,
@@ -20,7 +21,7 @@ import {
 } from '../../model/selectors/articleDetailsSelector';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

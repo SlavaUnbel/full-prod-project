@@ -4,10 +4,10 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Translations } from 'shared/lib/translations/translations';
-import {
-    Avatar, HStack, Loader, VStack,
-} from 'shared/ui';
+import { Avatar } from 'shared/ui/Avatar';
 import { Input } from 'shared/ui/Input';
+import { Loader } from 'shared/ui/Loader';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
 
 import { Profile } from '../model/types/profile';

@@ -4,7 +4,7 @@ import {
     Card, HStack, Skeleton, VStack,
 } from 'shared/ui';
 
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/article';
 import styles from './ArticlesListItem.module.scss';
 
 interface ArticlesListItemSkeletonProps {

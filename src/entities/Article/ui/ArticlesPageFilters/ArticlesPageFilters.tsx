@@ -19,7 +19,7 @@ import {
     Card, HStack, Input, VStack,
 } from 'shared/ui';
 
-import { ArticleSortField, ArticleType, ArticleView } from '../../model/types/article';
+import { ArticleSortField, ArticleType, ArticleView } from '../../model/consts/article';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
 import { ArticlesTypesTabs } from '../ArticlesTypesTabs/ArticlesTypesTabs';
 import { ArticleViewToggle } from '../ArticleViewToggle/ArticleViewToggle';

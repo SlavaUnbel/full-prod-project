@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
+import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     AppLink, Avatar, HStack, Skeleton, Text, VStack,
 } from 'shared/ui';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import styles from './CommentItem.module.scss';
 

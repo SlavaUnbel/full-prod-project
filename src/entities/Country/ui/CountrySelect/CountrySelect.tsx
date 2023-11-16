@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Translations } from 'shared/lib/translations/translations';
-import { ListBox } from 'shared/ui';
-import { ListBoxProps } from 'shared/ui/ListBox';
+import { ListBox, ListBoxProps } from 'shared/ui/ListBox';
 import { SelectOption } from 'shared/ui/Select';
 
 import { Country } from '../../model/types/country';

@@ -1,4 +1,4 @@
-export { ArticlesPageSchema } from './model/types/articlesPage';
+export type { ArticlesPageSchema } from './model/types/articlesPage';
 
 export {
     articlesPageLoadingSelector,

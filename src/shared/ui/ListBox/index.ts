@@ -1,3 +1,2 @@
-import { ListBox, ListBoxProps } from './ui/ListBox';
-
-export { ListBox, ListBoxProps };
+export { ListBox } from './ui/ListBox';
+export type { ListBoxProps } from './ui/ListBox';

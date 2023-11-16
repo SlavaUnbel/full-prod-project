@@ -11,7 +11,6 @@ import LoginModal from './ui/LoginModal/LoginModal';
 export {
     LoginForm,
     LoginModal,
-    LoginSchema,
     loginActions,
     loginReducer,
     loginUsernameSelector,
@@ -20,3 +19,5 @@ export {
     loginLoadingSelector,
     loginByUsername,
 };
+
+export type { LoginSchema };

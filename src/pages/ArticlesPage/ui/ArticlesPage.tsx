@@ -8,11 +8,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
 
-import {
-    articlesPageLoadingSelector,
-    articlesPageSearchSelector,
-    articlesPageViewSelector,
-} from '../model/selectors/articlesPageSelector';
+import { articlesPageLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlesPageSelector';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage';
 import { articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
@@ -35,7 +31,6 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(articlesPageLoadingSelector);
     const view = useSelector(articlesPageViewSelector);
-    const search = useSelector(articlesPageSearchSelector);
 
     const handleLoadNextArticles = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -43,7 +38,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
-    }, [search]);
+    });
 
     return (
         <Page
