@@ -24,6 +24,14 @@ export const Primary: Story = {
 
 export const Loading: Story = {
     args: {
+        comment: {
+            id: '1',
+            text: 'hello world',
+            user: {
+                id: '1',
+                username: 'admin',
+            },
+        },
         isLoading: true,
     },
 };

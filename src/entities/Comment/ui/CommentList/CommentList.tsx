@@ -24,7 +24,14 @@ export const CommentList: FC<CommentListProps> = memo(({
         if (isLoading) {
             return (
                 <>
-                    { [1, 2, 3].map((mockComment) => <CommentItem key={mockComment} isLoading />) }
+                    { [1, 2, 3].map((mockComment) => (
+                        <CommentItem
+                            key={mockComment}
+                            comment={{} as Comment}
+                            isLoading
+                            className={styles.comment}
+                        />
+                    )) }
                 </>
             );
         }

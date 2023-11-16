@@ -1,5 +1,5 @@
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook';
+import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
@@ -14,11 +14,19 @@ type Story = StoryObj<typeof ArticlesPageFilters>;
 
 export const Primary: Story = {
     args: {},
+    decorators: [
+        StoreDecorator({
+            articlesPage: {},
+        }) as any,
+    ],
 };
 
 export const Dark: Story = {
     args: {},
     decorators: [
+        StoreDecorator({
+            articlesPage: {},
+        }),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };

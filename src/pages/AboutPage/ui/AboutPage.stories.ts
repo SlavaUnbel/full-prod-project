@@ -1,5 +1,5 @@
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook';
+import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import AboutPage from './AboutPage';
@@ -14,10 +14,14 @@ type Story = StoryObj<typeof AboutPage>;
 
 export const Light: Story = {
     args: {},
+    decorators: [
+        StoreDecorator({}),
+    ],
 };
 
 export const Dark: Story = {
     decorators: [
+        StoreDecorator({}),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };

@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/types';
+import { Story } from '@storybook/react';
 import { ApplicationState, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
@@ -21,13 +21,13 @@ const defaultAsyncReducers: ReducersList = {
 export const StoreDecorator = (
     initialState: DeepPartial<ApplicationState>,
     asyncReducers?: ReducersList,
-) => (story: () => StoryFn) => (
+) => (StoryComponent: Story) => (
     <StoreProvider
         initialState={initialState}
         asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
     >
         <Suspense fallback="">
-            { story() }
+            <StoryComponent />
         </Suspense>
     </StoreProvider>
 );

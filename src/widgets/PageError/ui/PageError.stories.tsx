@@ -2,6 +2,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook';
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { StoreProvider } from 'app/providers/StoreProvider';
 import PageError from './PageError';
 
 const meta: Meta<typeof PageError> = {
@@ -14,10 +15,14 @@ type Story = StoryObj<typeof PageError>;
 
 export const Light: Story = {
     args: {},
+    decorators: [
+        StoreProvider({}) as any,
+    ],
 };
 
 export const Dark: Story = {
     decorators: [
+        StoreProvider({}),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };

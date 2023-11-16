@@ -8,6 +8,7 @@ import { Portal } from '../../Portal';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
+    children: React.ReactNode;
     className?: string;
     isOpen?: boolean;
     lazy?: boolean;

@@ -5,10 +5,18 @@ import App from 'app/App';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
-import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-render(
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById('root');
+
+if (!container) {
+    throw new Error('Container root is not found');
+}
+const root = createRoot(container);
+
+root.render(
     <Router>
         <StoreProvider>
             <ErrorBoundary>
@@ -18,5 +26,4 @@ render(
             </ErrorBoundary>
         </StoreProvider>
     </Router>,
-    document.getElementById('root'),
 );

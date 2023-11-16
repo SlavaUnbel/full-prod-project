@@ -34,7 +34,24 @@ export const Primary: Story = {
 
 export const Loading: Story = {
     args: {
-        comments: [],
+        comments: [
+            {
+                id: '1',
+                text: 'hello world',
+                user: {
+                    id: '1',
+                    username: 'admin',
+                },
+            },
+            {
+                id: '2',
+                text: 'hello people',
+                user: {
+                    id: '2',
+                    username: 'designer',
+                },
+            },
+        ],
         isLoading: true,
     },
 };

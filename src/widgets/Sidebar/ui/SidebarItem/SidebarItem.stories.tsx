@@ -1,5 +1,7 @@
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
+import MainIcon from 'shared/assets/icons/main.svg';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import SidebarItem from './SidebarItem';
@@ -13,11 +15,28 @@ export default meta;
 type Story = StoryObj<typeof SidebarItem>;
 
 export const Light: Story = {
-    args: {},
+    args: {
+        item: {
+            path: RoutePath.main,
+            title: 'Main',
+            Icon: MainIcon,
+        },
+    },
+    decorators: [
+        StoreDecorator({}),
+    ],
 };
 
 export const Dark: Story = {
+    args: {
+        item: {
+            path: RoutePath.main,
+            title: 'Main',
+            Icon: MainIcon,
+        },
+    },
     decorators: [
+        StoreDecorator({}),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };
