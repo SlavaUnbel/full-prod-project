@@ -29,11 +29,11 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                 mods: { [styles.collapsed]: collapsed },
                 additional: [className],
             })}
-            data-testid="sidebar"
+            data-test-id="sidebar"
         >
             <Button
                 onClick={handleToggle}
-                data-testid="sidebar-toggle"
+                data-test-id="sidebar-toggle"
                 className={styles.sidebarToggle}
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 square

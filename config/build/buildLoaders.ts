@@ -5,14 +5,8 @@ import { buildsCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
-export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-
-    const cssLoader = buildsCssLoader(isDev);
+export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
+    const cssLoader = buildsCssLoader(options);
 
     const svgLoader = buildSvgLoader();
 
@@ -25,13 +19,14 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         ],
     };
 
-    const babelLoader = buildsBabelLoader(isDev);
+    const codeBabelLoader = buildsBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildsBabelLoader({ ...options, isTsx: true });
 
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
         cssLoader,
     ];
 }
