@@ -16,7 +16,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
     return (
         <Button
-            className={classNames('', { mods: {}, additional: [className] })}
+            className={classNames('', { additional: [className] })}
             onClick={toggleTheme}
             theme={ButtonTheme.CLEAR}
         >

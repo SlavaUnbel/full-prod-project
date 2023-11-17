@@ -23,10 +23,7 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
             gap="gap-m"
             justify="center"
             align="center"
-            className={classNames(styles.pageError, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.pageError, { additional: [className] })}
         >
             { t('An unexpected error occured') }
 

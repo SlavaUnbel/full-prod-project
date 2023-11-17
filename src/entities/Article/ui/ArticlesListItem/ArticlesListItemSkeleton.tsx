@@ -20,7 +20,6 @@ export const ArticlesListItemSkeleton = memo((props: ArticlesListItemSkeletonPro
             <VStack
                 max
                 className={classNames(styles.ArticleListItem, {
-                    mods: {},
                     additional: [className, styles[view]],
                 })}
             >
@@ -44,7 +43,6 @@ export const ArticlesListItemSkeleton = memo((props: ArticlesListItemSkeletonPro
         <VStack
             max
             className={classNames(styles.ArticleListItem, {
-                mods: {},
                 additional: [className, styles[view]],
             })}
         >

@@ -43,10 +43,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     return (
         <Page
             onScrollEnd={handleLoadNextArticles}
-            className={classNames(styles.articlePage, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.articlePage, { additional: [className] })}
         >
             <ArticlesPageFilters />
 

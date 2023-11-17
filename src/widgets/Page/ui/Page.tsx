@@ -50,10 +50,7 @@ export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }: P
     return (
         <main
             ref={wrapperRef}
-            className={classNames(styles.page, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.page, { additional: [className] })}
             onScroll={handleScroll}
         >
             {children}

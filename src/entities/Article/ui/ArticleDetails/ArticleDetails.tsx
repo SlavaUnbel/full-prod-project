@@ -139,10 +139,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({
         <VStack
             gap="gap-m"
             max
-            className={classNames(styles.articleDetails, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.articleDetails, { additional: [className] })}
         >
             { articleContent }
         </VStack>

@@ -1,18 +1,19 @@
-import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from 'entities/User';
-import { loginActions, LoginModal } from 'features/AuthByUsername';
+import { userAuthDataSelector } from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
-    AppLink, Avatar, Button, Dropdown, HStack, Text,
+    AppLink, Button, HStack, Text,
 } from 'shared/ui';
 import { AppLinkTheme } from 'shared/ui/AppLink';
 import { ButtonTheme } from 'shared/ui/Button';
 import { TextTheme } from 'shared/ui/Text';
 
+import { NotificationButton } from 'features/NotificationButton';
+import { NavbarDropdown } from 'features/NavbarDropdown';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -22,12 +23,9 @@ interface NavbarProps {
 const Navbar: FC<NavbarProps> = ({ className }) => {
     const { t } = useTranslation();
 
-    const dispatch = useAppDispatch();
-
     const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
     const authData = useSelector(userAuthDataSelector);
-    const isAdminPanelAvailable = useSelector(isAdminPanelAvailableSelector);
 
     const handleOpenModal = useCallback(() => {
         setAuthModalOpen(true);
@@ -37,78 +35,55 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         setAuthModalOpen(false);
     }, []);
 
-    const handleLogout = useCallback(() => {
-        dispatch(userActions.logout());
-        dispatch(loginActions.resetState());
-    }, [dispatch]);
+    const renderContent = () => {
+        if (authData) {
+            return (
+                <>
+                    <Text
+                        title={t('Ulbi TV App')}
+                        theme={TextTheme.INVERTED}
+                        className={styles.appName}
+                    />
 
-    const dropdownItems = [
-        ...(isAdminPanelAvailable ? [{
-            content: t('Admin panel'),
-            href: RoutePath['admin-panel'],
-        }] : []),
-        {
-            content: t('Profile'),
-            href: `${RoutePath.profile}${authData?.id}`,
-        },
-        {
-            content: t('Log out'),
-            onClick: handleLogout,
-        },
-    ];
+                    <AppLink
+                        to={RoutePath['article-create']}
+                        theme={AppLinkTheme.SECONDARY}
+                    >
+                        {t('Create an article')}
+                    </AppLink>
 
-    if (authData) {
+                    <HStack gap="gap-m" className={styles.actions}>
+                        <NotificationButton />
+
+                        <NavbarDropdown />
+                    </HStack>
+                </>
+            );
+        }
+
         return (
-            <HStack
-                max
-                role="heading"
-                className={classNames(styles.navbar, {
-                    mods: {},
-                    additional: [className],
-                })}
-            >
-                <Text
-                    title={t('Ulbi TV App')}
-                    theme={TextTheme.INVERTED}
-                    className={styles.appName}
-                />
-
-                <AppLink
-                    to={RoutePath['article-create']}
-                    theme={AppLinkTheme.SECONDARY}
+            <>
+                <Button
+                    className={styles.links}
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                    onClick={handleOpenModal}
                 >
-                    {t('Create an article')}
-                </AppLink>
+                    { t('Log in') }
+                </Button>
 
-                <Dropdown
-                    items={dropdownItems}
-                    trigger={<Avatar size={30} src={authData?.avatar} />}
-                    direction="bottom left"
-                    className={styles.dropdown}
-                />
-            </HStack>
+                { isAuthModalOpen
+                    && (<LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />)}
+            </>
         );
-    }
+    };
 
     return (
         <HStack
             max
             role="heading"
-            className={classNames(styles.navbar, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.navbar, { additional: [className] })}
         >
-            <Button
-                className={styles.links}
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={handleOpenModal}
-            >
-                { t('Log in') }
-            </Button>
-
-            { isAuthModalOpen
-                && (<LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />)}
+            {renderContent()}
         </HStack>
     );
 };

@@ -26,7 +26,7 @@ export const Tabs = <T extends string>({
     return (
         <HStack
             gap="gap-xs"
-            className={classNames('', { mods: {}, additional: [className] })}
+            className={classNames('', { additional: [className] })}
         >
             {tabs.map((tab) => (
                 <Card

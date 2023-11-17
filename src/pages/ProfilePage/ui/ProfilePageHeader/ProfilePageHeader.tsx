@@ -38,11 +38,7 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     }, [dispatch]);
 
     return (
-        <HStack className={classNames(styles.profilePageHeader, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <HStack className={classNames(styles.profilePageHeader, { additional: [className] })}>
             <Text title={t('Profile')} />
             { canEditProfile && (
                 <HStack className={styles.btnWrapper}>

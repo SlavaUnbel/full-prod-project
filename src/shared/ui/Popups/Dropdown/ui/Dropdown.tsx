@@ -1,10 +1,12 @@
 import { Menu } from '@headlessui/react';
 import { FC, Fragment, ReactNode } from 'react';
 
-import { classNames } from '../../../lib/classNames/classNames';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { DropdownDirection } from '../../../../types';
+import AppLink from '../../../AppLink/ui/AppLink';
+import { mapDirectionClass } from '../../styles/stylesConsts';
 import styles from './Dropdown.module.scss';
-import { AppLink } from '../../AppLink';
-import { DropdownDirection } from '../../../types';
+import popupStyles from '../../styles/Popups.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -20,13 +22,6 @@ interface DropdownProps {
     className?: string;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': styles.optionsBottomLeft,
-    'bottom right': styles.optionsBottomRight,
-    'top right': styles.optionsTopRight,
-    'top left': styles.optionsTopLeft,
-};
-
 export const Dropdown: FC<DropdownProps> = ({
     items,
     trigger,
@@ -36,11 +31,11 @@ export const Dropdown: FC<DropdownProps> = ({
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
-        <Menu as="div" className={classNames(styles.dropdown, { mods: {}, additional: [className] })}>
-            <Menu.Button className={styles.btn}>
+        <Menu as="div" className={classNames(popupStyles.popup, { additional: [className] })}>
+            <Menu.Button className={popupStyles.trigger}>
                 {trigger}
             </Menu.Button>
-            <Menu.Items className={classNames(styles.menu, { mods: {}, additional: menuClasses })}>
+            <Menu.Items className={classNames(styles.menu, { additional: menuClasses })}>
                 {items.map((item) => {
                     const content = ({ active }: {active: boolean}) => (
                         <button
@@ -48,7 +43,7 @@ export const Dropdown: FC<DropdownProps> = ({
                             disabled={item.disabled}
                             onClick={item.onClick}
                             className={classNames(styles.item, {
-                                mods: { [styles.active]: active },
+                                mods: { [popupStyles.active]: active },
                             })}
                         >
                             {item.content}

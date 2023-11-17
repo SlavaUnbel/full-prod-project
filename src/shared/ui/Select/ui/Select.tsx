@@ -35,7 +35,7 @@ const Select = <T extends string>({
     };
 
     return (
-        <HStack className={classNames('', { mods: {}, additional: [className] })}>
+        <HStack className={classNames('', { additional: [className] })}>
             {label && (
                 <span className={classNames(styles.label, {
                     mods,

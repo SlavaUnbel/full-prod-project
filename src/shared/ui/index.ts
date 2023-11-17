@@ -15,5 +15,4 @@ export { Code } from './Code';
 export { Card } from './Card';
 export { Tabs } from './Tabs';
 export { HStack, VStack } from './Stack';
-export { ListBox } from './ListBox';
-export { Dropdown } from './Dropdown';
+export { ListBox, Dropdown, Popover } from './Popups';

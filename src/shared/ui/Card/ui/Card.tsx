@@ -20,7 +20,6 @@ export const Card: FC<CardProps> = memo(({
 }: CardProps) => (
     <div
         className={classNames(styles.card, {
-            mods: {},
             additional: [className, styles[theme]],
         })}
         {...otherProps}

@@ -74,11 +74,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     }, [handleKeyDown]);
 
     return (
-        <VStack className={classNames(styles.loginForm, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <VStack className={classNames(styles.loginForm, { additional: [className] })}>
             <VStack className={styles.titleWrapper}>
                 <Text title={t('Authorization form')} />
 

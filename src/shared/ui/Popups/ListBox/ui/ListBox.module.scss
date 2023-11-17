@@ -1,7 +1,3 @@
-.listBox {
-    position: relative;
-}
-
 .trigger {
     background: none;
     border: none;
@@ -29,33 +25,4 @@
 
 .itemSelected {
     margin-right: var(--gap-2xs);
-}
-
-.active {
-    cursor: pointer;
-    background: var(--inverted-primary-color);
-}
-
-.disabled {
-    opacity: 0.7;
-}
-
-.optionsBottomLeft {
-    top: 100%;
-    right: 0;
-}
-
-.optionsBottomRight {
-    top: 100%;
-    left: 0;
-}
-
-.optionsTopRight {
-    bottom: 100%;
-    left: 0;
-}
-
-.optionsTopLeft {
-    right: 0;
-    bottom: 100%;
 }

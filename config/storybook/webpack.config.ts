@@ -30,7 +30,16 @@ export default ({ config }: { config: Configuration }) => {
     });
 
     config.module!.rules!.push(buildSvgLoader());
-    config.module!.rules!.push(buildsCssLoader(true));
+    config.module!.rules!.push(buildsCssLoader({
+        isDev: true,
+        mode: 'development',
+        paths: {
+            entry: '', src: '', html: '', build: '', locales: '', buildLocales: '',
+        },
+        port: 3000,
+        apiUrl: '',
+        project: 'storybook',
+    }));
 
     config!.plugins!.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),

@@ -68,6 +68,7 @@ module.exports = {
                 'role',
                 'wrap',
                 'as',
+                'border',
             ],
         }],
         'jsx-a11y/click-events-have-key-events': 'off',

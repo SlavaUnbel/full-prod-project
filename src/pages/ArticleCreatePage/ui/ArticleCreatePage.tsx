@@ -10,10 +10,7 @@ interface ArticleCreatePageProps {
 
 const ArticleCreatePage: FC<ArticleCreatePageProps> = ({ className }: ArticleCreatePageProps) => (
     <Page
-        className={classNames(styles.articleCreatePage, {
-            mods: {},
-            additional: [className],
-        })}
+        className={classNames(styles.articleCreatePage, { additional: [className] })}
     // eslint-disable-next-line i18next/no-literal-string
     >
         TODO

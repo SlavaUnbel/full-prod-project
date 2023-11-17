@@ -41,10 +41,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
     return (
         <VStack
             gap="gap-m"
-            className={classNames(styles.addCommentFormWrapper, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.addCommentFormWrapper, { additional: [className] })}
         >
             <Text title={t('Comments')} />
 

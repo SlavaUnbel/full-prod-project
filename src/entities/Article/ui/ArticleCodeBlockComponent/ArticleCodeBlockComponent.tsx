@@ -15,7 +15,7 @@ export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = mem
 }: ArticleCodeBlockComponentProps) => (
     <HStack
         max
-        className={classNames('', { mods: {}, additional: [className] })}
+        className={classNames('', { additional: [className] })}
     >
         <Code text={block.code} />
     </HStack>

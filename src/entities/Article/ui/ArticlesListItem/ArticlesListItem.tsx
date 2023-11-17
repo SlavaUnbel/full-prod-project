@@ -37,7 +37,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
         return (
             <VStack
                 max
-                className={classNames('', { mods: {}, additional: [className, styles[view]] })}
+                className={classNames('', { additional: [className, styles[view]] })}
             >
                 <Card>
                     <HStack>
@@ -78,7 +78,6 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
             target={target}
             to={`${RoutePath['article-details']}${article.id}`}
             className={classNames(styles.articlesListItem, {
-                mods: {},
                 additional: [className, styles[view]],
             })}
         >

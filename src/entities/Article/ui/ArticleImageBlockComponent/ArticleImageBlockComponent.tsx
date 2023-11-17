@@ -19,12 +19,10 @@ export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = m
         max
         gap="gap-xs"
         align="center"
-        className={classNames(styles.articleImageBlockComponent, {
-            mods: {},
-            additional: [className],
-        })}
+        className={classNames(styles.articleImageBlockComponent, { additional: [className] })}
     >
         <img src={block.src} className={styles.img} alt={block.title} />
+
         {block.title && (
             <Text text={block.title} align={TextAlign.CENTER} />
         )}

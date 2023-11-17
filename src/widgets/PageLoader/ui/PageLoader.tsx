@@ -11,10 +11,7 @@ interface PageLoaderProps {
 const PageLoader: FC<PageLoaderProps> = memo(({ className }: PageLoaderProps) => (
     <HStack
         justify="center"
-        className={classNames(styles.pageLoader, {
-            mods: {},
-            additional: [className],
-        })}
+        className={classNames(styles.pageLoader, { additional: [className] })}
     >
         <Loader />
     </HStack>

@@ -77,10 +77,7 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(({
         <VStack
             max
             gap="gap-m"
-            className={classNames(styles.articlesPageFilters, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.articlesPageFilters, { additional: [className] })}
         >
             <HStack max justify="between">
                 <ArticleSortSelector

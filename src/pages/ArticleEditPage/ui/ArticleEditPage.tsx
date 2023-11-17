@@ -15,11 +15,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = ({ className }: ArticleEditPag
     const { id } = useParams<{id: string}>();
 
     return (
-        <Page className={classNames(styles.articleEditPage, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <Page className={classNames(styles.articleEditPage, { additional: [className] })}>
             <Text
                 theme={TextTheme.ERROR}
                 title={id ? `TODO Edit article with ID = ${id}` : 'TODO Create article page'}

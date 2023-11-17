@@ -52,10 +52,7 @@ export const CommentList: FC<CommentListProps> = memo(({
 
     return (
         <VStack
-            className={classNames(styles.commentList, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.commentList, { additional: [className] })}
         >
             {renderContent()}
         </VStack>

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Translations } from 'shared/lib/translations/translations';
+import { ListBox, ListBoxProps } from 'shared/ui/Popups/ListBox';
 import { SelectOption } from 'shared/ui/Select';
 
-import { ListBox, ListBoxProps } from 'shared/ui/ListBox';
 import { Currency } from '../../model/types/currency';
 
 const options: SelectOption<Currency>[] = Object.values(Currency)

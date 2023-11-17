@@ -19,11 +19,7 @@ export const Code: FC<CodeProps> = memo(({
     }, [text]);
 
     return (
-        <pre className={classNames(styles.code, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <pre className={classNames(styles.code, { additional: [className] })}>
             <Button className={styles.copyBtn} theme={ButtonTheme.CLEAR} onClick={handleCopy}>
                 <CopyIcon className={styles.copyIcon} />
             </Button>

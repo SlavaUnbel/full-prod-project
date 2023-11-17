@@ -68,11 +68,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     };
 
     return (
-        <Page className={classNames(styles.articleDetailsPage, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <Page className={classNames(styles.articleDetailsPage, { additional: [className] })}>
             {renderContent()}
         </Page>
     );

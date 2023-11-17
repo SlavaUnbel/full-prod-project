@@ -16,10 +16,7 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
 }: ArticleTextBlockComponentProps) => (
     <VStack
         max
-        className={classNames(styles.ArticleTextBlockComponent, {
-            mods: {},
-            additional: [className],
-        })}
+        className={classNames(styles.ArticleTextBlockComponent, { additional: [className] })}
     >
         {block.title && (
             <Text

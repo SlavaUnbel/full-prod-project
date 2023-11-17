@@ -8,12 +8,7 @@ interface LoaderProps {
 }
 
 const Loader: FC<LoaderProps> = ({ className }) => (
-    <div
-        className={classNames(styles.loader, {
-            mods: {},
-            additional: [className],
-        })}
-    >
+    <div className={classNames(styles.loader, { additional: [className] })}>
         <div />
         <div />
         <div />

@@ -22,11 +22,7 @@ const App: FC = () => {
     }, [dispatch]);
 
     return (
-        <div className={classNames('app', {
-            mods: {},
-            additional: [theme],
-        })}
-        >
+        <div className={classNames('app', { additional: [theme] })}>
             <Suspense fallback="">
                 <Navbar />
 

@@ -21,10 +21,7 @@ const Skeleton: FC<SkeletonProps> = ({
 
     return (
         <div
-            className={classNames(styles.skeleton, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(styles.skeleton, { additional: [className] })}
             style={additionalStyles}
         />
     );

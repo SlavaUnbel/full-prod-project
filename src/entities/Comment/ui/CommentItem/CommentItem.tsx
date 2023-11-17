@@ -59,11 +59,7 @@ export const CommentItem: FC<CommentItemProps> = memo(({
     };
 
     return (
-        <VStack className={classNames(styles.commentItem, {
-            mods: {},
-            additional: [className],
-        })}
-        >
+        <VStack className={classNames(styles.commentItem, { additional: [className] })}>
             {renderContent()}
         </VStack>
     );

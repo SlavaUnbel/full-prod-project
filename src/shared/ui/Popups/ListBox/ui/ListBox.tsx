@@ -2,10 +2,12 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Button } from '../../Button';
-import { HStack } from '../../Stack';
+import { DropdownDirection } from '../../../../types';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/stylesConsts';
 import styles from './ListBox.module.scss';
-import { DropdownDirection } from '../../../types';
+import popupStyles from '../../styles/Popups.module.scss';
 
 export interface ListBoxItem<T extends string> {
     value: T;
@@ -24,13 +26,6 @@ export interface ListBoxProps<T extends string> {
     label?: string;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': styles.optionsBottomLeft,
-    'bottom right': styles.optionsBottomRight,
-    'top left': styles.optionsTopLeft,
-    'top right': styles.optionsTopRight,
-};
-
 export const ListBox = <T extends string>({
     className,
     items,
@@ -46,15 +41,12 @@ export const ListBox = <T extends string>({
     return (
         <HStack
             gap="gap-2xs"
-            className={classNames(styles.listBox, {
-                mods: {},
-                additional: [className],
-            })}
+            className={classNames(popupStyles.popup, { additional: [className] })}
         >
             {label && (
                 <span className={classNames('', {
                     mods: {
-                        [styles.disabled]: readonly,
+                        [popupStyles.disabled]: readonly,
                     },
                 })}
                 >
@@ -71,7 +63,7 @@ export const ListBox = <T extends string>({
                     disabled={readonly}
                     className={classNames(styles.trigger, {
                         mods: {
-                            [styles.disabled]: readonly,
+                            [popupStyles.disabled]: readonly,
                         },
                     })}
                 >
@@ -80,7 +72,6 @@ export const ListBox = <T extends string>({
                     </Button>
                 </HListBox.Button>
                 <HListBox.Options className={classNames(styles.options, {
-                    mods: {},
                     additional: optionsClasses,
                 })}
                 >
@@ -97,8 +88,8 @@ export const ListBox = <T extends string>({
                                         styles.item,
                                         {
                                             mods: {
-                                                [styles.active]: active,
-                                                [styles.disabled]: item.disabled,
+                                                [popupStyles.active]: active,
+                                                [popupStyles.disabled]: item.disabled,
                                             },
                                         },
                                     )}
