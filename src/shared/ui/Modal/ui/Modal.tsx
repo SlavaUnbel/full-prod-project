@@ -1,8 +1,7 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import React, {
-    FC, MutableRefObject, useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { FC } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { useModal } from 'shared/lib/hooks/useModal';
 
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
@@ -27,54 +26,17 @@ const Modal: FC<ModalProps> = ({
     onClose,
 }) => {
     const { theme } = useTheme();
-
-    const [isClosing, setClosing] = useState(false);
-    const [isMounted, setMounted] = useState(false);
-
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const {
+        isClosing,
+        isMounted,
+        handleClose,
+        handleContentClick,
+    } = useModal({ animationDelay: ANIMATION_DELAY, onClose, isOpen });
 
     const mods: Mods = {
         [styles.opened]: isOpen,
         [styles.closing]: isClosing,
     };
-
-    const handleClose = useCallback(() => {
-        if (onClose) {
-            setClosing(true);
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
-
-    const handleContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
-
-    const handleKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            handleClose();
-        }
-    }, [handleClose]);
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', handleKeyDown);
-        }
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-
-            clearTimeout(timerRef.current);
-        };
-    }, [isOpen, handleKeyDown]);
-
-    useEffect(() => {
-        if (isOpen) {
-            setMounted(true);
-        }
-    }, [isOpen]);
 
     if (lazy && !isMounted) {
         return null;
