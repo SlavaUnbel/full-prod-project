@@ -1,10 +1,12 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import React, {
     FC, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
-import { HStack } from '../../Stack';
+import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
+import { HStack } from '../../Stack';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
@@ -24,6 +26,8 @@ const Modal: FC<ModalProps> = ({
     lazy,
     onClose,
 }) => {
+    const { theme } = useTheme();
+
     const [isClosing, setClosing] = useState(false);
     const [isMounted, setMounted] = useState(false);
 
@@ -78,17 +82,19 @@ const Modal: FC<ModalProps> = ({
 
     return (
         <Portal>
-            <div className={classNames(styles.modal, {
-                mods,
-                additional: [className],
-            })}
+            <HStack
+                justify="center"
+                className={classNames(styles.modal, {
+                    mods,
+                    additional: [className, theme, 'app_modal'],
+                })}
             >
-                <HStack justify="center" max className={styles.overlay} onClick={handleClose}>
-                    <div className={styles.content} onClick={handleContentClick}>
-                        {children}
-                    </div>
-                </HStack>
-            </div>
+                <Overlay onClick={handleClose} />
+
+                <div className={styles.content} onClick={handleContentClick}>
+                    {children}
+                </div>
+            </HStack>
         </Portal>
     );
 };

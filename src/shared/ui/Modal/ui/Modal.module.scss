@@ -7,17 +7,6 @@
     z-index: -1;
     opacity: 0;
     pointer-events: none;
-    color: var(--primary-color);
-}
-
-.dark {
-    --primary-color: #04ff04;
-    --bg-color: #09095a;
-}
-
-.overlay {
-    height: 100%;
-    background: var(--overlay-bg-color);
 }
 
 .content {
