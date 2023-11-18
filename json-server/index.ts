@@ -1,8 +1,9 @@
 import fs from 'fs';
 import jsonServer from 'json-server';
 import path from 'path';
+import { NextFunction } from 'webpack-dev-server';
 
-const server = jsonServer.create();
+const server: any = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
@@ -10,7 +11,7 @@ server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (__, _, next) => {
+server.use(async (__: any, _: any, next: NextFunction) => {
     await new Promise((res) => {
         setTimeout(res, 800);
     });
@@ -19,7 +20,7 @@ server.use(async (__, _, next) => {
 });
 
 // Эндпоинт для логина
-server.post('/login', (req, res) => {
+server.post('/login', (req: any, res: any) => {
     try {
         const { username, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'utf-8'));
@@ -43,7 +44,7 @@ server.post('/login', (req, res) => {
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
-server.use((req, res, next) => {
+server.use((req: any, res: any, next: NextFunction) => {
     if (!('authorization' in req.headers)) {
         return res.status(403).json({ message: 'AUTH ERROR' });
     }
@@ -57,3 +58,5 @@ server.use(router);
 server.listen(8000, () => {
     console.log('server is running on 8000 port');
 });
+
+export default server;
