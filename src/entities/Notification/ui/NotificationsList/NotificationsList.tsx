@@ -16,7 +16,7 @@ export const NotificationsList: FC<NotificationsListProps> = memo(({
     className,
 }: NotificationsListProps) => {
     const authData = useSelector(userAuthDataSelector);
-    const { data: notifications = [], isLoading } = useGetNotificationsDataQuery(null, {
+    const { data: notifications = [], isFetching } = useGetNotificationsDataQuery(null, {
         pollingInterval: 5000,
         selectFromResult: ({ data, ...otherProps }) => ({
             data: data?.filter((notification) => notification.userId === authData?.id),
@@ -25,7 +25,7 @@ export const NotificationsList: FC<NotificationsListProps> = memo(({
     });
 
     const renderContent = (): JSX.Element => {
-        if (isLoading) {
+        if (isFetching) {
             return (
                 <>
                     {[1, 2, 3].map((_, key) => <Skeleton key={key} width="100%" border="8px" height="80px" />)}

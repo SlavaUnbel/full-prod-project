@@ -40,3 +40,15 @@
         transform: translateY(100%);
     }
 }
+
+.sheet {
+    z-index: var(--modal-z-index);
+    position: fixed;
+    left: 2vw;
+    height: calc(100vh + 100px);
+    width: 96vw;
+    border-radius: var(--border-radius-m) var(--border-radius-m) 0;
+    background: var(--bg-color);
+    touch-action: none;
+    padding: var(--gap-m);
+}

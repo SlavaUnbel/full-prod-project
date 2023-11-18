@@ -1,8 +1,11 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import { FC, memo, ReactNode } from 'react';
+import {
+    FC, memo, ReactNode, useCallback, useEffect,
+} from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
 import { useModal } from 'shared/lib/hooks/useModal';
+import { useAnimationModules } from 'shared/lib/components';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import { HStack } from '../../Stack';
@@ -16,20 +19,21 @@ interface DrawerProps {
     onClose?: () => void;
 }
 
+const HEIGHT = window.innerHeight - 100;
 const ANIMATION_DELAY = 300;
 
-export const Drawer: FC<DrawerProps> = memo(({
+const DrawerContent: FC<DrawerProps> = memo(({
     children,
     isOpen,
     className,
     lazy,
     onClose,
 }: DrawerProps) => {
+    const { Gesture, Spring } = useAnimationModules();
     const { theme } = useTheme();
     const {
         isClosing,
         isMounted,
-        handleClose,
     } = useModal({ animationDelay: ANIMATION_DELAY, onClose, isOpen });
 
     const mods: Mods = {
@@ -37,9 +41,57 @@ export const Drawer: FC<DrawerProps> = memo(({
         [styles.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted) {
+    const [{ y }, api] = Spring.useSpring(() => ({ y: HEIGHT }));
+
+    const openDrawer = useCallback(() => {
+        api.start({ y: 0, immediate: false });
+    }, [api]);
+
+    useEffect(() => {
+        if (isOpen) {
+            openDrawer();
+        }
+    }, [api, isOpen, openDrawer]);
+
+    const close = (velocity = 0) => {
+        api.start({
+            y: HEIGHT,
+            immediate: false,
+            config: { ...Spring.config.stiff, velocity },
+            onResolve: onClose,
+        });
+    };
+
+    const bind = Gesture.useDrag(
+        ({
+            last,
+            velocity: [, vy],
+            direction: [, dy],
+            movement: [, my],
+            cancel,
+        }) => {
+            if (my < -70) cancel();
+
+            if (last) {
+                if (my > HEIGHT * 0.5 || (vy > 0.5 && dy > 0)) {
+                    close();
+                } else {
+                    openDrawer();
+                }
+            } else {
+                api.start({ y: my, immediate: true });
+            }
+        },
+        {
+            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+        },
+    );
+
+    if (!isOpen || (lazy && !isMounted)) {
         return null;
     }
+
+    const display = y.to((py) => (py < HEIGHT ? 'block' : 'none'));
 
     return (
         <Portal>
@@ -47,12 +99,28 @@ export const Drawer: FC<DrawerProps> = memo(({
                 align="end"
                 className={classNames(styles.drawer, { mods, additional: [className, theme, 'app_drawer'] })}
             >
-                <Overlay onClick={handleClose} />
+                <Overlay onClick={close} />
 
-                <div className={styles.content}>
+                <Spring.a.div
+                    className={styles.sheet}
+                    style={{ display, bottom: `calc(-100vh + ${HEIGHT - 100}px)`, y }}
+                    {...bind()}
+                >
                     {children}
-                </div>
+                </Spring.a.div>
             </HStack>
         </Portal>
+    );
+});
+
+export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
+    const { isLoaded } = useAnimationModules();
+
+    if (!isLoaded) {
+        return null;
+    }
+
+    return (
+        <DrawerContent {...props} />
     );
 });
