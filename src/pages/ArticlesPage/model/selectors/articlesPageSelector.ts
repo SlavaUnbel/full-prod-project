@@ -1,5 +1,5 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article/model/consts/article';
+import { ApplicationState } from '@/app/providers/StoreProvider';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article/model/consts/article';
 
 export const articlesPageStateSelector = (state: ApplicationState) => state.articlesPage;
 

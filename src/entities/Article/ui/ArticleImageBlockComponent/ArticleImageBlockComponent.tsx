@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, VStack } from 'shared/ui';
-import { TextAlign } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, VStack } from '@/shared/ui';
+import { TextAlign } from '@/shared/ui/Text';
 
 import { ArticleImageBlock } from '../../model/types/article';
 import styles from './ArticleImageBlockComponent.module.scss';

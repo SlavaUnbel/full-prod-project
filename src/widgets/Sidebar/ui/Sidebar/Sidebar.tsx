@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button, HStack, LangSwitcher, ThemeSwitcher, VStack,
-} from 'shared/ui';
-import { ButtonSize, ButtonTheme } from 'shared/ui/Button';
+} from '@/shared/ui';
+import { ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 
 import { sidebarItemsSelector } from '../../model/selectors/sidebarItemsSelector';
 import SidebarItem from '../SidebarItem/SidebarItem';

@@ -1,6 +1,6 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
-import { ArticleSortField } from 'entities/Article';
+import { ArticleSortField } from '@/entities/Article';
 import { articlesPageSortSelector } from '../articlesPageSelector';
 
 describe('articlesPageSortSelector', () => {

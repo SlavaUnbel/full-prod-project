@@ -1,12 +1,12 @@
-import { ArticlesList, ArticlesPageFilters } from 'entities/Article';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'widgets/Page';
+import { ArticlesList, ArticlesPageFilters } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Page } from '@/widgets/Page';
 
 import { articlesPageLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlesPageSelector';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';

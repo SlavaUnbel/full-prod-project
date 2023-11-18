@@ -1,6 +1,6 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
-import { ArticleType } from 'entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { articlesPageTypeSelector } from '../articlesPageSelector';
 
 describe('articlesPageTypeSelector', () => {

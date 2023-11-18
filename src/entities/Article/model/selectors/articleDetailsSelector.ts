@@ -1,4 +1,4 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 export const articleDetailsStateSelector = (state: ApplicationState) => state.articleDetails;
 

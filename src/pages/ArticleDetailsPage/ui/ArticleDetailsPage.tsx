@@ -1,17 +1,17 @@
-import { ArticleDetails } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Translations } from 'shared/lib/translations/translations';
-import { Page } from 'widgets/Page';
+import { ArticleDetails } from '@/entities/Article';
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Translations } from '@/shared/lib/translations/translations';
+import { Page } from '@/widgets/Page';
 
 import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';

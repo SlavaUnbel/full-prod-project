@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton, VStack } from 'shared/ui';
-
 import { useSelector } from 'react-redux';
-import { userAuthDataSelector } from 'entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton, VStack } from '@/shared/ui';
+
+import { userAuthDataSelector } from '@/entities/User';
 import { useGetNotificationsDataQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import styles from './NotificationsList.module.scss';

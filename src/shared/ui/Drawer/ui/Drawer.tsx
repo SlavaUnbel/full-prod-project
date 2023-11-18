@@ -1,11 +1,11 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import {
     FC, memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
-import { useModal } from 'shared/lib/hooks/useModal';
-import { useAnimationModules } from 'shared/lib/components';
+import { useModal } from '@/shared/lib/hooks/useModal';
+import { useAnimationModules } from '@/shared/lib/components';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import { HStack } from '../../Stack';

@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-
-import { profileActions, profileDataSelector } from 'entities/Profile';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+
+import { profileActions, profileDataSelector } from '@/entities/Profile';
 import { Button, ButtonTheme } from '../../Button';
 import styles from './LangSwitcher.module.scss';
 

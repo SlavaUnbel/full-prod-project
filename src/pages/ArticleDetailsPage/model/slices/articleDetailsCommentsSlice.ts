@@ -3,8 +3,8 @@ import {
     createEntityAdapter,
     createSlice,
 } from '@reduxjs/toolkit';
-import { ApplicationState } from 'app/providers/StoreProvider';
-import { Comment } from 'entities/Comment';
+import { ApplicationState } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetails';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
 

@@ -1,4 +1,5 @@
-import { rtkApi } from 'shared/api/rtkApi';
+import { rtkApi } from '@/shared/api/rtkApi';
+
 import { Profile } from '../model/types/profile';
 
 export const profileApi = rtkApi.injectEndpoints({

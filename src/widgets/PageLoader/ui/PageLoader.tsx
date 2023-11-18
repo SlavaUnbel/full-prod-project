@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack, Loader } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack, Loader } from '@/shared/ui';
 
 import styles from './PageLoader.module.scss';
 

@@ -1,4 +1,4 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 import { ValidateProfileError } from '../../consts/profile';
 import { profileValidateErrorsSelector } from '../profileSelector';

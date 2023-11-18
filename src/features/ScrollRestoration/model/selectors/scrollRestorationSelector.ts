@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 export const scrollRestorationStateSelector = (state: ApplicationState) => state.scrollRestoration;
 

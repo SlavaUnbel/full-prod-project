@@ -1,20 +1,20 @@
-import { userAuthDataSelector } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { LoginModal } from '@/features/AuthByUsername';
+import { userAuthDataSelector } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/consts/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AppLink, Button, HStack, Text,
-} from 'shared/ui';
-import { AppLinkTheme } from 'shared/ui/AppLink';
-import { ButtonTheme } from 'shared/ui/Button';
-import { TextTheme } from 'shared/ui/Text';
+} from '@/shared/ui';
+import { AppLinkTheme } from '@/shared/ui/AppLink';
+import { ButtonTheme } from '@/shared/ui/Button';
+import { TextTheme } from '@/shared/ui/Text';
 
-import { NotificationButton } from 'features/NotificationButton';
-import { NavbarDropdown } from 'features/NavbarDropdown';
-import { Drawer } from 'shared/ui/Drawer';
+import { NotificationButton } from '@/features/NotificationButton';
+import { NavbarDropdown } from '@/features/NavbarDropdown';
+import { Drawer } from '@/shared/ui/Drawer';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {

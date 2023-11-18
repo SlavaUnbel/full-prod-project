@@ -1,13 +1,13 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Translations } from 'shared/lib/translations/translations';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { RoutePath } from '@/shared/config/routeConfig/consts/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Translations } from '@/shared/lib/translations/translations';
 import {
     AppLink, Avatar, Button, Card, HStack, Icon, Text, VStack,
-} from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
+} from '@/shared/ui';
+import { ButtonTheme } from '@/shared/ui/Button';
 
 import { ArticleBlockType, ArticleView } from '../../model/consts/article';
 import { Article, ArticleTextBlock } from '../../model/types/article';

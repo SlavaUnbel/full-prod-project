@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { HStack } from '../../Stack';
 import { Card, CardTheme } from '../../Card';

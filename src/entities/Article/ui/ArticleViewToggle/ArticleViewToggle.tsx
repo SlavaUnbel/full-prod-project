@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import ListIcon from 'shared/assets/icons/list.svg';
-import TiledIcon from 'shared/assets/icons/tiled.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, HStack, Icon } from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import TiledIcon from '@/shared/assets/icons/tiled.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, HStack, Icon } from '@/shared/ui';
+import { ButtonTheme } from '@/shared/ui/Button';
 
 import { ArticleView } from '../../model/consts/article';
 import styles from './ArticleViewToggle.module.scss';

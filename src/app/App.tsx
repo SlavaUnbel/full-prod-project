@@ -1,12 +1,12 @@
-import { userActions, userInitedSelector } from 'entities/User';
 import { FC, Suspense, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-
 import { useSelector } from 'react-redux';
-import { HStack } from 'shared/ui';
+import { userActions, userInitedSelector } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { HStack } from '@/shared/ui';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 

@@ -1,9 +1,9 @@
-import { Theme } from 'app/providers/ThemeProvider';
-import MainIcon from 'shared/assets/icons/main.svg';
-import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
-
 import type { Meta, StoryObj } from '@storybook/react';
+import { Theme } from '@/app/providers/ThemeProvider';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import { RoutePath } from '@/shared/config/routeConfig/consts/routeConfig';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+
 import SidebarItem from './SidebarItem';
 
 const meta: Meta<typeof SidebarItem> = {

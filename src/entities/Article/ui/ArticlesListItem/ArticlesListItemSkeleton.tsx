@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Card, HStack, Skeleton, VStack,
-} from 'shared/ui';
+} from '@/shared/ui';
 
 import { ArticleView } from '../../model/consts/article';
 import styles from './ArticlesListItem.module.scss';

@@ -1,4 +1,5 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
+
 import { Profile } from '../types/profile';
 
 export const profileStateSelector = (state: ApplicationState) => state.profile;

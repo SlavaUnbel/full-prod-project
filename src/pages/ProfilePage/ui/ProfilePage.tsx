@@ -1,5 +1,7 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { FC, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
     profileActions,
     ProfileCard,
@@ -11,18 +13,16 @@ import {
     profileValidateErrorsSelector,
     ValidateProfileError,
     useGetProfileDataQuery,
-} from 'entities/Profile';
-import { FC, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { Translations } from 'shared/lib/translations/translations';
-import { Text } from 'shared/ui';
-import { TextTheme } from 'shared/ui/Text';
-import { Page } from 'widgets/Page';
+} from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { Translations } from '@/shared/lib/translations/translations';
+import { Text } from '@/shared/ui';
+import { TextTheme } from '@/shared/ui/Text';
+import { Page } from '@/widgets/Page';
 
 import { ProfilePageHeader } from './ProfilePageHeader';
 

@@ -1,12 +1,12 @@
-import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from 'entities/User';
-import { loginActions } from 'features/AuthByUsername';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/consts/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Avatar, Dropdown } from 'shared/ui';
+import { loginActions } from '@/features/AuthByUsername';
+import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/consts/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar, Dropdown } from '@/shared/ui';
 
 import styles from './NavbarDropdown.module.scss';
 

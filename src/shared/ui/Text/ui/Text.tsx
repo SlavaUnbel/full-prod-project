@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { TextAlign } from '../lib/TextAlign';
 import { TextSize } from '../lib/TextSize';

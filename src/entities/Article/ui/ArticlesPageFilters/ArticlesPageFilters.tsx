@@ -1,3 +1,6 @@
+import { FC, memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
     articlesPageActions,
     articlesPageOrderSelector,
@@ -6,18 +9,15 @@ import {
     articlesPageTypeSelector,
     articlesPageViewSelector,
     fetchArticlesList,
-} from 'pages/ArticlesPage';
-import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { Translations } from 'shared/lib/translations/translations';
-import { SortOrder } from 'shared/types';
+} from '@/pages/ArticlesPage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { Translations } from '@/shared/lib/translations/translations';
+import { SortOrder } from '@/shared/types';
 import {
     Card, HStack, Input, VStack,
-} from 'shared/ui';
+} from '@/shared/ui';
 
 import { ArticleSortField, ArticleType, ArticleView } from '../../model/consts/article';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';

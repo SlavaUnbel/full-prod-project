@@ -1,4 +1,4 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 import { Article } from '../../types/article';
 import { articleDetailsDataSelector } from '../articleDetailsSelector';

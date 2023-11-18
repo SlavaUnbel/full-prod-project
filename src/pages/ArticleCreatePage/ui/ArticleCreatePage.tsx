@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 import styles from './ArticleCreatePage.module.scss';
 

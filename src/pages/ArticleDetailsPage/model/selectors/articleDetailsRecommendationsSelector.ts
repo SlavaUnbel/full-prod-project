@@ -1,4 +1,4 @@
-import { ApplicationState } from 'app/providers/StoreProvider';
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 export const articleDetailsRecommendationsStateSelector = (state: ApplicationState) => state.articleDetailsPage?.recommendations;
 

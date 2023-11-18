@@ -1,7 +1,7 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ApplicationState, ApplicationStateKey, ReduxStoreWithManager } from 'app/providers/StoreProvider/config/ApplicationState';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
+import { ApplicationState, ApplicationStateKey, ReduxStoreWithManager } from '@/app/providers/StoreProvider/config/ApplicationState';
 
 import { useAppDispatch } from './useAppDispatch';
 

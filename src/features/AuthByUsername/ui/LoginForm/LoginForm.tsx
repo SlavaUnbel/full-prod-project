@@ -5,15 +5,15 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/consts/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { AppRoutes } from '@/shared/config/routeConfig/consts/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import {
     Button, Input, Text, VStack,
-} from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/Button';
-import { TextTheme } from 'shared/ui/Text';
+} from '@/shared/ui';
+import { ButtonTheme } from '@/shared/ui/Button';
+import { TextTheme } from '@/shared/ui/Text';
 
 import { loginErrorSelector } from '../../model/selectors/loginErrorSelector';
 import { loginLoadingSelector } from '../../model/selectors/loginLoadingSelector';

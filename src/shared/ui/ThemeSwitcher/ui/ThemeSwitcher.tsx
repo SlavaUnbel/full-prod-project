@@ -1,9 +1,9 @@
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { FC, memo } from 'react';
-import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import LightIcon from 'shared/assets/icons/theme-light.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
+import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
+import LightIcon from '@/shared/assets/icons/theme-light.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Button, ButtonTheme } from '../../Button';
 
