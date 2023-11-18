@@ -5,7 +5,7 @@ import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import { useModal } from '@/shared/lib/hooks/useModal';
-import { useAnimationModules } from '@/shared/lib/components';
+import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import { HStack } from '../../Stack';
@@ -113,7 +113,7 @@ const DrawerContent: FC<DrawerProps> = memo(({
     );
 });
 
-export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
+const DrawerAsync: FC<DrawerProps> = (props) => {
     const { isLoaded } = useAnimationModules();
 
     if (!isLoaded) {
@@ -123,4 +123,10 @@ export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
     return (
         <DrawerContent {...props} />
     );
-});
+};
+
+export const Drawer: FC<DrawerProps> = (props) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);

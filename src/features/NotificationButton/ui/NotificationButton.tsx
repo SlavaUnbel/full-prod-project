@@ -10,7 +10,6 @@ import {
 } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 
-import { AnimationProvider } from '@/shared/lib/components';
 import styles from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -53,11 +52,9 @@ export const NotificationButton: FC<NotificationButtonProps> = memo(({
             <MobileView>
                 {trigger}
 
-                <AnimationProvider>
-                    <Drawer isOpen={isOpenDrawer} onClose={handleCloseDrawer}>
-                        <NotificationsList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isOpenDrawer} onClose={handleCloseDrawer}>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
         </>
     );

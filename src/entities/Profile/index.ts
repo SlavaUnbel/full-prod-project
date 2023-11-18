@@ -18,6 +18,6 @@ export {
 export { updateProfileData } from './model/services/updateProfileData';
 export { validateProfileData } from './model/services/validateProfileData';
 
-export { useGetProfileDataQuery } from 'entities/Profile/api/profileApi';
+export { useGetProfileDataQuery } from './api/profileApi';
 
 export { ProfileCard } from './ui/ProfileCard';
