@@ -17,3 +17,4 @@ export { Tabs } from './Tabs';
 export { HStack, VStack } from './Stack';
 export { ListBox, Dropdown, Popover } from './Popups';
 export { Drawer } from './Drawer';
+export { StarRating } from './StarRating';

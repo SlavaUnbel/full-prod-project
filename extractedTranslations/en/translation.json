@@ -17,6 +17,7 @@
   "Authorization form": "",
   "Back to the articles list": "",
   "Cancel": "",
+  "Close": "Close",
   "Comments": "",
   "Create an article": "",
   "Creation date": "",
@@ -31,6 +32,7 @@
   "Incorrect age": "",
   "Incorrect country": "",
   "Incorrect username or password": "",
+  "Leave your feedback about this article it helps us to improve our services": "Leave your feedback about this article it helps us to improve our services",
   "Log in": "",
   "Log out": "",
   "Main": "",
@@ -39,6 +41,7 @@
   "No data was received on profile loading": "",
   "Page is not found": "",
   "Profile": "",
+  "Rate the article": "Rate the article",
   "Read more": {
     "": {
       "": {
@@ -54,6 +57,7 @@
   "Send": "",
   "Sort field": "",
   "Sort order": "",
+  "Thanks for rating": "Thanks for rating",
   "There are no comments": "",
   "Title": "",
   "Try to reload the page": "",
@@ -62,6 +66,7 @@
   "You do not have access to this page": "",
   "Your country": "",
   "Your currency": "",
+  "Your feedback": "Your feedback",
   "Your firstname": "",
   "Your lastname": ""
 }

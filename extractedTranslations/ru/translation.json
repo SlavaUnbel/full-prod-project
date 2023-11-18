@@ -13,6 +13,7 @@
   "Authorization form": "Authorization form",
   "Back to the articles list": "Back to the articles list",
   "Cancel": "Cancel",
+  "Close": "Close",
   "Comments": "Comments",
   "Create an article": "Create an article",
   "Creation date": "Creation date",
@@ -26,12 +27,14 @@
   "IT": "IT",
   "Incorrect age": "Incorrect age",
   "Incorrect country": "Incorrect country",
+  "Leave your feedback about this article it helps us to improve our services": "Leave your feedback about this article it helps us to improve our services",
   "Log in": "Log in",
   "Log out": "Log out",
   "Main page": "Main page",
   "No data is provided": "No data is provided",
   "Page is not found": "Page is not found",
   "Profile": "Profile",
+  "Rate the article": "Rate the article",
   "Read more": {
     "": {
       "": {
@@ -47,6 +50,7 @@
   "Send": "Send",
   "Sort field": "Sort field",
   "Sort order": "Sort order",
+  "Thanks for rating": "Thanks for rating",
   "There are no comments": "There are no comments",
   "Title": "Title",
   "Try to reload the page": "Try to reload the page",
@@ -54,5 +58,6 @@
   "Views": "Views",
   "You do not have access to this page": "You do not have access to this page",
   "Your country": "Your country",
-  "Your currency": "Your currency"
+  "Your currency": "Your currency",
+  "Your feedback": "Your feedback"
 }
