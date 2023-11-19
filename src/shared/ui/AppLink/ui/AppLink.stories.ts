@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RoutePath } from '../../../const/routeConfig';
 import { AppLinkTheme } from '../lib/AppLinkTheme';
 
 import AppLink from './AppLink';
+
+import { getRouteMain } from '@/shared/const/routeConfig';
 
 const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
     component: AppLink,
     args: {
-        to: RoutePath.main,
+        to: getRouteMain(),
     },
 };
 

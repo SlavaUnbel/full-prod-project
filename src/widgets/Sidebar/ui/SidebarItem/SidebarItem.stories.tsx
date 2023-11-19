@@ -4,7 +4,7 @@ import SidebarItem from './SidebarItem';
 
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
-import { RoutePath } from '@/shared/const/routeConfig';
+import { getRouteMain } from '@/shared/const/routeConfig';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof SidebarItem> = {
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof SidebarItem>;
 export const Light: Story = {
     args: {
         item: {
-            path: RoutePath.main,
+            path: getRouteMain(),
             title: 'Main',
             Icon: MainIcon,
         },
@@ -31,7 +31,7 @@ export const Light: Story = {
 export const Dark: Story = {
     args: {
         item: {
-            path: RoutePath.main,
+            path: getRouteMain(),
             title: 'Main',
             Icon: MainIcon,
         },

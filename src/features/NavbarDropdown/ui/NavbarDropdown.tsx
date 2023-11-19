@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { loginActions } from '../../AuthByUsername';
 
 import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from '@/entities/User';
-import { RoutePath } from '@/shared/const/routeConfig';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';
@@ -32,11 +32,11 @@ export const NavbarDropdown: FC<NavbarDropdownProps> = memo(({
     const dropdownItems = [
         ...(isAdminPanelAvailable ? [{
             content: t('Admin panel'),
-            href: RoutePath['admin-panel'],
+            href: getRouteAdminPanel(),
         }] : []),
         {
             content: t('Profile'),
-            href: `${RoutePath.profile}${authData?.id}`,
+            href: getRouteProfile(authData?.id ?? ''),
         },
         {
             content: t('Log out'),

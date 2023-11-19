@@ -6,7 +6,7 @@ import { userAuthDataSelector } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { NavbarDropdown } from '@/features/NavbarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
-import { RoutePath } from '@/shared/const/routeConfig';
+import { getRouteArticleCreate } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AppLink, Button, HStack, Text,
@@ -40,16 +40,9 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         if (authData) {
             return (
                 <>
-                    <Text
-                        title={t('Ulbi TV App')}
-                        theme={TextTheme.INVERTED}
-                        className={styles.appName}
-                    />
+                    <Text title={t('Ulbi TV App')} theme={TextTheme.INVERTED} className={styles.appName} />
 
-                    <AppLink
-                        to={RoutePath['article-create']}
-                        theme={AppLinkTheme.SECONDARY}
-                    >
+                    <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
                         {t('Create an article')}
                     </AppLink>
 

@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 
 import { Comment } from '../../model/types/comment';
 
-import { RoutePath } from '@/shared/const/routeConfig';
+import { getRouteProfile } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AppLink, Avatar, HStack, Skeleton, Text, VStack,
@@ -42,7 +42,7 @@ export const CommentItem: FC<CommentItemProps> = memo(({
 
         return (
             <>
-                <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
+                <AppLink to={getRouteProfile(comment.user.id)} className={styles.header}>
                     { comment.user.avatar
                 && (
                     <Avatar

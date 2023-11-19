@@ -6,7 +6,7 @@ import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePath } from '@/shared/const/routeConfig';
+import { getRouteArticleDetails } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Translations } from '@/shared/lib/translations/translations';
 import {
@@ -61,7 +61,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
                     <HStack className={styles.footer}>
                         <AppLink
                             target={target}
-                            to={`${RoutePath['article-details']}${article.id}`}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {t('Read more...')}
@@ -78,7 +78,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
     return (
         <AppLink
             target={target}
-            to={`${RoutePath['article-details']}${article.id}`}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(styles.articlesListItem, {
                 additional: [className, styles[view]],
             })}
