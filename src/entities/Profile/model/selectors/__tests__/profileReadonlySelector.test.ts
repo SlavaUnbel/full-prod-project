@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { profileReadonlySelector } from '../profileSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('profileReadonlySelector', () => {
     it('should return true if the profile data is readonly', () => {

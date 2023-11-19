@@ -1,6 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Button } from '../../../Button';
+
 import { Dropdown } from './Dropdown';
 
 const meta: Meta<typeof Dropdown> = {

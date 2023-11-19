@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articlesPageOrderSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articlesPageOrderSelector', () => {
     it('should return the sort order of articles', () => {

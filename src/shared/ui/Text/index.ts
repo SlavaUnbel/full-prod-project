@@ -1,6 +1,6 @@
 import { TextAlign } from './lib/TextAlign';
-import { TextTheme } from './lib/TextTheme';
 import { TextSize } from './lib/TextSize';
+import { TextTheme } from './lib/TextTheme';
 import Text from './ui/Text';
 
 export {

@@ -1,5 +1,7 @@
+/* eslint-disable ulbi-tv-plugin/layer-imports */
 import { Story } from '@storybook/react';
 import { Suspense } from 'react';
+
 import { ApplicationState, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article';
 import { profileReducer } from '@/entities/Profile';

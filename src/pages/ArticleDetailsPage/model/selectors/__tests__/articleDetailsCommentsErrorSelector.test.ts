@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articleDetailsCommentsErrorSelector } from '../articleDetailsCommentsSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articleDetailsCommentsErrorSelector', () => {
     it('should return the error text if the articleDetailsComments data has not been loaded due to a server error', () => {

@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { profileLoadingSelector } from '../profileSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('profileLoadingSelector', () => {
     it('should return true if the profile data is loading', () => {

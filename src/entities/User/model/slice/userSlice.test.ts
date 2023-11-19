@@ -1,7 +1,8 @@
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-
 import { UserSchema } from '../types/user';
+
 import { userActions, userReducer } from './userSlice';
+
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 
 const data = {
     id: '1',

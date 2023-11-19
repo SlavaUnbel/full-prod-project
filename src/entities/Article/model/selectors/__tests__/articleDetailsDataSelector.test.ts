@@ -1,8 +1,8 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
+import { ArticleBlockType, ArticleType } from '../../consts/article';
 import { Article } from '../../types/article';
 import { articleDetailsDataSelector } from '../articleDetailsSelector';
-import { ArticleBlockType, ArticleType } from '../../consts/article';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 const data: Article = {
     id: '1',

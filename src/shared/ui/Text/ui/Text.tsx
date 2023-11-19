@@ -1,9 +1,11 @@
 import { FC, memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { TextAlign } from '../lib/TextAlign';
 import { TextSize } from '../lib/TextSize';
 import { TextTheme } from '../lib/TextTheme';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+
 import styles from './Text.module.scss';
 
 interface TextProps {

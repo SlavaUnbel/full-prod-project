@@ -1,8 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-
 import { ArticleBlockType, ArticleType } from '../consts/article';
 import { Article } from '../types/article';
+
 import { fetchArticleById } from './fetchArticleById';
+
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('fetchArticleById', () => {
     it('should fetchArticleById action be fulfilled and return article data', async () => {

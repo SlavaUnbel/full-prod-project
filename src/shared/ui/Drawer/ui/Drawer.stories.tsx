@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
 
 import { Drawer } from './Drawer';
+
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Drawer> = {
     title: 'shared/Drawer',

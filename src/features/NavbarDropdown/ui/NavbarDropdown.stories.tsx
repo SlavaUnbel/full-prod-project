@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
-import AvatarImg from '@/shared/assets/avatar.jpg';
 
 import { NavbarDropdown } from './NavbarDropdown';
+
+import AvatarImg from '@/shared/assets/avatar.jpg';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof NavbarDropdown> = {
     title: 'features/NavbarDropdown',

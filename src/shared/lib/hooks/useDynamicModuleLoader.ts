@@ -1,9 +1,11 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { ApplicationState, ApplicationStateKey, ReduxStoreWithManager } from '@/app/providers/StoreProvider/config/ApplicationState';
 
 import { useAppDispatch } from './useAppDispatch';
+
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
+import { ApplicationState, ApplicationStateKey, ReduxStoreWithManager } from '@/app/providers/StoreProvider/config/ApplicationState';
 
 export type ReducersList = {
     [key in ApplicationStateKey]?: Reducer<NonNullable<ApplicationState[key]>>;

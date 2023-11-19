@@ -1,14 +1,15 @@
 import { FC, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { AppRouter } from './providers/router';
+
 import { userActions, userInitedSelector } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import useTheme from '@/shared/lib/hooks/useTheme';
 import { HStack } from '@/shared/ui';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-
-import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
 
 const App: FC = () => {
     const dispatch = useAppDispatch();

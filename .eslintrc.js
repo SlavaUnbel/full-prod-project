@@ -19,6 +19,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'ulbi-tv-plugin',
+        'unused-imports',
     ],
     rules: {
         indent: ['warn', 4],
@@ -53,6 +54,24 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
         'no-shadow': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
+            },
+        ],
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error', {
@@ -85,6 +104,13 @@ module.exports = {
             {
                 alias: '@',
                 testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'ulbi-tv-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider'],
             },
         ],
     },

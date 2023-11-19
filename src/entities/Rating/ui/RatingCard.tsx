@@ -2,12 +2,17 @@ import {
     FC, memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
-import styles from './RatingCard.module.scss';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button,
-    Card, HStack, Input, Modal, StarRating, Text, VStack,
+    Card,
+    HStack,
+    Input,
+    Modal,
+    StarRating,
+    Text,
+    VStack,
 } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 

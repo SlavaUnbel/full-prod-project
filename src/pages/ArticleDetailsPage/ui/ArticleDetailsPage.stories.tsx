@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
-import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
+
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/ArticleDetailsPage',

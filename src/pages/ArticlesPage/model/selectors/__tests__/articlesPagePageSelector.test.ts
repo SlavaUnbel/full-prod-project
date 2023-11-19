@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articlesPagePageSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articlesPagePageSelector', () => {
     it('should return the number of page', () => {

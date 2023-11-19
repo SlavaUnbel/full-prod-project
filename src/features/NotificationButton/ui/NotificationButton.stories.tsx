@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
 
 import { NotificationButton } from './NotificationButton';
+
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof NotificationButton> = {
     title: 'features/NotificationButton',

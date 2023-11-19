@@ -1,16 +1,17 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import {
     profileActions, profileDataSelector, profileReadonlySelector, updateProfileData,
 } from '@/entities/Profile';
+import { userAuthDataSelector } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Translations } from '@/shared/lib/translations/translations';
 import { Button, HStack, Text } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 
-import { userAuthDataSelector } from '@/entities/User';
 import styles from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {

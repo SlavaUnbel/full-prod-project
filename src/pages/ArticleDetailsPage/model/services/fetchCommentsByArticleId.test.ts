@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-
 import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
+
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('fetchCommentsByArticleId', () => {
     it('should fetchCommentsByArticleId action be fulfilled and return article data', async () => {

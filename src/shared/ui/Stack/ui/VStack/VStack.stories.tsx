@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { VStack } from './VStack';
 
 const meta: Meta<typeof VStack> = {

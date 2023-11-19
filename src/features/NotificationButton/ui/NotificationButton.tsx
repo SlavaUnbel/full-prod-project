@@ -2,6 +2,7 @@ import {
     FC, memo, useCallback, useState,
 } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+
 import { NotificationsList } from '@/entities/Notification';
 import NotificationsIcon from '@/shared/assets/icons/notifications.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';

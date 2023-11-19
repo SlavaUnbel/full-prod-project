@@ -1,14 +1,16 @@
 import {
     FC, memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
-import { useModal } from '@/shared/lib/hooks/useModal';
-import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
+import useTheme from '../../../lib/hooks/useTheme';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import { HStack } from '../../Stack';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
+import { useModal } from '@/shared/lib/hooks/useModal';
+
 import styles from './Drawer.module.scss';
 
 interface DrawerProps {

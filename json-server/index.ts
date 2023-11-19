@@ -1,6 +1,7 @@
 import fs from 'fs';
-import jsonServer from 'json-server';
 import path from 'path';
+
+import jsonServer from 'json-server';
 import { NextFunction } from 'webpack-dev-server';
 
 const server: any = jsonServer.create();

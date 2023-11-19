@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articleDetailsRecommendationsLoadingSelector } from '../articleDetailsRecommendationsSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articleDetailsRecommendationsLoadingSelector', () => {
     it('should return true if the articleDetails data is loading', () => {

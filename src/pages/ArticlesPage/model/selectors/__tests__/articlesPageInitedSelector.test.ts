@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articlesPageInitedSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articlesPageInitedSelector', () => {
     it('should be truthy', () => {

@@ -1,7 +1,7 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
-import { ArticleType } from '@/entities/Article';
 import { articlesPageTypeSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article';
 
 describe('articlesPageTypeSelector', () => {
     it('should return the type of articles', () => {

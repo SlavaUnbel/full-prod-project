@@ -1,8 +1,10 @@
 import { ChangeEvent, useMemo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import { HStack } from '../../Stack';
 import { SelectOption } from '../lib/select';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import styles from './Select.module.scss';
 
 interface SelectProps<T extends string> {

@@ -1,11 +1,13 @@
 import { FC, memo } from 'react';
+
+import { Comment } from '../../model/types/comment';
+
 import { RoutePath } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AppLink, Avatar, HStack, Skeleton, Text, VStack,
 } from '@/shared/ui';
 
-import { Comment } from '../../model/types/comment';
 import styles from './CommentItem.module.scss';
 
 interface CommentItemProps {

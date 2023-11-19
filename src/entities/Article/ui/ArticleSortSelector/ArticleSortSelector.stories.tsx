@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { ThemeDecorator } from '@/shared/config/storybook';
 
 import { ArticleSortSelector } from './ArticleSortSelector';
+
+import { ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ArticleSortSelector> = {
     title: 'entities/ArticleSortSelector',

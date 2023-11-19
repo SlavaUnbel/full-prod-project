@@ -1,8 +1,8 @@
+import { profileDataSelector } from '../profileSelector';
+
 import { ApplicationState } from '@/app/providers/StoreProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-
-import { profileDataSelector } from '../profileSelector';
 
 const data = {
     username: 'admin',

@@ -3,12 +3,13 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { useGetArticleRatingsQuery, useRateArticleMutation } from '../api/articleRatingApi';
 
 import { RatingCard } from '@/entities/Rating';
-import { Translations } from '@/shared/lib/translations/translations';
-import { useGetArticleRatingsQuery, useRateArticleMutation } from '../api/articleRatingApi';
 import { userAuthDataSelector } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Translations } from '@/shared/lib/translations/translations';
 import { Skeleton } from '@/shared/ui';
 
 interface ArticleRatingProps {

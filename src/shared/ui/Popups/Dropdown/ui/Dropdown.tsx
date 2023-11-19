@@ -4,9 +4,10 @@ import { FC, Fragment, ReactNode } from 'react';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types';
 import AppLink from '../../../AppLink/ui/AppLink';
-import { mapDirectionClass } from '../../styles/stylesConsts';
-import styles from './Dropdown.module.scss';
 import popupStyles from '../../styles/Popups.module.scss';
+import { mapDirectionClass } from '../../styles/stylesConsts';
+
+import styles from './Dropdown.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;

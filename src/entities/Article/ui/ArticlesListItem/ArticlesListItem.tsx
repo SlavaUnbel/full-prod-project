@@ -1,5 +1,10 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ArticleBlockType, ArticleView } from '../../model/consts/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { RoutePath } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,9 +14,6 @@ import {
 } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 
-import { ArticleBlockType, ArticleView } from '../../model/consts/article';
-import { Article, ArticleTextBlock } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticlesListItem.module.scss';
 
 interface ArticlesListItemProps {

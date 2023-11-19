@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { articlesPageHasMoreSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('articlesPageHasMoreSelector', () => {
     it('should be falsy when hasMore field is set to false', () => {

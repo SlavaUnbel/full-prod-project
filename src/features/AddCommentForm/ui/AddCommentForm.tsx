@@ -1,6 +1,10 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
+import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
@@ -9,8 +13,6 @@ import {
     Button, HStack, Input, Text, VStack,
 } from '@/shared/ui';
 
-import { addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
-import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
 import styles from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {

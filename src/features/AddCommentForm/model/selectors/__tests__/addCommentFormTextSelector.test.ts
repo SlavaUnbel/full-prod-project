@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { addCommentFormTextSelector } from '../addCommentFormSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('addCommentFormTextSelector', () => {
     it('should return the comment form text', () => {

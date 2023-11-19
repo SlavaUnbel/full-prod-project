@@ -1,7 +1,7 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
-import { ArticleView } from '@/entities/Article';
 import { articlesPageViewSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
+import { ArticleView } from '@/entities/Article';
 
 describe('articlesPageViewSelector', () => {
     it('should return the view', () => {

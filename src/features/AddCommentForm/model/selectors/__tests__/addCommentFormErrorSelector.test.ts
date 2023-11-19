@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { addCommentFormErrorSelector } from '../addCommentFormSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('addCommentFormErrorSelector', () => {
     it('should return the error text if the addCommentForm data has not been loaded due to a server error', () => {

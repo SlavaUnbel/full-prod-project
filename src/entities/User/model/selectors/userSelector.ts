@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { ApplicationState } from '@/app/providers/StoreProvider';
 
 import { UserRole } from '../consts/user';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 export const userStateSelector = (state: ApplicationState) => state.user;
 

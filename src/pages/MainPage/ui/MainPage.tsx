@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Translations } from '@/shared/lib/translations/translations';
 import { Page } from '@/widgets/Page';
 

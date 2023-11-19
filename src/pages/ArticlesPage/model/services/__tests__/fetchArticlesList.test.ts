@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-
 import { fetchArticlesList } from '../fetchArticlesList';
+
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('fetchArticlesList', () => {
     it('should fetchArticlesList action be fulfilled and return article data', async () => {

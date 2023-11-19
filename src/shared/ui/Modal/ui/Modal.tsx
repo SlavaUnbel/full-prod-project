@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useModal } from '@/shared/lib/hooks/useModal';
 
+import useTheme from '../../../lib/hooks/useTheme';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import { HStack } from '../../Stack';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal';
+
 import styles from './Modal.module.scss';
 
 interface ModalProps {

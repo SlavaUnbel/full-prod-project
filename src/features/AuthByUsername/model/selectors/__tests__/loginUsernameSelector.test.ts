@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { loginUsernameSelector } from '../loginUsernameSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('loginUsernameSelector', () => {
     it('should return username', () => {

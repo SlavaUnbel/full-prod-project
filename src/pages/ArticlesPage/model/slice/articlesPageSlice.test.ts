@@ -1,11 +1,12 @@
+import { fetchArticlesList } from '../services/fetchArticlesList';
+import { ArticlesPageSchema } from '../types/articlesPage';
+
+import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
+
 import {
     Article, ArticleSortField, ArticleType, ArticleView,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-
-import { fetchArticlesList } from '../services/fetchArticlesList';
-import { ArticlesPageSchema } from '../types/articlesPage';
-import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
 
 const articlesData = [
     {

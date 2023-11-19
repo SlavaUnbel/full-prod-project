@@ -5,6 +5,14 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { loginErrorSelector } from '../../model/selectors/loginErrorSelector';
+import { loginLoadingSelector } from '../../model/selectors/loginLoadingSelector';
+import { loginPasswordSelector } from '../../model/selectors/loginPasswordSelector';
+import { loginUsernameSelector } from '../../model/selectors/loginUsernameSelector';
+import { loginByUsername } from '../../model/services/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+
 import { AppRoutes } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -15,12 +23,6 @@ import {
 import { ButtonTheme } from '@/shared/ui/Button';
 import { TextTheme } from '@/shared/ui/Text';
 
-import { loginErrorSelector } from '../../model/selectors/loginErrorSelector';
-import { loginLoadingSelector } from '../../model/selectors/loginLoadingSelector';
-import { loginPasswordSelector } from '../../model/selectors/loginPasswordSelector';
-import { loginUsernameSelector } from '../../model/selectors/loginUsernameSelector';
-import { loginByUsername } from '../../model/services/loginByUsername';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {

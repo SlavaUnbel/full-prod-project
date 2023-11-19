@@ -1,6 +1,13 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { ArticleSortField, ArticleType, ArticleView } from '../../model/consts/article';
+import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
+import { ArticleViewToggle } from '../ArticleViewToggle/ArticleViewToggle';
+import { ArticlesTypesTabs } from '../ArticlesTypesTabs/ArticlesTypesTabs';
+
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
 import {
     articlesPageActions,
     articlesPageOrderSelector,
@@ -19,10 +26,6 @@ import {
     Card, HStack, Input, VStack,
 } from '@/shared/ui';
 
-import { ArticleSortField, ArticleType, ArticleView } from '../../model/consts/article';
-import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
-import { ArticlesTypesTabs } from '../ArticlesTypesTabs/ArticlesTypesTabs';
-import { ArticleViewToggle } from '../ArticleViewToggle/ArticleViewToggle';
 import styles from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {

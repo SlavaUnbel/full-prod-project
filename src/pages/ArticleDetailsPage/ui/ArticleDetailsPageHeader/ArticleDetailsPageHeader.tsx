@@ -2,13 +2,15 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { articleDetailsCanEditArticleSelector } from '../../model/selectors/articleDetailsSelector';
+
 import { articleDetailsDataSelector } from '@/entities/Article';
 import { RoutePath } from '@/shared/const/routeConfig';
 import { Translations } from '@/shared/lib/translations/translations';
 import { Button, HStack } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 
-import { articleDetailsCanEditArticleSelector } from '../../model/selectors/articleDetailsSelector';
 import styles from './ArticleDetailsPageHeader.module.scss';
 
 export const ArticleDetailsPageHeader: FC = memo(() => {

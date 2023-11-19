@@ -1,11 +1,12 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ArticleSortField } from '../../model/consts/article';
+
 import { Translations } from '@/shared/lib/translations/translations';
 import { SortOrder } from '@/shared/types';
 import { HStack, Select } from '@/shared/ui';
 import { SelectOption } from '@/shared/ui/Select';
-
-import { ArticleSortField } from '../../model/consts/article';
 
 interface ArticleSortSelectorProps {
     sort: ArticleSortField;

@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
+
+import { Card, CardTheme } from '../../Card';
+import { HStack } from '../../Stack';
+import { TabItem } from '../lib/tabs';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { HStack } from '../../Stack';
-import { Card, CardTheme } from '../../Card';
-import { TabItem } from '../lib/tabs';
 import styles from './Tabs.module.scss';
 
 interface TabsProps<T extends string> {

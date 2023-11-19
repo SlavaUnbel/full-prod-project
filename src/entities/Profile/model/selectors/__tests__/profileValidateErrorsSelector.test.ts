@@ -1,7 +1,7 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { ValidateProfileError } from '../../consts/profile';
 import { profileValidateErrorsSelector } from '../profileSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 const validateErrors = [
     ValidateProfileError.INCORRECT_USER_DATA,

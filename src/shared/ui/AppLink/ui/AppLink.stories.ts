@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { RoutePath } from '../../../const/routeConfig';
 import { AppLinkTheme } from '../lib/AppLinkTheme';
+
 import AppLink from './AppLink';
 
 const meta: Meta<typeof AppLink> = {

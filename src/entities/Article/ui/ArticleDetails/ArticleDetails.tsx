@@ -1,17 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Translations } from '@/shared/lib/translations/translations';
-import {
-    Avatar, HStack, Icon, Skeleton, Text, VStack,
-} from '@/shared/ui';
-import { TextAlign, TextSize } from '@/shared/ui/Text';
 
 import { ArticleBlockType } from '../../model/consts/article';
 import {
@@ -25,6 +14,19 @@ import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Translations } from '@/shared/lib/translations/translations';
+import {
+    Avatar, HStack, Icon, Skeleton, Text, VStack,
+} from '@/shared/ui';
+import { TextAlign, TextSize } from '@/shared/ui/Text';
+
 import styles from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

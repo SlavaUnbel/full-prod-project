@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { profileErrorSelector } from '../profileSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('profileErrorSelector', () => {
     it('should return the error text if the profile data has not been loaded due to a server error', () => {

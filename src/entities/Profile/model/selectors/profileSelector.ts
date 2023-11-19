@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { Profile } from '../types/profile';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 export const profileStateSelector = (state: ApplicationState) => state.profile;
 

@@ -1,5 +1,6 @@
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetails';
+
 import { articleDetailsCommentsReducer } from './articleDetailsCommentsSlice';
 
 const commentsData = [

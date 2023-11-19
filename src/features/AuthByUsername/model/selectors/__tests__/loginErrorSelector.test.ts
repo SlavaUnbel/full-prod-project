@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { loginErrorSelector } from '../loginErrorSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('loginErrorSelector', () => {
     it('should return error', () => {

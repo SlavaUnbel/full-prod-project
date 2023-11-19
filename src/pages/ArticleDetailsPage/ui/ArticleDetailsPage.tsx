@@ -2,9 +2,19 @@ import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { sendCommentForArticle } from '../model/services/sendCommentForArticle';
+import { articleDetailsPageReducer } from '../model/slices';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
 import { ArticleDetails } from '@/entities/Article';
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
+import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -13,14 +23,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Translations } from '@/shared/lib/translations/translations';
 import { Page } from '@/widgets/Page';
 
-import { articleDetailsCommentsLoadingSelector } from '../model/selectors/articleDetailsCommentsSelector';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
-import { sendCommentForArticle } from '../model/services/sendCommentForArticle';
-import { articleDetailsPageReducer } from '../model/slices';
-import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import styles from './ArticleDetailsPage.module.scss';
-import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;

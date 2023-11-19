@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { addCommentFormTextSelector } from '../selectors/addCommentFormSelector';
+import { addCommentFormActions } from '../slice/addCommentFormSlice';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { articleDetailsDataSelector } from '@/entities/Article';
 import { Comment } from '@/entities/Comment';
 import { userAuthDataSelector } from '@/entities/User';
 import i18n from '@/shared/config/i18n/i18n';
-
-import { addCommentFormTextSelector } from '../selectors/addCommentFormSelector';
-import { addCommentFormActions } from '../slice/addCommentFormSlice';
 
 export const sendComment = createAsyncThunk<
     Comment,

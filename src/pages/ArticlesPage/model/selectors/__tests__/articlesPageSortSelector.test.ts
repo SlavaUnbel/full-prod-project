@@ -1,7 +1,7 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
-import { ArticleSortField } from '@/entities/Article';
 import { articlesPageSortSelector } from '../articlesPageSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
+import { ArticleSortField } from '@/entities/Article';
 
 describe('articlesPageSortSelector', () => {
     it('should return the sorting field of articles', () => {

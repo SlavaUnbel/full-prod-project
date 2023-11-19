@@ -1,6 +1,6 @@
-import { ApplicationState } from '@/app/providers/StoreProvider';
-
 import { userInitedSelector } from '../userSelector';
+
+import { ApplicationState } from '@/app/providers/StoreProvider';
 
 describe('userInitedSelector', () => {
     it('should be truthy', () => {
