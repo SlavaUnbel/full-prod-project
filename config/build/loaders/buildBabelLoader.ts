@@ -11,15 +11,9 @@ export const buildsBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
     use: {
         loader: 'babel-loader',
         options: {
+            cacheDirectory: true,
             presets: ['@babel/preset-env'],
             plugins: [
-                [
-                    'i18next-extract',
-                    {
-                        locales: ['en', 'ru'],
-                        keyAsDefaultValue: true,
-                    },
-                ],
                 [
                     '@babel/plugin-transform-typescript',
                     {

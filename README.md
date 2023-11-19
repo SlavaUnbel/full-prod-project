@@ -53,8 +53,6 @@ npm run start:dev:client - запуск frontend проекта в dev режи�
 2) Тесты на компоненты с React testing library -`npm run test:unit`
 3) e2e тестирование с Cypress `npm run test:e2e`
 
-Подробнее о тестах - [документация тестирование](/docs/tests.md)
-
 ----
 
 ## Линтинг
@@ -152,4 +150,4 @@ export const Clear: Story = {
 Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
-[useDynamicModuleLoader](/src/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader.tsx)
+[useDynamicModuleLoader](/src/shared/lib/hooks/useDynamicModuleLoader.tsx)

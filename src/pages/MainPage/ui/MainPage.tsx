@@ -8,9 +8,7 @@ const MainPage: FC = () => {
     const { t } = useTranslation(Translations.MAIN);
 
     return (
-        <Page>
-            { t('Main page') }
-        </Page>
+        <Page>{ t('Main page') }</Page>
     );
 };
 

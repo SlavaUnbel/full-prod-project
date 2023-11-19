@@ -9,11 +9,6 @@ import { BuildOptions } from './types/config';
 export default function buildWebpackConfig(options: BuildOptions): Configuration {
     const { mode, paths, isDev } = options;
 
-    const devOptions = {
-        devtool: 'inline-source-map',
-        devServer: buildDevServer(options),
-    };
-
     return {
         mode,
         entry: paths.entry,
@@ -28,6 +23,9 @@ export default function buildWebpackConfig(options: BuildOptions): Configuration
         },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
-        ...(isDev ? devOptions : {}),
+        ...(isDev ? {
+            devtool: 'eval-cheap-module-source-map',
+            devServer: buildDevServer(options),
+        } : {}),
     };
 }
