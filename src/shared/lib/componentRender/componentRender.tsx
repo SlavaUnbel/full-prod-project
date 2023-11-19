@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { ApplicationState, StoreProvider } from '@/app/providers/StoreProvider';
 import i18nForTests from '@/shared/config/i18n/i18nTests';
 
-import { RoutePath } from '../../config/routeConfig/consts/routeConfig';
+import { RoutePath } from '../../const/routeConfig';
 
 export interface ComponentRenderOptions {
     route?: string;

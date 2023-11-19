@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { RoutePath } from '../../../config/routeConfig/consts/routeConfig';
+import { RoutePath } from '../../../const/routeConfig';
 import { AppLinkTheme } from '../lib/AppLinkTheme';
 import AppLink from './AppLink';
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { loginActions } from '@/features/AuthByUsername';
 import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/consts/routeConfig';
+import { RoutePath } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';
