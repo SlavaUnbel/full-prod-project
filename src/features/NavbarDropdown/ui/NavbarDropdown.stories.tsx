@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import AvatarImg from '@/shared/assets/avatar.jpg';
 
 import { NavbarDropdown } from './NavbarDropdown';
 
@@ -15,14 +16,26 @@ type Story = StoryObj<typeof NavbarDropdown>;
 export const Primary: Story = {
     args: {},
     decorators: [
-        StoreDecorator({}),
+        StoreDecorator({
+            user: {
+                authData: {
+                    avatar: AvatarImg,
+                },
+            },
+        }),
     ],
 };
 
 export const Dark: Story = {
     args: {},
     decorators: [
-        StoreDecorator({}),
+        StoreDecorator({
+            user: {
+                authData: {
+                    avatar: AvatarImg,
+                },
+            },
+        }),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };

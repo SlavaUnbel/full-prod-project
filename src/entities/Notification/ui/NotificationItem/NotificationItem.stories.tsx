@@ -13,14 +13,28 @@ export default meta;
 type Story = StoryObj<typeof NotificationItem>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        notification: {
+            id: '1',
+            title: 'Title',
+            description: 'Description',
+            userId: '1',
+        },
+    },
     decorators: [
         StoreDecorator({}),
     ],
 };
 
 export const Dark: Story = {
-    args: {},
+    args: {
+        notification: {
+            id: '1',
+            title: 'Title',
+            description: 'Description',
+            userId: '1',
+        },
+    },
     decorators: [
         StoreDecorator({}),
         ThemeDecorator(Theme.DARK) as any,

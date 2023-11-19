@@ -13,16 +13,32 @@ export default meta;
 type Story = StoryObj<typeof ArticleRating>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        articleId: '1',
+    },
     decorators: [
-        StoreDecorator({}),
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
+        }),
     ],
 };
 
 export const Dark: Story = {
-    args: {},
+    args: {
+        articleId: '1',
+    },
     decorators: [
-        StoreDecorator({}),
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
+        }),
         ThemeDecorator(Theme.DARK) as any,
     ],
 };

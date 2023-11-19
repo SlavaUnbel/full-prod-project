@@ -14,7 +14,6 @@ import { TextTheme } from '@/shared/ui/Text';
 
 import { NotificationButton } from '@/features/NotificationButton';
 import { NavbarDropdown } from '@/features/NavbarDropdown';
-import { Drawer } from '@/shared/ui/Drawer';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {

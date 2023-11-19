@@ -8,8 +8,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';
 
-import styles from './NavbarDropdown.module.scss';
-
 interface NavbarDropdownProps {
     className?: string;
 }
