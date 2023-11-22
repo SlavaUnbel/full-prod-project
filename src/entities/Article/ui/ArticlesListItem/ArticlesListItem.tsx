@@ -10,8 +10,9 @@ import { getRouteArticleDetails } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Translations } from '@/shared/lib/translations/translations';
 import {
-    AppLink, Avatar, Button, Card, HStack, Icon, Text, VStack,
+    AppLink, Avatar, Button, Card, HStack, Icon, Skeleton, Text, VStack,
 } from '@/shared/ui';
+import { AppImage } from '@/shared/ui/AppImage';
 import { ButtonTheme } from '@/shared/ui/Button';
 
 import styles from './ArticlesListItem.module.scss';
@@ -52,7 +53,12 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
 
                     <Text text={article.type.join(', ')} className={styles.types} />
 
-                    <img src={article.img} className={styles.img} alt={article.title} />
+                    <AppImage
+                        src={article.img}
+                        className={styles.img}
+                        alt={article.title}
+                        fallback={<Skeleton width="100%" height={250} />}
+                    />
 
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
@@ -85,7 +91,12 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({
         >
             <Card>
                 <HStack className={styles.imageWrapper}>
-                    <img src={article.img} className={styles.img} alt={article.title} />
+                    <AppImage
+                        src={article.img}
+                        className={styles.img}
+                        alt={article.title}
+                        fallback={<Skeleton width={200} height={200} />}
+                    />
                     <Text text={article.createdAt} className={styles.date} />
                 </HStack>
 

@@ -48,7 +48,7 @@ export const NavbarDropdown: FC<NavbarDropdownProps> = memo(({
         <Dropdown
             className={classNames('', { additional: [className] })}
             items={dropdownItems}
-            trigger={<Avatar size={30} src={authData?.avatar} />}
+            trigger={<Avatar fallbackInverted size={30} src={authData?.avatar} />}
             direction="bottom left"
         />
     );
