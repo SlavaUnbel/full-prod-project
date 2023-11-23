@@ -25,3 +25,7 @@ declare type DeepPartial<T> = T extends object ? {
 declare type OptionalRecord<K extends keyof any, T> = {
     [P in K]?: T;
 };
+
+declare interface ComponentWithTestProps {
+    dataTestId?: string;
+}

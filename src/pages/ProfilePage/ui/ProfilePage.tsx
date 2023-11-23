@@ -96,7 +96,7 @@ const ProfilePage: FC = () => {
     useDynamicModuleLoader({ reducers: { profile: profileReducer } });
 
     return (
-        <Page className={classNames('')}>
+        <Page className={classNames('')} dataTestId="profile-page">
             <ProfilePageHeader />
 
             {validateErrors?.length && validateErrors.map((error) => (

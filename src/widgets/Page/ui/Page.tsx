@@ -14,13 +14,15 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 
 import styles from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends ComponentWithTestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
 }
 
-export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page: FC<PageProps> = memo(({
+    className, children, dataTestId, onScrollEnd,
+}: PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const { pathname } = useLocation();
@@ -53,6 +55,7 @@ export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }: P
             ref={wrapperRef}
             className={classNames(styles.page, { additional: [className] })}
             onScroll={handleScroll}
+            data-testid={dataTestId ?? 'Page'}
         >
             {children}
 

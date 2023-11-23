@@ -21,10 +21,10 @@ export const buildsBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
                     },
                 ],
                 '@babel/plugin-transform-runtime',
-                isTsx && [
+                isTsx && !isDev && [
                     babelRemovePropsPlugin(),
                     {
-                        props: ['data-test-id'],
+                        props: ['data-testid'],
                     },
                 ],
                 isDev && require.resolve('react-refresh/babel'),
