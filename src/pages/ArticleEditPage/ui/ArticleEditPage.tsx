@@ -12,14 +12,24 @@ interface ArticleEditPageProps {
     className?: string;
 }
 
-const ArticleEditPage: FC<ArticleEditPageProps> = ({ className }: ArticleEditPageProps) => {
-    const { id } = useParams<{id: string}>();
+const ArticleEditPage: FC<ArticleEditPageProps> = ({
+    className,
+}: ArticleEditPageProps) => {
+    const { id } = useParams<{ id: string }>();
 
     return (
-        <Page className={classNames(styles.articleEditPage, { additional: [className] })}>
+        <Page
+            className={classNames(styles.articleEditPage, {
+                additional: [className],
+            })}
+        >
             <Text
                 theme={TextTheme.ERROR}
-                title={id ? `TODO Edit article with ID = ${id}` : 'TODO Create article page'}
+                title={
+                    id
+                        ? `TODO Edit article with ID = ${id}`
+                        : 'TODO Create article page'
+                }
             />
         </Page>
     );

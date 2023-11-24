@@ -47,13 +47,19 @@ describe('validateProfileData', () => {
     });
 
     it('should validateProfileData function return an array with incorrect age error when the provided data goes with non-integer age', async () => {
-        const result = validateProfileData({ ...profileData, age: '24' } as any);
+        const result = validateProfileData({
+            ...profileData,
+            age: '24',
+        } as any);
 
         expect(result).toEqual([ValidateProfileError.INCORRECT_AGE]);
     });
 
     it('should validateProfileData function return an array with incorrect country error when the provided data goes without country', async () => {
-        const result = validateProfileData({ ...profileData, country: undefined });
+        const result = validateProfileData({
+            ...profileData,
+            country: undefined,
+        });
 
         expect(result).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
     });

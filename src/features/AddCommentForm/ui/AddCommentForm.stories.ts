@@ -17,7 +17,5 @@ export const Primary: Story = {
     args: {
         onSendComment: action('onSendComment'),
     },
-    decorators: [
-        StoreDecorator({}) as any,
-    ],
+    decorators: [StoreDecorator({}) as any],
 };

@@ -28,12 +28,11 @@ const Modal: FC<ModalProps> = ({
     onClose,
 }) => {
     const { theme } = useTheme();
-    const {
-        isClosing,
-        isMounted,
-        handleClose,
-        handleContentClick,
-    } = useModal({ animationDelay: ANIMATION_DELAY, onClose, isOpen });
+    const { isClosing, isMounted, handleClose, handleContentClick } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen,
+    });
 
     const mods: Mods = {
         [styles.opened]: isOpen,

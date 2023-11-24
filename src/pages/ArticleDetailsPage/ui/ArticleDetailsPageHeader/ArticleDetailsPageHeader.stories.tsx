@@ -15,15 +15,10 @@ type Story = StoryObj<typeof ArticleDetailsPageHeader>;
 
 export const Primary: Story = {
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
     args: {},
-    decorators: [
-        StoreDecorator({}),
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [StoreDecorator({}), ThemeDecorator(Theme.DARK) as any],
 };

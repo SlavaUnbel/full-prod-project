@@ -9,13 +9,17 @@ interface PageLoaderProps {
     className?: string;
 }
 
-const PageLoader: FC<PageLoaderProps> = memo(({ className }: PageLoaderProps) => (
-    <HStack
-        justify="center"
-        className={classNames(styles.pageLoader, { additional: [className] })}
-    >
-        <Loader />
-    </HStack>
-));
+const PageLoader: FC<PageLoaderProps> = memo(
+    ({ className }: PageLoaderProps) => (
+        <HStack
+            justify="center"
+            className={classNames(styles.pageLoader, {
+                additional: [className],
+            })}
+        >
+            <Loader />
+        </HStack>
+    ),
+);
 
 export default PageLoader;

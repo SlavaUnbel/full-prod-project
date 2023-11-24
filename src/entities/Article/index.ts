@@ -14,7 +14,10 @@ export {
     ArticleSortField,
 } from './model/consts/article';
 
-export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
+export {
+    articleDetailsActions,
+    articleDetailsReducer,
+} from './model/slice/articleDetailsSlice';
 
 export {
     articleDetailsDataSelector,

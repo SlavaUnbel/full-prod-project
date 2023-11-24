@@ -12,23 +12,22 @@ interface CodeProps {
     className?: string;
 }
 
-export const Code: FC<CodeProps> = memo(({
-    text,
-    className,
-}: CodeProps) => {
+export const Code: FC<CodeProps> = memo(({ text, className }: CodeProps) => {
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
     }, [text]);
 
     return (
         <pre className={classNames(styles.code, { additional: [className] })}>
-            <Button className={styles.copyBtn} theme={ButtonTheme.CLEAR} onClick={handleCopy}>
+            <Button
+                className={styles.copyBtn}
+                theme={ButtonTheme.CLEAR}
+                onClick={handleCopy}
+            >
                 <CopyIcon className={styles.copyIcon} />
             </Button>
 
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     );
 });

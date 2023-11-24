@@ -31,37 +31,39 @@ const getSkeletons = (view: ArticleView) => {
         ));
 };
 
-export const ArticlesList: FC<ArticlesListProps> = memo(({
-    articles,
-    className,
-    isLoading,
-    view = ArticleView.SMALL,
-    target,
-}: ArticlesListProps) => {
-    const { t } = useTranslation(Translations.ARTICLES);
+export const ArticlesList: FC<ArticlesListProps> = memo(
+    ({
+        articles,
+        className,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
+    }: ArticlesListProps) => {
+        const { t } = useTranslation(Translations.ARTICLES);
 
-    const renderArticle = (article: Article) => (
-        <ArticlesListItem
-            key={article.id}
-            article={article}
-            view={view}
-            target={target}
-        />
-    );
+        const renderArticle = (article: Article) => (
+            <ArticlesListItem
+                key={article.id}
+                article={article}
+                view={view}
+                target={target}
+            />
+        );
 
-    if (!isLoading && !articles.length) {
+        if (!isLoading && !articles.length) {
+            return (
+                <HStack gap="gap-2xl" wrap="wrap" className={className}>
+                    <Text size={TextSize.L} title={t('Articles not found')} />
+                </HStack>
+            );
+        }
+
         return (
             <HStack gap="gap-2xl" wrap="wrap" className={className}>
-                <Text size={TextSize.L} title={t('Articles not found')} />
+                {articles.length > 0 ? articles.map(renderArticle) : null}
+
+                {isLoading && getSkeletons(view)}
             </HStack>
         );
-    }
-
-    return (
-        <HStack gap="gap-2xl" wrap="wrap" className={className}>
-            {articles.length > 0 ? articles.map(renderArticle) : null}
-
-            {isLoading && getSkeletons(view)}
-        </HStack>
-    );
-});
+    },
+);

@@ -43,7 +43,7 @@ const Button: FC<ButtonProps> = ({
             disabled={disabled}
             {...otherProps}
         >
-            { children }
+            {children}
         </button>
     );
 };

@@ -26,7 +26,7 @@ const AppLink: FC<AppLinkProps> = ({
         })}
         {...otherProps}
     >
-        { children }
+        {children}
     </Link>
 );
 

@@ -12,7 +12,9 @@ describe('articleDetailsCommentsErrorSelector', () => {
             },
         };
 
-        const result = articleDetailsCommentsErrorSelector(state as ApplicationState);
+        const result = articleDetailsCommentsErrorSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBe('error');
     });
@@ -24,7 +26,9 @@ describe('articleDetailsCommentsErrorSelector', () => {
             },
         };
 
-        const result = articleDetailsCommentsErrorSelector(state as ApplicationState);
+        const result = articleDetailsCommentsErrorSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBe(undefined);
     });

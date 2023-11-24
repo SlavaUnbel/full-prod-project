@@ -8,7 +8,8 @@ export interface ArticleDetailsCommentsSchema extends EntityState<Comment> {
     error?: string;
 }
 
-export interface ArticleDetailsRecommendationsSchema extends EntityState<Article> {
+export interface ArticleDetailsRecommendationsSchema
+    extends EntityState<Article> {
     isLoading?: boolean;
     error?: string;
 }

@@ -24,11 +24,14 @@ server.use(async (__: any, _: any, next: NextFunction) => {
 server.post('/login', (req: any, res: any) => {
     try {
         const { username, password } = req.body;
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'utf-8'));
+        const db = JSON.parse(
+            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'utf-8'),
+        );
         const { users = [] } = db;
 
         const userFromBd = users.find(
-            (user: any) => user.username === username && user.password === password,
+            (user: any) =>
+                user.username === username && user.password === password,
         );
 
         if (userFromBd) {

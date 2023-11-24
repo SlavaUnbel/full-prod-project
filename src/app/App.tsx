@@ -29,7 +29,8 @@ const App: FC = () => {
 
                 <HStack>
                     <Sidebar />
-                    {inited && <AppRouter /> }
+
+                    {inited && <AppRouter />}
                 </HStack>
             </Suspense>
         </div>

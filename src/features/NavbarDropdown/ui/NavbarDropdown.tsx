@@ -4,8 +4,15 @@ import { useSelector } from 'react-redux';
 
 import { loginActions } from '../../AuthByUsername';
 
-import { isAdminPanelAvailableSelector, userActions, userAuthDataSelector } from '@/entities/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/routeConfig';
+import {
+    isAdminPanelAvailableSelector,
+    userActions,
+    userAuthDataSelector,
+} from '@/entities/User';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+} from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';
@@ -14,42 +21,50 @@ interface NavbarDropdownProps {
     className?: string;
 }
 
-export const NavbarDropdown: FC<NavbarDropdownProps> = memo(({
-    className,
-}: NavbarDropdownProps) => {
-    const { t } = useTranslation();
+export const NavbarDropdown: FC<NavbarDropdownProps> = memo(
+    ({ className }: NavbarDropdownProps) => {
+        const { t } = useTranslation();
 
-    const dispatch = useAppDispatch();
+        const dispatch = useAppDispatch();
 
-    const authData = useSelector(userAuthDataSelector);
-    const isAdminPanelAvailable = useSelector(isAdminPanelAvailableSelector);
+        const authData = useSelector(userAuthDataSelector);
+        const isAdminPanelAvailable = useSelector(
+            isAdminPanelAvailableSelector,
+        );
 
-    const handleLogout = useCallback(() => {
-        dispatch(userActions.logout());
-        dispatch(loginActions.resetState());
-    }, [dispatch]);
+        const handleLogout = useCallback(() => {
+            dispatch(userActions.logout());
+            dispatch(loginActions.resetState());
+        }, [dispatch]);
 
-    const dropdownItems = [
-        ...(isAdminPanelAvailable ? [{
-            content: t('Admin panel'),
-            href: getRouteAdminPanel(),
-        }] : []),
-        {
-            content: t('Profile'),
-            href: getRouteProfile(authData?.id ?? ''),
-        },
-        {
-            content: t('Log out'),
-            onClick: handleLogout,
-        },
-    ];
+        const dropdownItems = [
+            ...(isAdminPanelAvailable
+                ? [
+                      {
+                          content: t('Admin panel'),
+                          href: getRouteAdminPanel(),
+                      },
+                  ]
+                : []),
+            {
+                content: t('Profile'),
+                href: getRouteProfile(authData?.id ?? ''),
+            },
+            {
+                content: t('Log out'),
+                onClick: handleLogout,
+            },
+        ];
 
-    return (
-        <Dropdown
-            className={classNames('', { additional: [className] })}
-            items={dropdownItems}
-            trigger={<Avatar fallbackInverted size={30} src={authData?.avatar} />}
-            direction="bottom left"
-        />
-    );
-});
+        return (
+            <Dropdown
+                className={classNames('', { additional: [className] })}
+                items={dropdownItems}
+                trigger={
+                    <Avatar fallbackInverted size={30} src={authData?.avatar} />
+                }
+                direction="bottom left"
+            />
+        );
+    },
+);

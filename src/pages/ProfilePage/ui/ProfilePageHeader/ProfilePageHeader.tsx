@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-    profileActions, profileDataSelector, profileReadonlySelector, updateProfileData,
+    profileActions,
+    profileDataSelector,
+    profileReadonlySelector,
+    updateProfileData,
 } from '@/entities/Profile';
 import { userAuthDataSelector } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -29,9 +32,11 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     const canEditProfile = authData?.id === profileData?.id;
 
     const toggleEditProfile = useCallback(() => {
-        dispatch(readonly
-            ? profileActions.setReadonly(false)
-            : profileActions.cancelEditProfile());
+        dispatch(
+            readonly
+                ? profileActions.setReadonly(false)
+                : profileActions.cancelEditProfile(),
+        );
     }, [dispatch, readonly]);
 
     const handleSaveProfile = useCallback(() => {
@@ -39,19 +44,27 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     }, [dispatch]);
 
     return (
-        <HStack className={classNames(styles.profilePageHeader, { additional: [className] })}>
+        <HStack
+            className={classNames(styles.profilePageHeader, {
+                additional: [className],
+            })}
+        >
             <Text title={t('Profile')} />
-            { canEditProfile && (
+            {canEditProfile && (
                 <HStack className={styles.btnWrapper}>
                     <Button
                         className={styles.editBtn}
-                        theme={readonly ? ButtonTheme.OUTLINE : ButtonTheme.OUTLINE_RED}
+                        theme={
+                            readonly
+                                ? ButtonTheme.OUTLINE
+                                : ButtonTheme.OUTLINE_RED
+                        }
                         onClick={toggleEditProfile}
                     >
                         {readonly ? t('Edit') : t('Cancel')}
                     </Button>
 
-                    { !readonly && (
+                    {!readonly && (
                         <Button
                             className={styles.saveBtn}
                             theme={ButtonTheme.OUTLINE}
@@ -59,9 +72,9 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
                         >
                             {t('Save')}
                         </Button>
-                    ) }
+                    )}
                 </HStack>
-            ) }
+            )}
         </HStack>
     );
 };

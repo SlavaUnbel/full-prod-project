@@ -27,7 +27,5 @@ export const Dark: Story = {
         // eslint-disable-next-line i18next/no-literal-string
         children: <Text title="title" text="text" />,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

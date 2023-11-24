@@ -25,7 +25,9 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
 
-        dispatch(profileActions.updateProfile({ country: t(country as string) }));
+        dispatch(
+            profileActions.updateProfile({ country: t(country as string) }),
+        );
     };
 
     return (
@@ -37,7 +39,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
                 additional: [className],
             })}
         >
-            { t(short ? 'Short language' : 'Language') }
+            {t(short ? 'Short language' : 'Language')}
         </Button>
     );
 };

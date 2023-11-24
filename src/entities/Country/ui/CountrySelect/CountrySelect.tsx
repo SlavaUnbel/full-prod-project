@@ -15,8 +15,14 @@ export const CountrySelect = ({
 }: ListBoxProps<Country>) => {
     const { t } = useTranslation(Translations.PROFILE);
 
-    const countryOptions: SelectOption<Country>[] = useMemo(() => Object.values(Country)
-        .map((country) => ({ value: t(country), content: t(country) })), [t]);
+    const countryOptions: SelectOption<Country>[] = useMemo(
+        () =>
+            Object.values(Country).map((country) => ({
+                value: t(country),
+                content: t(country),
+            })),
+        [t],
+    );
 
     return (
         <ListBox

@@ -2,10 +2,16 @@ import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { articlesPageLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlesPageSelector';
+import {
+    articlesPageLoadingSelector,
+    articlesPageViewSelector,
+} from '../model/selectors/articlesPageSelector';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage';
-import { articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import {
+    articlesPageReducer,
+    getArticles,
+} from '../model/slice/articlesPageSlice';
 
 import { ArticlesList, ArticlesPageFilters } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -45,7 +51,9 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     return (
         <Page
             onScrollEnd={handleLoadNextArticles}
-            className={classNames(styles.articlePage, { additional: [className] })}
+            className={classNames(styles.articlePage, {
+                additional: [className],
+            })}
             dataTestId="articles-page"
         >
             <ArticlesPageFilters />

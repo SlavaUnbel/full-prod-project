@@ -25,9 +25,7 @@ export const DarkPrimary: Story = {
         width: '100%',
         height: 200,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };
 
 export const Circle: Story = {
@@ -44,7 +42,5 @@ export const DarkCircle: Story = {
         width: 100,
         height: 100,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

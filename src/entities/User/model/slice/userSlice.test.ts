@@ -12,7 +12,10 @@ const data = {
 describe('userSlice', () => {
     it('should set auth data', () => {
         const state: DeepPartial<UserSchema> = {};
-        const result = userReducer(state as UserSchema, userActions.setAuthData(data));
+        const result = userReducer(
+            state as UserSchema,
+            userActions.setAuthData(data),
+        );
 
         expect(result).toEqual({ authData: data });
     });
@@ -20,7 +23,10 @@ describe('userSlice', () => {
     it('should init auth data', () => {
         const state: DeepPartial<UserSchema> = { _inited: false };
         localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
-        const result = userReducer(state as UserSchema, userActions.initAuthData());
+        const result = userReducer(
+            state as UserSchema,
+            userActions.initAuthData(),
+        );
 
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
 

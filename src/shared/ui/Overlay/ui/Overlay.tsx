@@ -9,6 +9,11 @@ interface OverlayProps {
     onClick?: () => void;
 }
 
-export const Overlay: FC<OverlayProps> = memo(({ className, onClick }: OverlayProps) => (
-    <div onClick={onClick} className={classNames(styles.overlay, { additional: [className] })} />
-));
+export const Overlay: FC<OverlayProps> = memo(
+    ({ className, onClick }: OverlayProps) => (
+        <div
+            onClick={onClick}
+            className={classNames(styles.overlay, { additional: [className] })}
+        />
+    ),
+);

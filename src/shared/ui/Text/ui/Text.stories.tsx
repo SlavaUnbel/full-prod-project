@@ -40,27 +40,21 @@ export const DarkPrimary: Story = {
         title: 'Title',
         text: 'Text',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };
 
 export const DarkOnlyTitle: Story = {
     args: {
         title: 'Title',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };
 
 export const DarkOnlyText: Story = {
     args: {
         text: 'Text',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };
 
 export const ErrorText: Story = {

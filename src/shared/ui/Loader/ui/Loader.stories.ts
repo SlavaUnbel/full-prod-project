@@ -18,7 +18,5 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

@@ -14,10 +14,11 @@ const NotFoundPage: FC<NotFoundPageProps> = () => {
     const { t } = useTranslation(Translations.NOT_FOUND);
 
     return (
-        <Page className={classNames(styles.notFoundPage)} dataTestId="not-found-page">
-            <HStack justify="center">
-                { t('Page is not found') }
-            </HStack>
+        <Page
+            className={classNames(styles.notFoundPage)}
+            dataTestId="not-found-page"
+        >
+            <HStack justify="center">{t('Page is not found')}</HStack>
         </Page>
     );
 };

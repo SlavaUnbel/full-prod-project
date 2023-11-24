@@ -46,7 +46,10 @@ const articleData: Article = {
 
 describe('articleDetailsSlice', () => {
     it('should set state on fetchArticleById pending', () => {
-        const state: DeepPartial<ArticleDetailsSchema> = { isLoading: false, error: '' };
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: false,
+            error: '',
+        };
         const result = articleDetailsReducer(
             state as ArticleDetailsSchema,
             fetchArticleById.pending,

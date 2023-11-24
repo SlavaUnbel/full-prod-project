@@ -24,12 +24,7 @@ const article = {
         id: '1',
         username: 'admin',
     },
-    type: [
-        'IT',
-        'SCIENCE',
-        'POLITICS',
-        'ECONOMICS',
-    ],
+    type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
     blocks: [
         {
             id: '1',
@@ -114,7 +109,5 @@ export const Dark: Story = {
         article,
         view: ArticleView.SMALL,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

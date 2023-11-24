@@ -43,14 +43,17 @@ export const ListBox = <T extends string>({
     return (
         <HStack
             gap="gap-2xs"
-            className={classNames(popupStyles.popup, { additional: [className] })}
+            className={classNames(popupStyles.popup, {
+                additional: [className],
+            })}
         >
             {label && (
-                <span className={classNames('', {
-                    mods: {
-                        [popupStyles.disabled]: readonly,
-                    },
-                })}
+                <span
+                    className={classNames('', {
+                        mods: {
+                            [popupStyles.disabled]: readonly,
+                        },
+                    })}
                 >
                     {`${label}>`}
                 </span>
@@ -69,13 +72,12 @@ export const ListBox = <T extends string>({
                         },
                     })}
                 >
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options className={classNames(styles.options, {
-                    additional: optionsClasses,
-                })}
+                <HListBox.Options
+                    className={classNames(styles.options, {
+                        additional: optionsClasses,
+                    })}
                 >
                     {items?.map((item) => (
                         <HListBox.Option
@@ -86,17 +88,19 @@ export const ListBox = <T extends string>({
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(
-                                        styles.item,
-                                        {
-                                            mods: {
-                                                [popupStyles.active]: active,
-                                                [popupStyles.disabled]: item.disabled,
-                                            },
+                                    className={classNames(styles.item, {
+                                        mods: {
+                                            [popupStyles.active]: active,
+                                            [popupStyles.disabled]:
+                                                item.disabled,
                                         },
-                                    )}
+                                    })}
                                 >
-                                    {selected && <span className={styles.itemSelected}>!!!</span>}
+                                    {selected && (
+                                        <span className={styles.itemSelected}>
+                                            !!!
+                                        </span>
+                                    )}
                                     <span>{item.content}</span>
                                 </li>
                             )}

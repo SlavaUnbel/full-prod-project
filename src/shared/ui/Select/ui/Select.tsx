@@ -17,18 +17,28 @@ interface SelectProps<T extends string> {
 }
 
 const Select = <T extends string>({
-    options, className, label, value, readonly, onChange,
+    options,
+    className,
+    label,
+    value,
+    readonly,
+    onChange,
 }: SelectProps<T>) => {
     const mods: Mods = {
         [styles.readonly]: readonly,
     };
 
     const optionsList = useMemo(
-        () => options?.map((opt) => (
-            <option key={opt.value} value={opt.value} className={styles.option}>
-                {opt.content}
-            </option>
-        )),
+        () =>
+            options?.map((opt) => (
+                <option
+                    key={opt.value}
+                    value={opt.value}
+                    className={styles.option}
+                >
+                    {opt.content}
+                </option>
+            )),
         [options],
     );
 
@@ -39,13 +49,14 @@ const Select = <T extends string>({
     return (
         <HStack className={classNames('', { additional: [className] })}>
             {label && (
-                <span className={classNames(styles.label, {
-                    mods,
-                })}
+                <span
+                    className={classNames(styles.label, {
+                        mods,
+                    })}
                 >
                     {`${label}>`}
                 </span>
-            ) }
+            )}
 
             <select
                 className={styles.select}
@@ -53,7 +64,7 @@ const Select = <T extends string>({
                 disabled={readonly}
                 onChange={onChangeHandler}
             >
-                { optionsList }
+                {optionsList}
             </select>
         </HStack>
     );

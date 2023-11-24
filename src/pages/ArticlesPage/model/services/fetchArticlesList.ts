@@ -57,7 +57,9 @@ export const fetchArticlesList = createAsyncThunk<
 
             return data;
         } catch (error) {
-            return rejectWithValue(i18n.t('An error has occured on articles loading'));
+            return rejectWithValue(
+                i18n.t('An error has occured on articles loading'),
+            );
         }
     },
 );

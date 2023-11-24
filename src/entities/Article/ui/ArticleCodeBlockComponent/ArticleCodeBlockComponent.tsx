@@ -10,14 +10,9 @@ interface ArticleCodeBlockComponentProps {
     className?: string;
 }
 
-export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = memo(({
-    block,
-    className,
-}: ArticleCodeBlockComponentProps) => (
-    <HStack
-        max
-        className={classNames('', { additional: [className] })}
-    >
-        <Code text={block.code} />
-    </HStack>
-));
+export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> =
+    memo(({ block, className }: ArticleCodeBlockComponentProps) => (
+        <HStack max className={classNames('', { additional: [className] })}>
+            <Code text={block.code} />
+        </HStack>
+    ));

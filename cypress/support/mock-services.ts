@@ -1,3 +1,1 @@
-Cypress.Commands.add('mockServices', () => {
-
-});
+Cypress.Commands.add('mockServices', () => {});

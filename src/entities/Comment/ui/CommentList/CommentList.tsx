@@ -15,48 +15,48 @@ interface CommentListProps {
     isLoading?: boolean;
 }
 
-export const CommentList: FC<CommentListProps> = memo(({
-    className,
-    comments,
-    isLoading,
-}: CommentListProps) => {
-    const { t } = useTranslation();
+export const CommentList: FC<CommentListProps> = memo(
+    ({ className, comments, isLoading }: CommentListProps) => {
+        const { t } = useTranslation();
 
-    const renderContent = () => {
-        if (isLoading) {
-            return (
-                <>
-                    { [1, 2, 3].map((mockComment) => (
-                        <CommentItem
-                            key={mockComment}
-                            comment={{} as Comment}
-                            isLoading
-                            className={styles.comment}
-                        />
-                    )) }
-                </>
-            );
-        }
+        const renderContent = () => {
+            if (isLoading) {
+                return (
+                    <>
+                        {[1, 2, 3].map((mockComment) => (
+                            <CommentItem
+                                key={mockComment}
+                                comment={{} as Comment}
+                                isLoading
+                                className={styles.comment}
+                            />
+                        ))}
+                    </>
+                );
+            }
 
-        if (comments?.length) {
-            return comments?.map((comment) => (
-                <CommentItem
-                    key={comment.id}
-                    comment={comment}
-                    isLoading={isLoading}
-                    className={styles.comment}
-                />
-            ));
-        }
+            if (comments?.length) {
+                return comments?.map((comment) => (
+                    <CommentItem
+                        key={comment.id}
+                        comment={comment}
+                        isLoading={isLoading}
+                        className={styles.comment}
+                    />
+                ));
+            }
 
-        return <Text text={t('There are no comments')} />;
-    };
+            return <Text text={t('There are no comments')} />;
+        };
 
-    return (
-        <VStack
-            className={classNames(styles.commentList, { additional: [className] })}
-        >
-            {renderContent()}
-        </VStack>
-    );
-});
+        return (
+            <VStack
+                className={classNames(styles.commentList, {
+                    additional: [className],
+                })}
+            >
+                {renderContent()}
+            </VStack>
+        );
+    },
+);

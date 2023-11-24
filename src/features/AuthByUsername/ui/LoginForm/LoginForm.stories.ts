@@ -14,18 +14,24 @@ type Story = StoryObj<typeof LoginForm>;
 
 export const Primary: Story = {
     decorators: [
-        StoreDecorator({ login: { username: 'admin', password: 'admin' } }) as any,
+        StoreDecorator({
+            login: { username: 'admin', password: 'admin' },
+        }) as any,
     ],
 };
 
 export const Error: Story = {
     decorators: [
-        StoreDecorator({ login: { username: 'admin', password: 'admin', error: 'error' } }) as any,
+        StoreDecorator({
+            login: { username: 'admin', password: 'admin', error: 'error' },
+        }) as any,
     ],
 };
 
 export const Loading: Story = {
     decorators: [
-        StoreDecorator({ login: { username: 'admin', password: 'admin', isLoading: true } }) as any,
+        StoreDecorator({
+            login: { username: 'admin', password: 'admin', isLoading: true },
+        }) as any,
     ],
 };

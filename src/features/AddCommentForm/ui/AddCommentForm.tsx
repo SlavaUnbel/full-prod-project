@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { addCommentFormTextSelector } from '../model/selectors/addCommentFormSelector';
-import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../model/slice/addCommentFormSlice';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Translations } from '@/shared/lib/translations/translations';
-import {
-    Button, HStack, Input, Text, VStack,
-} from '@/shared/ui';
+import { Button, HStack, Input, Text, VStack } from '@/shared/ui';
 
 import styles from './AddCommentForm.module.scss';
 
@@ -20,7 +21,10 @@ interface AddCommentFormProps {
     className?: string;
 }
 
-const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({
+    onSendComment,
+    className,
+}) => {
     const { t } = useTranslation(Translations.ARTICLES);
 
     useDynamicModuleLoader({
@@ -31,9 +35,12 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
 
     const text = useSelector(addCommentFormTextSelector);
 
-    const handleCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const handleCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const handleSendComment = useCallback(() => {
         onSendComment(text);
@@ -43,15 +50,13 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
     return (
         <VStack
             gap="gap-m"
-            className={classNames(styles.addCommentFormWrapper, { additional: [className] })}
+            className={classNames(styles.addCommentFormWrapper, {
+                additional: [className],
+            })}
         >
             <Text title={t('Comments')} />
 
-            <HStack
-                justify="between"
-                className={styles.addCommentForm}
-                max
-            >
+            <HStack justify="between" className={styles.addCommentForm} max>
                 <Input
                     placeholder={t('Enter comment')}
                     value={text}
@@ -62,7 +67,6 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ onSendComment, className }) =
                 <Button onClick={handleSendComment}>{t('Send')}</Button>
             </HStack>
         </VStack>
-
     );
 };
 

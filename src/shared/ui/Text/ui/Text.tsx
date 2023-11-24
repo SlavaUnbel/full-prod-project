@@ -36,17 +36,18 @@ const Text: FC<TextProps> = ({
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div className={classNames(styles.text, {
-            mods: {
-                [styles[theme]]: true,
-                [styles[align]]: true,
-                [styles[size]]: true,
-            },
-            additional: [className],
-        })}
+        <div
+            className={classNames(styles.text, {
+                mods: {
+                    [styles[theme]]: true,
+                    [styles[align]]: true,
+                    [styles[size]]: true,
+                },
+                additional: [className],
+            })}
         >
-            { title && <HeaderTag className={styles.title}>{title}</HeaderTag> }
-            { text && <p className={styles.text}>{text}</p> }
+            {title && <HeaderTag className={styles.title}>{title}</HeaderTag>}
+            {text && <p className={styles.text}>{text}</p>}
         </div>
     );
 };

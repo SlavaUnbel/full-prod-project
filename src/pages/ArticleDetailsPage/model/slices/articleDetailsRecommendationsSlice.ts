@@ -10,19 +10,23 @@ const articleRecommendationsAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
-export const getArticleRecommendations = articleRecommendationsAdapter.getSelectors<ApplicationState>(
-    (state) => state.articleDetailsPage?.recommendations
-     || articleRecommendationsAdapter.getInitialState(),
-);
+export const getArticleRecommendations =
+    articleRecommendationsAdapter.getSelectors<ApplicationState>(
+        (state) =>
+            state.articleDetailsPage?.recommendations ||
+            articleRecommendationsAdapter.getInitialState(),
+    );
 
 const articleDetailsRecommendationsSlice = createSlice({
     name: 'articleDetailsRecommendations',
     initialState:
-    articleRecommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
-        isLoading: false,
-        ids: [],
-        entities: {},
-    }),
+        articleRecommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>(
+            {
+                isLoading: false,
+                ids: [],
+                entities: {},
+            },
+        ),
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -30,10 +34,13 @@ const articleDetailsRecommendationsSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchArticlesRecommendations.fulfilled, (state, action) => {
-                state.isLoading = false;
-                articleRecommendationsAdapter.setAll(state, action.payload);
-            })
+            .addCase(
+                fetchArticlesRecommendations.fulfilled,
+                (state, action) => {
+                    state.isLoading = false;
+                    articleRecommendationsAdapter.setAll(state, action.payload);
+                },
+            )
             .addCase(fetchArticlesRecommendations.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -41,6 +48,5 @@ const articleDetailsRecommendationsSlice = createSlice({
     },
 });
 
-export const {
-    reducer: articleDetailsRecommendationsReducer,
-} = articleDetailsRecommendationsSlice;
+export const { reducer: articleDetailsRecommendationsReducer } =
+    articleDetailsRecommendationsSlice;

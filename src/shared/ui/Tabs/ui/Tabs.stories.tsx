@@ -54,7 +54,5 @@ export const Dark: Story = {
         value: 'tab 2',
         onTabClick: action('onTabClick'),
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

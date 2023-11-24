@@ -1,10 +1,7 @@
 export type { Profile, ProfileSchema } from './model/types/profile';
 export { ValidateProfileError } from './model/consts/profile';
 
-export {
-    profileActions,
-    profileReducer,
-} from './model/slice/profileSlice';
+export { profileActions, profileReducer } from './model/slice/profileSlice';
 
 export {
     profileDataSelector,

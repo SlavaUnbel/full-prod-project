@@ -8,31 +8,28 @@ import { Text, VStack } from '@/shared/ui';
 import styles from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {
-    block: ArticleTextBlock
+    block: ArticleTextBlock;
     className?: string;
 }
 
-export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = memo(({
-    block,
-    className,
-}: ArticleTextBlockComponentProps) => (
-    <VStack
-        max
-        className={classNames(styles.ArticleTextBlockComponent, { additional: [className] })}
-    >
-        {block.title && (
-            <Text
-                title={block.title}
-                className={styles.title}
-            />
-        )}
+export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> =
+    memo(({ block, className }: ArticleTextBlockComponentProps) => (
+        <VStack
+            max
+            className={classNames(styles.ArticleTextBlockComponent, {
+                additional: [className],
+            })}
+        >
+            {block.title && (
+                <Text title={block.title} className={styles.title} />
+            )}
 
-        {block.paragraphs.map((paragraph) => (
-            <Text
-                key={paragraph}
-                text={paragraph}
-                className={styles.paragraph}
-            />
-        ))}
-    </VStack>
-));
+            {block.paragraphs.map((paragraph) => (
+                <Text
+                    key={paragraph}
+                    text={paragraph}
+                    className={styles.paragraph}
+                />
+            ))}
+        </VStack>
+    ));

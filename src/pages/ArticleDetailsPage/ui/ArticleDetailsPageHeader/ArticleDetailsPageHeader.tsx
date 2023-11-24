@@ -6,7 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { articleDetailsCanEditArticleSelector } from '../../model/selectors/articleDetailsSelector';
 
 import { articleDetailsDataSelector } from '@/entities/Article';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/routeConfig';
+import {
+    getRouteArticleEdit,
+    getRouteArticles,
+} from '@/shared/const/routeConfig';
 import { Translations } from '@/shared/lib/translations/translations';
 import { Button, HStack } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
@@ -31,14 +34,11 @@ export const ArticleDetailsPageHeader: FC = memo(() => {
 
     return (
         <HStack>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={handleNavigateBack}
-            >
+            <Button theme={ButtonTheme.OUTLINE} onClick={handleNavigateBack}>
                 {t('Back to the articles list')}
             </Button>
 
-            { canEdit && (
+            {canEdit && (
                 <Button
                     className={styles.editBtn}
                     theme={ButtonTheme.OUTLINE}
@@ -46,7 +46,7 @@ export const ArticleDetailsPageHeader: FC = memo(() => {
                 >
                     {t('Edit')}
                 </Button>
-            ) }
+            )}
         </HStack>
     );
 });

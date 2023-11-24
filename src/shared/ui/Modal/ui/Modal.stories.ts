@@ -25,7 +25,5 @@ export const Dark: Story = {
         children: 'Text',
         isOpen: true,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };

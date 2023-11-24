@@ -9,15 +9,9 @@ import { Comment } from '@/entities/Comment';
 import { userAuthDataSelector } from '@/entities/User';
 import i18n from '@/shared/config/i18n/i18n';
 
-export const sendComment = createAsyncThunk<
-    Comment,
-    void,
-    ThunkConfig<string>
->(
+export const sendComment = createAsyncThunk<Comment, void, ThunkConfig<string>>(
     'addCommentForm/sendComment',
-    async (_, {
-        extra, getState, dispatch, rejectWithValue,
-    }) => {
+    async (_, { extra, getState, dispatch, rejectWithValue }) => {
         const { api } = extra;
         const state = getState();
 
@@ -44,7 +38,9 @@ export const sendComment = createAsyncThunk<
 
             return data;
         } catch (error) {
-            return rejectWithValue(i18n.t('An error has occured on sending comment'));
+            return rejectWithValue(
+                i18n.t('An error has occured on sending comment'),
+            );
         }
     },
 );

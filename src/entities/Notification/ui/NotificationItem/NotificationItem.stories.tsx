@@ -22,9 +22,7 @@ export const Primary: Story = {
             userId: '1',
         },
     },
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
@@ -36,8 +34,5 @@ export const Dark: Story = {
             userId: '1',
         },
     },
-    decorators: [
-        StoreDecorator({}),
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [StoreDecorator({}), ThemeDecorator(Theme.DARK) as any],
 };

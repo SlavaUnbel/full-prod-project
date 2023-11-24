@@ -31,7 +31,9 @@ export const fetchCommentsByArticleId = createAsyncThunk<
 
             return data;
         } catch (error) {
-            return rejectWithValue(i18n.t('An error has occured on comments loading'));
+            return rejectWithValue(
+                i18n.t('An error has occured on comments loading'),
+            );
         }
     },
 );

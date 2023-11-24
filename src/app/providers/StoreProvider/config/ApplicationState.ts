@@ -1,5 +1,9 @@
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -36,7 +40,10 @@ export type MountedReducers = OptionalRecord<ApplicationStateKey, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<ApplicationState>;
-    reduce: (state: ApplicationState, action: AnyAction) => CombinedState<ApplicationState>;
+    reduce: (
+        state: ApplicationState,
+        action: AnyAction,
+    ) => CombinedState<ApplicationState>;
     add: (key: ApplicationStateKey, reducer: Reducer) => void;
     remove: (key: ApplicationStateKey) => void;
     getMountedReducers: () => MountedReducers;

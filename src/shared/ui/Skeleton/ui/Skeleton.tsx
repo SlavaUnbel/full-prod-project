@@ -11,9 +11,7 @@ interface SkeletonProps {
     className?: string;
 }
 
-const Skeleton: FC<SkeletonProps> = ({
-    height, width, border, className,
-}) => {
+const Skeleton: FC<SkeletonProps> = ({ height, width, border, className }) => {
     const additionalStyles: CSSProperties = {
         width,
         height,

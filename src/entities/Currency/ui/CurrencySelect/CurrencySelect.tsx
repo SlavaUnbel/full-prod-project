@@ -6,8 +6,9 @@ import { Translations } from '@/shared/lib/translations/translations';
 import { ListBox, ListBoxProps } from '@/shared/ui/Popups/ListBox';
 import { SelectOption } from '@/shared/ui/Select';
 
-const options: SelectOption<Currency>[] = Object.values(Currency)
-    .map((currency) => ({ value: currency, content: currency }));
+const options: SelectOption<Currency>[] = Object.values(Currency).map(
+    (currency) => ({ value: currency, content: currency }),
+);
 
 export const CurrencySelect = ({
     className,

@@ -30,9 +30,12 @@ import { Page } from '@/widgets/Page';
 const ProfilePage: FC = () => {
     const { t } = useTranslation(Translations.PROFILE);
 
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
-    useGetProfileDataQuery({ profileId: id }, { skip: !id, refetchOnMountOrArgChange: true });
+    useGetProfileDataQuery(
+        { profileId: id },
+        { skip: !id, refetchOnMountOrArgChange: true },
+    );
 
     const dispatch = useAppDispatch();
 
@@ -43,44 +46,80 @@ const ProfilePage: FC = () => {
     const validateErrors = useSelector(profileValidateErrorsSelector);
 
     const validateErrorsTranslations = {
-        [ValidateProfileError.INCORRECT_USER_DATA]: t('Firstname and lastname are required'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t(
+            'Firstname and lastname are required',
+        ),
         [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
         [ValidateProfileError.NO_DATA]: t('No data is provided'),
-        [ValidateProfileError.SERVER_ERROR]: t('An error has occured on profile update'),
+        [ValidateProfileError.SERVER_ERROR]: t(
+            'An error has occured on profile update',
+        ),
     };
 
-    const handleChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ firstname: value || '' }));
-    }, [dispatch]);
+    const handleChangeFirstname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ firstname: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const handleChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    }, [dispatch]);
+    const handleChangeLastname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const handleChangeAge = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value?.replace(/\D+/gm, '') || '') }));
-    }, [dispatch]);
+    const handleChangeAge = useCallback(
+        (value?: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    age: Number(value?.replace(/\D+/gm, '') || ''),
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const handleChangeCity = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ city: value || '' }));
-    }, [dispatch]);
+    const handleChangeCity = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ city: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const handleChangeUsername = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ username: value || '' }));
-    }, [dispatch]);
+    const handleChangeUsername = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ username: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const handleChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ avatar: value || '' }));
-    }, [dispatch]);
+    const handleChangeAvatar = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ avatar: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const handleChangeCurrency = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ currency: value as Currency }));
-    }, [dispatch]);
+    const handleChangeCurrency = useCallback(
+        (value?: string) => {
+            dispatch(
+                profileActions.updateProfile({ currency: value as Currency }),
+            );
+        },
+        [dispatch],
+    );
 
-    const handleChangeCountry = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ country: value as Country }));
-    }, [dispatch]);
+    const handleChangeCountry = useCallback(
+        (value?: string) => {
+            dispatch(
+                profileActions.updateProfile({ country: value as Country }),
+            );
+        },
+        [dispatch],
+    );
 
     const handlers = {
         onChangeFirstname: handleChangeFirstname,
@@ -99,13 +138,14 @@ const ProfilePage: FC = () => {
         <Page className={classNames('')} dataTestId="profile-page">
             <ProfilePageHeader />
 
-            {validateErrors?.length && validateErrors.map((error) => (
-                <Text
-                    key={error}
-                    theme={TextTheme.ERROR}
-                    text={validateErrorsTranslations[error]}
-                />
-            ))}
+            {validateErrors?.length &&
+                validateErrors.map((error) => (
+                    <Text
+                        key={error}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslations[error]}
+                    />
+                ))}
 
             <ProfileCard
                 data={data}

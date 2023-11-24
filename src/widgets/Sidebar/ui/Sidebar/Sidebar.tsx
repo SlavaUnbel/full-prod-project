@@ -41,7 +41,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                 square
                 size={ButtonSize.L}
             >
-                { collapsed ? '>' : '<' }
+                {collapsed ? '>' : '<'}
             </Button>
 
             <VStack gap="gap-s" role="navigation" className={styles.items}>

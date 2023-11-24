@@ -32,13 +32,18 @@ export const Dropdown: FC<DropdownProps> = ({
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
-        <Menu as="div" className={classNames(popupStyles.popup, { additional: [className] })}>
-            <Menu.Button className={popupStyles.trigger}>
-                {trigger}
-            </Menu.Button>
-            <Menu.Items className={classNames(styles.menu, { additional: menuClasses })}>
+        <Menu
+            as="div"
+            className={classNames(popupStyles.popup, {
+                additional: [className],
+            })}
+        >
+            <Menu.Button className={popupStyles.trigger}>{trigger}</Menu.Button>
+            <Menu.Items
+                className={classNames(styles.menu, { additional: menuClasses })}
+            >
                 {items.map((item, idx) => {
-                    const content = ({ active }: {active: boolean}) => (
+                    const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
                             disabled={item.disabled}
@@ -74,7 +79,6 @@ export const Dropdown: FC<DropdownProps> = ({
                         </Menu.Item>
                     );
                 })}
-
             </Menu.Items>
         </Menu>
     );

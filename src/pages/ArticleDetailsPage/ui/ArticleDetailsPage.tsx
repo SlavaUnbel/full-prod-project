@@ -34,7 +34,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
     const dispatch = useAppDispatch();
 
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     const comments = useSelector(getArticleComments.selectAll);
     const commentsLoading = useSelector(articleDetailsCommentsLoadingSelector);
@@ -47,9 +47,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const handleSendComment = useCallback((text?: string) => {
-        dispatch(sendCommentForArticle(text));
-    }, [dispatch]);
+    const handleSendComment = useCallback(
+        (text?: string) => {
+            dispatch(sendCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     const renderContent = () => {
         if (!id) {
@@ -74,7 +77,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     };
 
     return (
-        <Page className={classNames(styles.articleDetailsPage, { additional: [className] })}>
+        <Page
+            className={classNames(styles.articleDetailsPage, {
+                additional: [className],
+            })}
+        >
             {renderContent()}
         </Page>
     );

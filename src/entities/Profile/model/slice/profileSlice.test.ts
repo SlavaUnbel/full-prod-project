@@ -19,25 +19,39 @@ const data = {
 describe('profileSlice', () => {
     it('should update profile', () => {
         const state: DeepPartial<ProfileSchema> = { form: { username: '' } };
-        const result = profileReducer(state as ProfileSchema, profileActions.updateProfile({
-            username: 'newUsername',
-        }));
+        const result = profileReducer(
+            state as ProfileSchema,
+            profileActions.updateProfile({
+                username: 'newUsername',
+            }),
+        );
 
         expect(result).toEqual({ form: { username: 'newUsername' } });
     });
 
     it('should cancel edit profile', () => {
-        const state: DeepPartial<ProfileSchema> = { data, form: { username: '' } };
-        const result = profileReducer(state as ProfileSchema, profileActions.cancelEditProfile());
+        const state: DeepPartial<ProfileSchema> = {
+            data,
+            form: { username: '' },
+        };
+        const result = profileReducer(
+            state as ProfileSchema,
+            profileActions.cancelEditProfile(),
+        );
 
         expect(result).toEqual({
-            data, form: data, readonly: true,
+            data,
+            form: data,
+            readonly: true,
         });
     });
 
     it('should set readonly', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
-        const result = profileReducer(state as ProfileSchema, profileActions.setReadonly(true));
+        const result = profileReducer(
+            state as ProfileSchema,
+            profileActions.setReadonly(true),
+        );
 
         expect(result).toBeTruthy();
     });
@@ -48,7 +62,10 @@ describe('profileSlice', () => {
             error: '',
             validateErrors: [],
         };
-        const result = profileReducer(state as ProfileSchema, updateProfileData.pending);
+        const result = profileReducer(
+            state as ProfileSchema,
+            updateProfileData.pending,
+        );
 
         expect(result).toEqual({ isLoading: true });
     });
@@ -59,10 +76,16 @@ describe('profileSlice', () => {
             readonly: false,
             validateErrors: [],
         };
-        const result = profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''));
+        const result = profileReducer(
+            state as ProfileSchema,
+            updateProfileData.fulfilled(data, ''),
+        );
 
         expect(result).toEqual({
-            isLoading: false, data, form: data, readonly: true,
+            isLoading: false,
+            data,
+            form: data,
+            readonly: true,
         });
     });
 });

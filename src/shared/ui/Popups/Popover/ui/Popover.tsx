@@ -17,30 +17,36 @@ interface PopoverProps {
     unmount?: boolean;
 }
 
-export const Popover: FC<PopoverProps> = memo(({
-    trigger,
-    direction = 'bottom right',
-    className,
-    children,
-    unmount = true,
-}: PopoverProps) => {
-    const menuClasses = [mapDirectionClass[direction]];
+export const Popover: FC<PopoverProps> = memo(
+    ({
+        trigger,
+        direction = 'bottom right',
+        className,
+        children,
+        unmount = true,
+    }: PopoverProps) => {
+        const menuClasses = [mapDirectionClass[direction]];
 
-    return (
-        <HPopover
-            as="div"
-            className={classNames(popupStyles.popup, { additional: [className] })}
-        >
-            <HPopover.Button as="div" className={popupStyles.trigger}>
-                {trigger}
-            </HPopover.Button>
-
-            <HPopover.Panel
-                unmount={unmount}
-                className={classNames(styles.panel, { additional: menuClasses })}
+        return (
+            <HPopover
+                as="div"
+                className={classNames(popupStyles.popup, {
+                    additional: [className],
+                })}
             >
-                {children}
-            </HPopover.Panel>
-        </HPopover>
-    );
-});
+                <HPopover.Button as="div" className={popupStyles.trigger}>
+                    {trigger}
+                </HPopover.Button>
+
+                <HPopover.Panel
+                    unmount={unmount}
+                    className={classNames(styles.panel, {
+                        additional: menuClasses,
+                    })}
+                >
+                    {children}
+                </HPopover.Panel>
+            </HPopover>
+        );
+    },
+);

@@ -18,7 +18,11 @@ interface AvatarProps {
 }
 
 const Avatar: FC<AvatarProps> = ({
-    className, src, size = 100, alt = '', fallbackInverted,
+    className,
+    src,
+    size = 100,
+    alt = '',
+    fallbackInverted,
 }) => {
     const style = useMemo(() => ({ width: size, height: size }), [size]);
 
@@ -30,7 +34,12 @@ const Avatar: FC<AvatarProps> = ({
             style={style}
             fallback={<Skeleton width={size} height={size} border="50%" />}
             errorFallback={
-                <Icon inverted={fallbackInverted} Svg={UserIcon} width={size} height={size} />
+                <Icon
+                    inverted={fallbackInverted}
+                    Svg={UserIcon}
+                    width={size}
+                    height={size}
+                />
             }
         />
     );

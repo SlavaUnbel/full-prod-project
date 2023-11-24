@@ -1,9 +1,15 @@
 import {
-    AnyAction, combineReducers, Reducer, ReducersMapObject,
+    AnyAction,
+    combineReducers,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 
 import {
-    ApplicationState, ApplicationStateKey, MountedReducers, ReducerManager,
+    ApplicationState,
+    ApplicationStateKey,
+    MountedReducers,
+    ReducerManager,
 } from './ApplicationState';
 
 export function createReducerManager(

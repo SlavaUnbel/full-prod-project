@@ -23,7 +23,10 @@ const commentsData = [
 
 describe('articleDetailsCommentsSlice', () => {
     it('should set state on fetchCommentsByArticleId pending', () => {
-        const state: DeepPartial<ArticleDetailsCommentsSchema> = { isLoading: false, error: '' };
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+            isLoading: false,
+            error: '',
+        };
         const result = articleDetailsCommentsReducer(
             state as ArticleDetailsCommentsSchema,
             fetchCommentsByArticleId.pending,

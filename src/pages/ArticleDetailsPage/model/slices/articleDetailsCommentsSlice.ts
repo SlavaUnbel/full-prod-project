@@ -14,18 +14,23 @@ const articleDetailsCommentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id,
 });
 
-export const getArticleComments = articleDetailsCommentsAdapter.getSelectors<ApplicationState>(
-    (state) => state.articleDetailsPage?.comments
-    || articleDetailsCommentsAdapter.getInitialState(),
-);
+export const getArticleComments =
+    articleDetailsCommentsAdapter.getSelectors<ApplicationState>(
+        (state) =>
+            state.articleDetailsPage?.comments ||
+            articleDetailsCommentsAdapter.getInitialState(),
+    );
 
 const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsComments',
-    initialState: articleDetailsCommentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
-        isLoading: false,
-        ids: [],
-        entities: {},
-    }),
+    initialState:
+        articleDetailsCommentsAdapter.getInitialState<ArticleDetailsCommentsSchema>(
+            {
+                isLoading: false,
+                ids: [],
+                entities: {},
+            },
+        ),
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -33,13 +38,13 @@ const articleDetailsCommentsSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchCommentsByArticleId.fulfilled, (
-                state,
-                action: PayloadAction<Comment[]>,
-            ) => {
-                state.isLoading = false;
-                articleDetailsCommentsAdapter.setAll(state, action.payload);
-            })
+            .addCase(
+                fetchCommentsByArticleId.fulfilled,
+                (state, action: PayloadAction<Comment[]>) => {
+                    state.isLoading = false;
+                    articleDetailsCommentsAdapter.setAll(state, action.payload);
+                },
+            )
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -47,6 +52,5 @@ const articleDetailsCommentsSlice = createSlice({
     },
 });
 
-export const {
-    reducer: articleDetailsCommentsReducer,
-} = articleDetailsCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;

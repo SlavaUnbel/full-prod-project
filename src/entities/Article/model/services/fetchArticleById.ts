@@ -27,7 +27,9 @@ export const fetchArticleById = createAsyncThunk<
 
             return data;
         } catch (error) {
-            return rejectWithValue(i18n.t('An error has occured on article loading'));
+            return rejectWithValue(
+                i18n.t('An error has occured on article loading'),
+            );
         }
     },
 );

@@ -7,9 +7,7 @@ import { Page } from '@/widgets/Page';
 const ForbiddenPage: FC = () => {
     const { t } = useTranslation(Translations.FORBIDDEN);
 
-    return (
-        <Page>{ t('You do not have access to this page') }</Page>
-    );
+    return <Page>{t('You do not have access to this page')}</Page>;
 };
 
 export default ForbiddenPage;

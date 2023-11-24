@@ -59,27 +59,33 @@ export const Primary: Story = {
     args: {
         id: '1',
     },
-    decorators: [StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    }) as any],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }) as any,
+    ],
 };
 
 export const Error: Story = {
     args: {},
-    decorators: [StoreDecorator({
-        articleDetails: {
-            error: 'error',
-        },
-    }) as any],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                error: 'error',
+            },
+        }) as any,
+    ],
 };
 
 export const Loading: Story = {
     args: {},
-    decorators: [StoreDecorator({
-        articleDetails: {
-            isLoading: true,
-        },
-    }) as any],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                isLoading: true,
+            },
+        }) as any,
+    ],
 };

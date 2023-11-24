@@ -8,9 +8,7 @@ import { NavbarDropdown } from '@/features/NavbarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    AppLink, Button, HStack, Text,
-} from '@/shared/ui';
+import { AppLink, Button, HStack, Text } from '@/shared/ui';
 import { AppLinkTheme } from '@/shared/ui/AppLink';
 import { ButtonTheme } from '@/shared/ui/Button';
 import { TextTheme } from '@/shared/ui/Text';
@@ -40,9 +38,16 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         if (authData) {
             return (
                 <>
-                    <Text title={t('Ulbi TV App')} theme={TextTheme.INVERTED} className={styles.appName} />
+                    <Text
+                        title={t('Ulbi TV App')}
+                        theme={TextTheme.INVERTED}
+                        className={styles.appName}
+                    />
 
-                    <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
+                    <AppLink
+                        to={getRouteArticleCreate()}
+                        theme={AppLinkTheme.SECONDARY}
+                    >
                         {t('Create an article')}
                     </AppLink>
 
@@ -62,11 +67,15 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
                     theme={ButtonTheme.CLEAR_INVERTED}
                     onClick={handleOpenModal}
                 >
-                    { t('Log in') }
+                    {t('Log in')}
                 </Button>
 
-                { isAuthModalOpen
-                    && (<LoginModal isOpen={isAuthModalOpen} onClose={handleCloseModal} />)}
+                {isAuthModalOpen && (
+                    <LoginModal
+                        isOpen={isAuthModalOpen}
+                        onClose={handleCloseModal}
+                    />
+                )}
             </>
         );
     };

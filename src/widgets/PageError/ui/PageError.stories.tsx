@@ -16,14 +16,9 @@ type Story = StoryObj<typeof PageError>;
 
 export const Light: Story = {
     args: {},
-    decorators: [
-        StoreProvider({}) as any,
-    ],
+    decorators: [StoreProvider({}) as any],
 };
 
 export const Dark: Story = {
-    decorators: [
-        StoreProvider({}),
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [StoreProvider({}), ThemeDecorator(Theme.DARK) as any],
 };

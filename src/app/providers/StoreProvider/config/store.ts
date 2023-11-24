@@ -1,5 +1,8 @@
 import {
-    CombinedState, configureStore, Reducer, ReducersMapObject,
+    CombinedState,
+    configureStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 
 import { ApplicationState } from './ApplicationState';
@@ -24,16 +27,19 @@ export function createReduxStore(
     const reducerManager = createReducerManager(rootReducers);
 
     const store = configureStore({
-        reducer: reducerManager.reduce as Reducer<CombinedState<ApplicationState>>,
+        reducer: reducerManager.reduce as Reducer<
+            CombinedState<ApplicationState>
+        >,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: {
-                    api: $api,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
                 },
-            },
-        }).concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware),
     });
 
     // TODO: поправить типизацию стора

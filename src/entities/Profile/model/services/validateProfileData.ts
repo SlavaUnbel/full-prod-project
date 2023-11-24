@@ -10,9 +10,7 @@ export const validateProfileData = (profile?: Profile) => {
         return errors;
     }
 
-    const {
-        firstname, lastname, age, country,
-    } = profile;
+    const { firstname, lastname, age, country } = profile;
 
     if (!firstname || !lastname) {
         errors.push(ValidateProfileError.INCORRECT_USER_DATA);

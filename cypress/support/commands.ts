@@ -9,7 +9,10 @@ Cypress.Commands.add('login', (username = 'testuser', password = '123') => {
             password,
         },
     }).then(({ body }) => {
-        window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
+        window.localStorage.setItem(
+            USER_LOCALSTORAGE_KEY,
+            JSON.stringify(body),
+        );
     });
 });
 

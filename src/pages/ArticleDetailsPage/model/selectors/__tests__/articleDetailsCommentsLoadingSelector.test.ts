@@ -12,7 +12,9 @@ describe('articleDetailsCommentsLoadingSelector', () => {
             },
         };
 
-        const result = articleDetailsCommentsLoadingSelector(state as ApplicationState);
+        const result = articleDetailsCommentsLoadingSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBeTruthy();
     });
@@ -24,7 +26,9 @@ describe('articleDetailsCommentsLoadingSelector', () => {
             },
         };
 
-        const result = articleDetailsCommentsLoadingSelector(state as ApplicationState);
+        const result = articleDetailsCommentsLoadingSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBeFalsy();
     });

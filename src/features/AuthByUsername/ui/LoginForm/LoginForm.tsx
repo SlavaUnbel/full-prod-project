@@ -1,7 +1,5 @@
 import { isFulfilled } from '@reduxjs/toolkit';
-import {
-    FC, memo, useCallback, useEffect,
-} from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -17,9 +15,7 @@ import { AppRoutes } from '@/shared/const/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import {
-    Button, Input, Text, VStack,
-} from '@/shared/ui';
+import { Button, Input, Text, VStack } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 import { TextTheme } from '@/shared/ui/Text';
 
@@ -42,13 +38,19 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const error = useSelector(loginErrorSelector);
     const isLoading = useSelector(loginLoadingSelector);
 
-    const handleChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const handleChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const handleChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const handleChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const handleLogin = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -59,11 +61,14 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
         }
     }, [dispatch, username, password, onSuccess, navigate]);
 
-    const handleKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            handleLogin();
-        }
-    }, [handleLogin]);
+    const handleKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        },
+        [handleLogin],
+    );
 
     useDynamicModuleLoader({ reducers: { login: loginReducer } });
 
@@ -76,11 +81,15 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     }, [handleKeyDown]);
 
     return (
-        <VStack className={classNames(styles.loginForm, { additional: [className] })}>
+        <VStack
+            className={classNames(styles.loginForm, {
+                additional: [className],
+            })}
+        >
             <VStack className={styles.titleWrapper}>
                 <Text title={t('Authorization form')} />
 
-                { error && <Text text={error} theme={TextTheme.ERROR} /> }
+                {error && <Text text={error} theme={TextTheme.ERROR} />}
             </VStack>
 
             <Input

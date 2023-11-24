@@ -21,9 +21,12 @@ export const Tabs = <T extends string>({
     className,
     onTabClick,
 }: TabsProps<T>) => {
-    const handleClick = useCallback((tab: TabItem<T>) => () => {
-        onTabClick(tab);
-    }, [onTabClick]);
+    const handleClick = useCallback(
+        (tab: TabItem<T>) => () => {
+            onTabClick(tab);
+        },
+        [onTabClick],
+    );
 
     return (
         <HStack
@@ -34,7 +37,11 @@ export const Tabs = <T extends string>({
                 <Card
                     className={styles.tab}
                     key={tab.value}
-                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    theme={
+                        tab.value === value
+                            ? CardTheme.NORMAL
+                            : CardTheme.OUTLINED
+                    }
                     onClick={handleClick(tab)}
                     role="button"
                 >

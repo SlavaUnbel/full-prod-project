@@ -33,15 +33,17 @@ interface ProfileCardProps {
 
 const inputsData = (
     data?: Profile,
-    handlers?: Pick<ProfileCardProps,
-        'onChangeFirstname' |
-        'onChangeLastname' |
-        'onChangeAge' |
-        'onChangeCountry' |
-        'onChangeCity' |
-        'onChangeCurrency' |
-        'onChangeUsername' |
-        'onChangeAvatar'>,
+    handlers?: Pick<
+        ProfileCardProps,
+        | 'onChangeFirstname'
+        | 'onChangeLastname'
+        | 'onChangeAge'
+        | 'onChangeCountry'
+        | 'onChangeCity'
+        | 'onChangeCurrency'
+        | 'onChangeUsername'
+        | 'onChangeAvatar'
+    >,
 ) => [
     {
         value: data?.firstname,
@@ -89,86 +91,98 @@ const inputsData = (
     },
 ];
 
-export const ProfileCard: FC<ProfileCardProps> = memo(({
-    data,
-    className,
-    error,
-    isLoading,
-    readonly,
-    ...handlers
-}: ProfileCardProps) => {
-    const { t } = useTranslation(Translations.PROFILE);
+export const ProfileCard: FC<ProfileCardProps> = memo(
+    ({
+        data,
+        className,
+        error,
+        isLoading,
+        readonly,
+        ...handlers
+    }: ProfileCardProps) => {
+        const { t } = useTranslation(Translations.PROFILE);
 
-    const inputs = inputsData(data, handlers);
+        const inputs = inputsData(data, handlers);
 
-    const mods: Mods = {
-        [styles.editing]: !readonly,
-    };
+        const mods: Mods = {
+            [styles.editing]: !readonly,
+        };
 
-    if (isLoading) {
-        return (
-            <HStack
-                justify="center"
-                className={classNames(styles.profileCard, {
-                    mods,
-                    additional: [className, styles.loading],
-                })}
-            >
-                <Loader />
-            </HStack>
-        );
-    }
-
-    if (error) {
-        return (
-            <HStack
-                justify="center"
-                className={classNames(styles.profileCard, {
-                    mods,
-                    additional: [className, styles.error],
-                })}
-            >
-                <Text
-                    theme={TextTheme.ERROR}
-                    title={t('An error has occured on profile loading')}
-                    text={t('Try to reload the page')}
-                    align={TextAlign.CENTER}
-                />
-            </HStack>
-        );
-    }
-
-    return (
-        <VStack className={classNames(styles.profileCard, { mods, additional: [className] })}>
-            { data?.avatar && (
-                <HStack className={styles.avatarWrapper}>
-                    <Avatar src={data?.avatar} size={150} />
+        if (isLoading) {
+            return (
+                <HStack
+                    justify="center"
+                    className={classNames(styles.profileCard, {
+                        mods,
+                        additional: [className, styles.loading],
+                    })}
+                >
+                    <Loader />
                 </HStack>
-            ) }
+            );
+        }
 
-            { inputs.map(({
-                label, value, onChange, placeholder, SelectComponent, isSelect,
-            }) => (
-                isSelect && SelectComponent
-                    ? (
-                        <SelectComponent
-                            key={label}
-                            value={value as any}
-                            onChange={onChange as any}
-                            readonly={readonly}
-                            className={styles.select}
-                        />
-                    ) : (
-                        <Input
-                            key={placeholder}
-                            value={value}
-                            placeholder={t(placeholder || '')}
-                            onChange={onChange}
-                            readonly={readonly}
-                            className={styles.input}
-                        />
-                    )
-            )) }
-        </VStack>
-    );
-});
+        if (error) {
+            return (
+                <HStack
+                    justify="center"
+                    className={classNames(styles.profileCard, {
+                        mods,
+                        additional: [className, styles.error],
+                    })}
+                >
+                    <Text
+                        theme={TextTheme.ERROR}
+                        title={t('An error has occured on profile loading')}
+                        text={t('Try to reload the page')}
+                        align={TextAlign.CENTER}
+                    />
+                </HStack>
+            );
+        }
+
+        return (
+            <VStack
+                className={classNames(styles.profileCard, {
+                    mods,
+                    additional: [className],
+                })}
+            >
+                {data?.avatar && (
+                    <HStack className={styles.avatarWrapper}>
+                        <Avatar src={data?.avatar} size={150} />
+                    </HStack>
+                )}
+
+                {inputs.map(
+                    ({
+                        label,
+                        value,
+                        onChange,
+                        placeholder,
+                        SelectComponent,
+                        isSelect,
+                    }) =>
+                        isSelect && SelectComponent ? (
+                            <SelectComponent
+                                key={label}
+                                value={value as any}
+                                onChange={onChange as any}
+                                readonly={readonly}
+                                className={styles.select}
+                            />
+                        ) : (
+                            <Input
+                                key={placeholder}
+                                value={value}
+                                placeholder={t(placeholder || '')}
+                                onChange={onChange}
+                                readonly={readonly}
+                                className={styles.input}
+                            />
+                        ),
+                )}
+            </VStack>
+        );
+    },
+);

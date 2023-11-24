@@ -23,9 +23,7 @@ export const Light: Story = {
             Icon: MainIcon,
         },
     },
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
@@ -36,8 +34,5 @@ export const Dark: Story = {
             Icon: MainIcon,
         },
     },
-    decorators: [
-        StoreDecorator({}),
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [StoreDecorator({}), ThemeDecorator(Theme.DARK) as any],
 };

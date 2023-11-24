@@ -1,6 +1,4 @@
-import {
-    DetailedHTMLProps, FC, HTMLAttributes, ReactNode,
-} from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
 
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
@@ -9,10 +7,23 @@ import styles from './Flex.module.scss';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FLexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
-export type FlexGap = 'gap-3xs' | 'gap-2xs' | 'gap-xs' | 'gap-s' | 'gap-m' | 'gap-l' | 'gap-xl' | 'gap-2xl' | 'gap-3xl' | 'gap-4xl';
+export type FlexGap =
+    | 'gap-3xs'
+    | 'gap-2xs'
+    | 'gap-xs'
+    | 'gap-s'
+    | 'gap-m'
+    | 'gap-l'
+    | 'gap-xl'
+    | 'gap-2xl'
+    | 'gap-3xl'
+    | 'gap-4xl';
 export type FlexWrap = 'nowrap' | 'wrap';
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
     className?: string;

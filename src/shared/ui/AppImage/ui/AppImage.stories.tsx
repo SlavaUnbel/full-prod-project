@@ -14,14 +14,10 @@ type Story = StoryObj<typeof AppImage>;
 
 export const Primary: Story = {
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };

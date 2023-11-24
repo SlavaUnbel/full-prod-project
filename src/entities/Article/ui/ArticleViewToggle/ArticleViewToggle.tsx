@@ -26,30 +26,34 @@ const viewTypes = [
     },
 ];
 
-export const ArticleViewToggle: FC<ArticleViewToggleProps> = memo(({
-    view: viewFromProps,
-    onViewClick,
-}: ArticleViewToggleProps) => {
-    const onClick = (newView: ArticleView) => () => {
-        if (newView !== viewFromProps) {
-            onViewClick?.(newView);
-        }
-    };
+export const ArticleViewToggle: FC<ArticleViewToggleProps> = memo(
+    ({ view: viewFromProps, onViewClick }: ArticleViewToggleProps) => {
+        const onClick = (newView: ArticleView) => () => {
+            if (newView !== viewFromProps) {
+                onViewClick?.(newView);
+            }
+        };
 
-    return (
-        <HStack gap="gap-2xs">
-            {viewTypes.map(({ view, icon }) => (
-                <Button
-                    key={view}
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onClick(view)}
-                >
-                    <Icon
-                        Svg={icon}
-                        className={classNames('', { mods: { [styles.notSelected]: view !== viewFromProps } })}
-                    />
-                </Button>
-            ))}
-        </HStack>
-    );
-});
+        return (
+            <HStack gap="gap-2xs">
+                {viewTypes.map(({ view, icon }) => (
+                    <Button
+                        key={view}
+                        theme={ButtonTheme.CLEAR}
+                        onClick={onClick(view)}
+                    >
+                        <Icon
+                            Svg={icon}
+                            className={classNames('', {
+                                mods: {
+                                    [styles.notSelected]:
+                                        view !== viewFromProps,
+                                },
+                            })}
+                        />
+                    </Button>
+                ))}
+            </HStack>
+        );
+    },
+);

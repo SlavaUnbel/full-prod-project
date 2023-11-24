@@ -56,11 +56,13 @@ const article: Article = {
 
 export const Light: Story = {
     args: {},
-    decorators: [StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    }) as any],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }) as any,
+    ],
 };
 
 export const Dark: Story = {

@@ -9,24 +9,24 @@ import { TextAlign } from '@/shared/ui/Text';
 import styles from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {
-    block: ArticleImageBlock
+    block: ArticleImageBlock;
     className?: string;
 }
 
-export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = memo(({
-    block,
-    className,
-}: ArticleImageBlockComponentProps) => (
-    <VStack
-        max
-        gap="gap-xs"
-        align="center"
-        className={classNames(styles.articleImageBlockComponent, { additional: [className] })}
-    >
-        <img src={block.src} className={styles.img} alt={block.title} />
+export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> =
+    memo(({ block, className }: ArticleImageBlockComponentProps) => (
+        <VStack
+            max
+            gap="gap-xs"
+            align="center"
+            className={classNames(styles.articleImageBlockComponent, {
+                additional: [className],
+            })}
+        >
+            <img src={block.src} className={styles.img} alt={block.title} />
 
-        {block.title && (
-            <Text text={block.title} align={TextAlign.CENTER} />
-        )}
-    </VStack>
-));
+            {block.title && (
+                <Text text={block.title} align={TextAlign.CENTER} />
+            )}
+        </VStack>
+    ));

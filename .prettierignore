@@ -1,0 +1,7 @@
+# Ignore artifacts:
+build
+reports
+coverage
+*.html
+*.css
+*.scss

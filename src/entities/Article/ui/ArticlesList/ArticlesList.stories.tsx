@@ -24,12 +24,7 @@ const article = {
         id: '1',
         username: 'admin',
     },
-    type: [
-        'IT',
-        'SCIENCE',
-        'POLITICS',
-        'ECONOMICS',
-    ],
+    type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
     blocks: [
         {
             id: '1',
@@ -91,12 +86,10 @@ const article = {
         },
     ],
 } as Article;
-const articles = new Array(9)
-    .fill(0)
-    .map((_, index) => ({
-        ...article,
-        id: String(index),
-    }));
+const articles = new Array(9).fill(0).map((_, index) => ({
+    ...article,
+    id: String(index),
+}));
 
 export default meta;
 type Story = StoryObj<typeof ArticlesList>;
@@ -119,9 +112,7 @@ export const Dark: Story = {
     args: {
         articles,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK) as any,
-    ],
+    decorators: [ThemeDecorator(Theme.DARK) as any],
 };
 
 export const LoadingBig: Story = {

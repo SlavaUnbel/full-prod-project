@@ -12,7 +12,9 @@ describe('articleDetailsRecommendationsLoadingSelector', () => {
             },
         };
 
-        const result = articleDetailsRecommendationsLoadingSelector(state as ApplicationState);
+        const result = articleDetailsRecommendationsLoadingSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBeTruthy();
     });
@@ -24,7 +26,9 @@ describe('articleDetailsRecommendationsLoadingSelector', () => {
             },
         };
 
-        const result = articleDetailsRecommendationsLoadingSelector(state as ApplicationState);
+        const result = articleDetailsRecommendationsLoadingSelector(
+            state as ApplicationState,
+        );
 
         expect(result).toBeFalsy();
     });
